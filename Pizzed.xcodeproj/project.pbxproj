@@ -7,21 +7,57 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09CC0F78F843CF872AAA8E97 /* Pods_Pizzed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2ABCE9C13105BF8627DD4C9 /* Pods_Pizzed.framework */; };
 		F1C2D0F921213484006452A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C2D0F821213484006452A3 /* AppDelegate.swift */; };
-		F1C2D0FB21213484006452A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C2D0FA21213484006452A3 /* ViewController.swift */; };
 		F1C2D0FE21213484006452A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C2D0FC21213484006452A3 /* Main.storyboard */; };
 		F1C2D10021213485006452A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1C2D0FF21213485006452A3 /* Assets.xcassets */; };
 		F1C2D10321213485006452A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C2D10121213485006452A3 /* LaunchScreen.storyboard */; };
+		F1C2D10C212134D8006452A3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C2D10B212134D8006452A3 /* Constants.swift */; };
+		F1C2D11021213557006452A3 /* Structuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C2D10F21213557006452A3 /* Structuration.swift */; };
+		F1C2D116212135C6006452A3 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C2D115212135C6006452A3 /* UIHelper.swift */; };
+		F1C2D12521214276006452A3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C2D12421214276006452A3 /* HomeViewController.swift */; };
+		F1C2D1272121429F006452A3 /* HomeNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C2D1262121429F006452A3 /* HomeNavigator.swift */; };
+		F1C2D129212142B3006452A3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C2D128212142B3006452A3 /* HomeViewModel.swift */; };
+		F1C2D12B21214321006452A3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C2D12A21214321006452A3 /* BaseViewController.swift */; };
+		F1C2D12D21214590006452A3 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C2D12C21214590006452A3 /* BaseViewModel.swift */; };
+		F1C2D12F212145B1006452A3 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C2D12E212145B1006452A3 /* ViewModelType.swift */; };
+		F1C2D13121214610006452A3 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C2D13021214610006452A3 /* Application.swift */; };
+		F1C2D13421214A5A006452A3 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C2D13321214A5A006452A3 /* MenuViewController.swift */; };
+		F1C2D13621214A83006452A3 /* MenuNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C2D13521214A83006452A3 /* MenuNavigator.swift */; };
+		F1C2D13821214F02006452A3 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C2D13721214F02006452A3 /* Helper.swift */; };
+		F1C2D13A21215A8A006452A3 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C2D13921215A8A006452A3 /* MenuViewModel.swift */; };
+		F1C2D13C2121611D006452A3 /* VCExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C2D13B2121611D006452A3 /* VCExts.swift */; };
+		F1C2D14121216260006452A3 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C2D14021216260006452A3 /* View.swift */; };
+		F1C2D143212162D8006452A3 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C2D142212162D8006452A3 /* Animation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		79FF4B8CB9B449AE531E6302 /* Pods-Pizzed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pizzed.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pizzed/Pods-Pizzed.debug.xcconfig"; sourceTree = "<group>"; };
+		CE33BA2B8400B62CB48D8B63 /* Pods-Pizzed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pizzed.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pizzed/Pods-Pizzed.release.xcconfig"; sourceTree = "<group>"; };
 		F1C2D0F521213484006452A3 /* Pizzed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pizzed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1C2D0F821213484006452A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F1C2D0FA21213484006452A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F1C2D0FD21213484006452A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F1C2D0FF21213485006452A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1C2D10221213485006452A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1C2D10421213485006452A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1C2D10B212134D8006452A3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F1C2D10F21213557006452A3 /* Structuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structuration.swift; sourceTree = "<group>"; };
+		F1C2D115212135C6006452A3 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
+		F1C2D12421214276006452A3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F1C2D1262121429F006452A3 /* HomeNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigator.swift; sourceTree = "<group>"; };
+		F1C2D128212142B3006452A3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		F1C2D12A21214321006452A3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		F1C2D12C21214590006452A3 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		F1C2D12E212145B1006452A3 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		F1C2D13021214610006452A3 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		F1C2D13321214A5A006452A3 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		F1C2D13521214A83006452A3 /* MenuNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuNavigator.swift; sourceTree = "<group>"; };
+		F1C2D13721214F02006452A3 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		F1C2D13921215A8A006452A3 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		F1C2D13B2121611D006452A3 /* VCExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCExts.swift; sourceTree = "<group>"; };
+		F1C2D14021216260006452A3 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		F1C2D142212162D8006452A3 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		F2ABCE9C13105BF8627DD4C9 /* Pods_Pizzed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pizzed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +65,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09CC0F78F843CF872AAA8E97 /* Pods_Pizzed.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		281BE2C782B7356830C53170 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F2ABCE9C13105BF8627DD4C9 /* Pods_Pizzed.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		30286A9E15ECE81B398BFC50 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				79FF4B8CB9B449AE531E6302 /* Pods-Pizzed.debug.xcconfig */,
+				CE33BA2B8400B62CB48D8B63 /* Pods-Pizzed.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F1C2D0EC21213484006452A3 = {
 			isa = PBXGroup;
 			children = (
 				F1C2D0F721213484006452A3 /* Pizzed */,
 				F1C2D0F621213484006452A3 /* Products */,
+				F1C2D13D212161D2006452A3 /* ServicePlatform */,
+				30286A9E15ECE81B398BFC50 /* Pods */,
+				281BE2C782B7356830C53170 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +111,221 @@
 		F1C2D0F721213484006452A3 /* Pizzed */ = {
 			isa = PBXGroup;
 			children = (
-				F1C2D0F821213484006452A3 /* AppDelegate.swift */,
-				F1C2D0FA21213484006452A3 /* ViewController.swift */,
-				F1C2D0FC21213484006452A3 /* Main.storyboard */,
-				F1C2D0FF21213485006452A3 /* Assets.xcassets */,
-				F1C2D10121213485006452A3 /* LaunchScreen.storyboard */,
-				F1C2D10421213485006452A3 /* Info.plist */,
+				F1C2D11821213F8A006452A3 /* Application */,
+				F1C2D11721213F7C006452A3 /* Common */,
+				F1C2D10A212134A2006452A3 /* Config */,
+				F1C2D11A21213FB3006452A3 /* Scene */,
+				F1C2D11C21214019006452A3 /* Support Files */,
+				F1C2D10D21213511006452A3 /* Utility */,
+				F1C2D11921213FA1006452A3 /* View */,
 			);
 			path = Pizzed;
+			sourceTree = "<group>";
+		};
+		F1C2D10A212134A2006452A3 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				F1C2D10B212134D8006452A3 /* Constants.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		F1C2D10D21213511006452A3 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				F1C2D114212135B6006452A3 /* Helper */,
+				F1C2D11321213597006452A3 /* Customization */,
+				F1C2D11221213581006452A3 /* Extension */,
+				F1C2D11121213579006452A3 /* Enum */,
+				F1C2D10E21213533006452A3 /* Struct */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		F1C2D10E21213533006452A3 /* Struct */ = {
+			isa = PBXGroup;
+			children = (
+				F1C2D10F21213557006452A3 /* Structuration.swift */,
+			);
+			path = Struct;
+			sourceTree = "<group>";
+		};
+		F1C2D11121213579006452A3 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		F1C2D11221213581006452A3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F1C2D13B2121611D006452A3 /* VCExts.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		F1C2D11321213597006452A3 /* Customization */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Customization;
+			sourceTree = "<group>";
+		};
+		F1C2D114212135B6006452A3 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				F1C2D115212135C6006452A3 /* UIHelper.swift */,
+				F1C2D13721214F02006452A3 /* Helper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		F1C2D11721213F7C006452A3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F1C2D12A21214321006452A3 /* BaseViewController.swift */,
+				F1C2D12C21214590006452A3 /* BaseViewModel.swift */,
+				F1C2D12E212145B1006452A3 /* ViewModelType.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F1C2D11821213F8A006452A3 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				F1C2D13021214610006452A3 /* Application.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		F1C2D11921213FA1006452A3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F1C2D12021214132006452A3 /* Xib */,
+				F1C2D11F2121411E006452A3 /* Storyboard */,
+				F1C2D11E21214118006452A3 /* View */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F1C2D11A21213FB3006452A3 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				F1C2D11B21213FC2006452A3 /* Main */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		F1C2D11B21213FC2006452A3 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F1C2D13221214A31006452A3 /* Menu */,
+				F1C2D123212141E6006452A3 /* Coverage */,
+				F1C2D122212141C9006452A3 /* Cart */,
+				F1C2D121212141C1006452A3 /* Home */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		F1C2D11C21214019006452A3 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F1C2D0F821213484006452A3 /* AppDelegate.swift */,
+				F1C2D0FF21213485006452A3 /* Assets.xcassets */,
+				F1C2D10421213485006452A3 /* Info.plist */,
+				F1C2D11D2121403A006452A3 /* Font */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		F1C2D11D2121403A006452A3 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		F1C2D11E21214118006452A3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F1C2D11F2121411E006452A3 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				F1C2D10121213485006452A3 /* LaunchScreen.storyboard */,
+				F1C2D0FC21213484006452A3 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		F1C2D12021214132006452A3 /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Xib;
+			sourceTree = "<group>";
+		};
+		F1C2D121212141C1006452A3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F1C2D12421214276006452A3 /* HomeViewController.swift */,
+				F1C2D1262121429F006452A3 /* HomeNavigator.swift */,
+				F1C2D128212142B3006452A3 /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F1C2D122212141C9006452A3 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		F1C2D123212141E6006452A3 /* Coverage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coverage;
+			sourceTree = "<group>";
+		};
+		F1C2D13221214A31006452A3 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				F1C2D13321214A5A006452A3 /* MenuViewController.swift */,
+				F1C2D13521214A83006452A3 /* MenuNavigator.swift */,
+				F1C2D13921215A8A006452A3 /* MenuViewModel.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		F1C2D13D212161D2006452A3 /* ServicePlatform */ = {
+			isa = PBXGroup;
+			children = (
+				F1C2D13E2121620E006452A3 /* Service */,
+			);
+			path = ServicePlatform;
+			sourceTree = "<group>";
+		};
+		F1C2D13E2121620E006452A3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				F1C2D13F2121621F006452A3 /* Extensions */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		F1C2D13F2121621F006452A3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F1C2D14021216260006452A3 /* View.swift */,
+				F1C2D142212162D8006452A3 /* Animation.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +335,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F1C2D10721213485006452A3 /* Build configuration list for PBXNativeTarget "Pizzed" */;
 			buildPhases = (
+				90CB16B0FB5D897B0C3ABFD7 /* [CP] Check Pods Manifest.lock */,
 				F1C2D0F121213484006452A3 /* Sources */,
 				F1C2D0F221213484006452A3 /* Frameworks */,
 				F1C2D0F321213484006452A3 /* Resources */,
+				00D7A629648D3F8FB9DB1159 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,13 +396,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		00D7A629648D3F8FB9DB1159 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Pizzed/Pods-Pizzed-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pizzed/Pods-Pizzed-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		90CB16B0FB5D897B0C3ABFD7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pizzed-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F1C2D0F121213484006452A3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1C2D0FB21213484006452A3 /* ViewController.swift in Sources */,
+				F1C2D13121214610006452A3 /* Application.swift in Sources */,
+				F1C2D12F212145B1006452A3 /* ViewModelType.swift in Sources */,
+				F1C2D13821214F02006452A3 /* Helper.swift in Sources */,
+				F1C2D12D21214590006452A3 /* BaseViewModel.swift in Sources */,
+				F1C2D13C2121611D006452A3 /* VCExts.swift in Sources */,
+				F1C2D11021213557006452A3 /* Structuration.swift in Sources */,
 				F1C2D0F921213484006452A3 /* AppDelegate.swift in Sources */,
+				F1C2D129212142B3006452A3 /* HomeViewModel.swift in Sources */,
+				F1C2D13421214A5A006452A3 /* MenuViewController.swift in Sources */,
+				F1C2D116212135C6006452A3 /* UIHelper.swift in Sources */,
+				F1C2D12B21214321006452A3 /* BaseViewController.swift in Sources */,
+				F1C2D13621214A83006452A3 /* MenuNavigator.swift in Sources */,
+				F1C2D1272121429F006452A3 /* HomeNavigator.swift in Sources */,
+				F1C2D143212162D8006452A3 /* Animation.swift in Sources */,
+				F1C2D14121216260006452A3 /* View.swift in Sources */,
+				F1C2D10C212134D8006452A3 /* Constants.swift in Sources */,
+				F1C2D12521214276006452A3 /* HomeViewController.swift in Sources */,
+				F1C2D13A21215A8A006452A3 /* MenuViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,10 +601,11 @@
 		};
 		F1C2D10821213485006452A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79FF4B8CB9B449AE531E6302 /* Pods-Pizzed.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Pizzed/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Pizzed/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -295,10 +619,11 @@
 		};
 		F1C2D10921213485006452A3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE33BA2B8400B62CB48D8B63 /* Pods-Pizzed.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Pizzed/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Pizzed/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
