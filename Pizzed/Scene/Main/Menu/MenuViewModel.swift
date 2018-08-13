@@ -13,7 +13,7 @@ import RxSwift
 class MenuViewModel: ViewModelType {
 
     typealias T = Constants.Types
-    typealias Data = (String, UIImage, String)
+    
     // MARK: - Properties
     private let navigator: MenuNavigator
     

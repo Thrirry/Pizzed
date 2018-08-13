@@ -1,5 +1,5 @@
 //
-//  BaseViewController.swift
+//  IntroNavigator.swift
 //  Pizzed
 //
 //  Created by Gone on 8/13/18.
@@ -7,14 +7,13 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
-class BaseViewController: UIViewController {
+class IntroNavigator: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNav()
+
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,11 +21,4 @@ class BaseViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @objc func dismissVC() {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    func setupNav(){
-        self.navigationController?.isNavigationBarHidden = true
-    }
 }

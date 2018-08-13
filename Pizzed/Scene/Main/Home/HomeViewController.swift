@@ -10,6 +10,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var logoImageView: UIImageView!
     // MARK: - Compulsory ones
     static func viewController() -> HomeViewController? {
         return Helper.getViewController(named: "HomeViewController", inSb: "Main")
@@ -19,7 +20,9 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.cyan
+        self.navigationController?.navigationBar.topItem?.title = "Home"
+    logoImageView.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor.darkGray
         // Do any additional setup after loading the view.
     }
 

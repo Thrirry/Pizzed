@@ -19,13 +19,19 @@ struct DefaultMenuNavigator:MenuNavigator {
     init(navigation: UINavigationController) {
         self.navigation = navigation
     }
-    
-    func toHome(window: UIWindow?) {
+
+    func toHome() {
         guard let vc = HomeViewController.viewController() else { return }
         let nav = UINavigationController(rootViewController: vc)
         let navigator = DefaultHomeNavigator(navigation: nav)
         vc.viewModel = HomeViewModel(navigator: navigator)
-        self.navigation?.viewControllers.first?.setRootController(viewController: nav)
+        navigation?.pushViewController(vc, animated: true)
+    }
+    
+    func toMenu(){
+        guard let vc = MenuViewController.viewController() else { return }
+        vc.viewModel = MenuViewModel(navigator: self)
+        navigation?.pushViewController(vc, animated: true)
     }
     
 }

@@ -12,19 +12,17 @@ struct Application {
     
     // MARK: - Singleton pattern
     static let shared = Application()
-    
     private init() {}
     
     func configMainInterface(window: UIWindow){
+        
         let navigationController = UINavigationController()
-        
-        let navigator = DefaultMenuNavigator(navigation: navigationController)
+        let navigator = DefaultHomeNavigator(navigation: navigationController)
         window.rootViewController = navigationController
-        navigator.toHome(window: window)
-        
+
+        navigator.toHome()
     }
     
     private func switchRootViewController(rootVC: UIViewController) {
-        
     }
 }

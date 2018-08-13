@@ -17,9 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        Application.shared.configMainInterface(window: window)
-        self.window = window
+//        let vc = HomeViewController()
+//        let navigationController = UINavigationController(rootViewController: vc)
+//
+//        self.window?.rootViewController = navigationController
+        
+        self.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LaunchViewController")
+        
+        self.window?.makeKeyAndVisible()
+        
+        
+//        let window = UIWindow(frame: UIScreen.main.bounds)
+//        Application.shared.configMainInterface(window: window)
+//        self.window = window
         
         return true
     }
@@ -46,6 +56,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func redirect() {
+        if let window = window {
+            Application.shared.configMainInterface(window: window)
+        }
+    }
 }
 
