@@ -8,9 +8,17 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
-
-    @IBOutlet weak var logoImageView: UIImageView!
+class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var rightBarTableView: UITableView!
+    @IBOutlet weak var leftBarTableView: UITableView!
+    
+    @IBOutlet weak var logoView: UIView!
+    @IBOutlet weak var logoButton: UIButton!
+    
+    let rightbar = DataForRightbar.sharedInstance
+    let pizza = DataForPizza.sharedInstance
+    
     // MARK: - Compulsory ones
     static func viewController() -> HomeViewController? {
         return Helper.getViewController(named: "HomeViewController", inSb: "Main")
@@ -20,10 +28,117 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.topItem?.title = "Home"
-    logoImageView.backgroundColor = UIColor.white
-        view.backgroundColor = UIColor.darkGray
+        
+        Helper.showLoading()
+        var count = 0
+    
+        rightbar.getRightbarImages { [weak self] in
+            self?.rightBarTableView.reloadData()
+            count += 1
+            
+            if count == 2 {
+                Helper.hideLoading()
+            }
+        }
+        pizza.getPizzaImages { [weak self] in
+            self?.leftBarTableView.reloadData()
+            count += 1
+            
+            if count == 2 {
+                Helper.hideLoading()
+            }
+        }
+        setupLayout()
+        setupColour()
         // Do any additional setup after loading the view.
     }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if tableView == leftBarTableView {
+            return pizza.pizzaData.count
+        }
+        
+        if tableView == rightBarTableView {
+            return rightbar.rightbarData.count
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
+        if tableView == leftBarTableView {
+            let cell = loadViewFromNib(named: "PizzaTableViewCell") as! PizzaTableViewCell
+        
+            let data = pizza.pizzaData[indexPath.row]
+            cell.displayContent(image: pizza.images[indexPath.row], title: data.title, price: data.price, size: data.size, content: data.content, id: data.id, state: data.state)
+        
+            cell.backgroundColor = UIColor.FlatColor.Background.HomeBackground
+            cell.selectionStyle = .none
+            return cell
+        }else {
+            let cell = loadViewFromNib(named: "RightBarTableViewCell") as! RightBarTableViewCell
+            cell.backgroundColor = UIColor.FlatColor.Background.HomeBackground
+        
+            let data = rightbar.rightbarData[indexPath.row]
+
+            cell.displayContent(image: rightbar.images[indexPath.row], title: data.name)
+        
+            return cell
+        }
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if tableView == self.leftBarTableView{
+            return 210
+        }
+        if tableView == self.rightBarTableView {
+            return 90
+        }
+        return 0
+    }
+
+    func setupLayout(){
+        
+        // MARK: - Left Bar
+        leftBarTableView.translatesAutoresizingMaskIntoConstraints = false
+        leftBarTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
+        leftBarTableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
+        leftBarTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        leftBarTableView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.75).isActive = true
+        
+        // MARK: - LogoView
+        logoView.translatesAutoresizingMaskIntoConstraints = false
+        logoView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
+        logoView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
+        logoView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.18).isActive = true
+        logoView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.1).isActive = true
+        logoView.addSubview(logoButton)
+        logoButton.translatesAutoresizingMaskIntoConstraints = false
+        logoButton.centerXAnchor.constraint(equalTo: logoView.centerXAnchor).isActive = true
+        logoButton.centerYAnchor.constraint(equalTo: logoView.centerYAnchor).isActive = true
+        logoButton.setBackgroundImage(#imageLiteral(resourceName: "MainLogo"), for: UIControlState.normal)
+        logoButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        logoButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        
+        // MARK: - Right Bar
+        rightBarTableView.translatesAutoresizingMaskIntoConstraints = false
+        rightBarTableView.topAnchor.constraint(equalTo: logoView.bottomAnchor, constant: 10).isActive = true
+        rightBarTableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
+        rightBarTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        rightBarTableView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.18).isActive = true
+    }
+    
+    func setupColour() {
+        view.backgroundColor = UIColor.FlatColor.Background.HomeBackground
+        // MARK: - Left Bar
+         leftBarTableView.backgroundColor = UIColor.FlatColor.Background.HomeBackground
+        leftBarTableView.separatorColor = UIColor.clear
+        // MARK: - LogoView
+        logoView.backgroundColor = UIColor.clear
+        // MARK: - Right Bar
+        rightBarTableView.backgroundColor = UIColor.FlatColor.Background.HomeBackground
+        rightBarTableView.separatorColor = UIColor.clear
+    }
 }
