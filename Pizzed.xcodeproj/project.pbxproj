@@ -11,6 +11,8 @@
 		F1379E152121882500CFE247 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1379E142121882500CFE247 /* IntroViewController.swift */; };
 		F1379E172121883900CFE247 /* IntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1379E162121883900CFE247 /* IntroViewModel.swift */; };
 		F1379E192121885000CFE247 /* IntroNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1379E182121885000CFE247 /* IntroNavigator.swift */; };
+		F137F5162142622300CCE23B /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F137F5142142622300CCE23B /* MenuTableViewCell.swift */; };
+		F137F5172142622300CCE23B /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F137F5152142622300CCE23B /* MenuTableViewCell.xib */; };
 		F13B25A9213D393100C04E3E /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13B25A6213D393000C04E3E /* Roboto-Light.ttf */; };
 		F13B25AA213D393100C04E3E /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13B25A7213D393100C04E3E /* Roboto-Bold.ttf */; };
 		F13B25AB213D393100C04E3E /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13B25A8213D393100C04E3E /* Roboto-Regular.ttf */; };
@@ -54,6 +56,7 @@
 		F1D1ADEC21272EB7009620DD /* Lekton-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1D1ADEB21272A1A009620DD /* Lekton-Bold.ttf */; };
 		F1D1ADED21272EBA009620DD /* Lekton-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1D1ADEA21272A1A009620DD /* Lekton-Italic.ttf */; };
 		F1D1ADEE21272EBD009620DD /* Lekton-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1D1ADE921272A1A009620DD /* Lekton-Regular.ttf */; };
+		F1E3449E213E74D1006FB928 /* iOSDevCenters+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E3449D213E74D1006FB928 /* iOSDevCenters+GIF.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +65,8 @@
 		F1379E142121882500CFE247 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		F1379E162121883900CFE247 /* IntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewModel.swift; sourceTree = "<group>"; };
 		F1379E182121885000CFE247 /* IntroNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroNavigator.swift; sourceTree = "<group>"; };
+		F137F5142142622300CCE23B /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		F137F5152142622300CCE23B /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
 		F13B25A6213D393000C04E3E /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		F13B25A7213D393100C04E3E /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		F13B25A8213D393100C04E3E /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -107,6 +112,7 @@
 		F1D1ADE921272A1A009620DD /* Lekton-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lekton-Regular.ttf"; sourceTree = "<group>"; };
 		F1D1ADEA21272A1A009620DD /* Lekton-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lekton-Italic.ttf"; sourceTree = "<group>"; };
 		F1D1ADEB21272A1A009620DD /* Lekton-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lekton-Bold.ttf"; sourceTree = "<group>"; };
+		F1E3449D213E74D1006FB928 /* iOSDevCenters+GIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOSDevCenters+GIF.swift"; sourceTree = "<group>"; };
 		F2ABCE9C13105BF8627DD4C9 /* Pods_Pizzed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pizzed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -154,6 +160,14 @@
 		F1379E132121875100CFE247 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		F137F5132142620900CCE23B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F137F5142142622300CCE23B /* MenuTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -290,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				F1C2D13B2121611D006452A3 /* VCExts.swift */,
+				F1E3449D213E74D1006FB928 /* iOSDevCenters+GIF.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -406,6 +421,7 @@
 		F1C2D12021214132006452A3 /* Xib */ = {
 			isa = PBXGroup;
 			children = (
+				F137F5152142622300CCE23B /* MenuTableViewCell.xib */,
 				F1CAC25C21228499002DC312 /* PizzaTableViewCell.xib */,
 				F13D5CCF2122E4A4009C7625 /* RightBarTableViewCell.xib */,
 			);
@@ -441,6 +457,7 @@
 		F1C2D13221214A31006452A3 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				F137F5132142620900CCE23B /* Cell */,
 				F1C2D13321214A5A006452A3 /* MenuViewController.swift */,
 				F1C2D13521214A83006452A3 /* MenuNavigator.swift */,
 				F1C2D13921215A8A006452A3 /* MenuViewModel.swift */,
@@ -565,6 +582,7 @@
 				F1B2AA4F2132E35D00DE4979 /* Interstate-Regular.ttf in Resources */,
 				F13B25AB213D393100C04E3E /* Roboto-Regular.ttf in Resources */,
 				F13B25B1213D3A4F00C04E3E /* Dosis-Light.otf in Resources */,
+				F137F5172142622300CCE23B /* MenuTableViewCell.xib in Resources */,
 				F1C2D0FE21213484006452A3 /* Main.storyboard in Resources */,
 				F13D5CD12122E4A4009C7625 /* RightBarTableViewCell.xib in Resources */,
 			);
@@ -580,11 +598,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Pizzed/Pods-Pizzed-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
+				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
+				"${BUILT_PRODUCTS_DIR}/PINRemoteImage/PINRemoteImage.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINRemoteImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
@@ -628,6 +652,7 @@
 				F1C2D13C2121611D006452A3 /* VCExts.swift in Sources */,
 				F1C2D11021213557006452A3 /* Structuration.swift in Sources */,
 				F1D16CC52133E40300084393 /* pizzedTests.swift in Sources */,
+				F137F5162142622300CCE23B /* MenuTableViewCell.swift in Sources */,
 				F1CAC26121228C67002DC312 /* Colours.swift in Sources */,
 				F1C2D0F921213484006452A3 /* AppDelegate.swift in Sources */,
 				F1379E172121883900CFE247 /* IntroViewModel.swift in Sources */,
@@ -639,6 +664,7 @@
 				F1C2D116212135C6006452A3 /* UIHelper.swift in Sources */,
 				F1C2D12B21214321006452A3 /* BaseViewController.swift in Sources */,
 				F1C2D13621214A83006452A3 /* MenuNavigator.swift in Sources */,
+				F1E3449E213E74D1006FB928 /* iOSDevCenters+GIF.swift in Sources */,
 				F1C2D1272121429F006452A3 /* HomeNavigator.swift in Sources */,
 				F1C2D143212162D8006452A3 /* Animation.swift in Sources */,
 				F1C2D14121216260006452A3 /* View.swift in Sources */,

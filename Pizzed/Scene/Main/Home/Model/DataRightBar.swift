@@ -33,20 +33,20 @@ final class DataForRightbar {
         }
     }
     
-    func getRightbarImages(completion: @escaping () -> Void) {
-        getRightbarData {
-            for data in self.rightbarData {
-                let url = URL(string: data.coverImage)
-
-                let data = try? Data(contentsOf: url!)
-                if let imageData = data {
-                    let image = UIImage(data: imageData)
-                    self.images.append(image!)
-                }
-            }
-            OperationQueue.main.addOperation {
-                completion()
-            }
-        }
-    }
+//    func getRightbarImages(completion: @escaping () -> Void) {
+//        getRightbarData {
+//            for data in self.rightbarData {
+//                let url = URL(string: data.coverImage)
+//
+//                let data = try? Data(contentsOf: url!)
+//                if let imageData = data {
+//                    let image = UIImage(data: imageData)
+//                    self.images.append(image!)
+//                }
+//            }
+//            OperationQueue.main.addOperation {
+//                completion()
+//            }
+//        }
+//    }
 }

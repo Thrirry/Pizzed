@@ -34,9 +34,38 @@ class BaseViewController: UIViewController {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: named, bundle: bundle)
         let view = nib.instantiate(withOwner: self, options: nil).first as! UITableViewCell
-        
 //        let view = Bundle.main.loadNibNamed(named, owner: self, options: nil)?.first as! UITableViewCell
-        
         return view
     }
+
+    
+    func onSlideMenuButtonPressed(){
+        let menuVC : MenuViewController = self.storyboard!.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+    
+        menuVC.delegate = self as? MenuDelegate
+        self.view.addSubview(menuVC.view)
+        self.addChildViewController(menuVC)
+        menuVC.view.layoutIfNeeded()
+        
+        menuVC.view.frame=CGRect(x: 0, y: 0  - UIScreen.main.bounds.size.height, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height);
+        
+        UIView.animate(withDuration: 0.2, animations: { () -> Void in
+            menuVC.view.frame=CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height);
+            
+        }, completion:nil)
+        
+    }
+    
+    func onCloseMenuClick(){
+        
+        UIView.animate(withDuration: 0.2, animations: { () -> Void in
+            self.view.frame = CGRect(x: 0, y: 0 - UIScreen.main.bounds.size.height, width: UIScreen.main.bounds.size.width,height: UIScreen.main.bounds.size.height)
+            self.view.layoutIfNeeded()
+            self.view.backgroundColor = UIColor.clear
+        }, completion: { (finished) -> Void in
+            self.view.removeFromSuperview()
+            self.removeFromParentViewController()
+        })
+    }
+    
 }

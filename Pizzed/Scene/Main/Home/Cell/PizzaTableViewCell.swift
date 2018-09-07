@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PINRemoteImage
 
 class PizzaTableViewCell: UITableViewCell {
     
@@ -47,9 +48,11 @@ class PizzaTableViewCell: UITableViewCell {
         setupColour()
     }
     
-    func displayContent(image: UIImage, title: String, price: String, size: String, content: String, id: String, state: String ) {
+    func displayContent(image: String, title: String, price: String, size: String, content: String, id: String, state: String ) {
         
-        itemImageView.image = image
+        itemImageView.pin_updateWithProgress = true
+        itemImageView.pin_setImage(from: URL(string: image)!)
+        
         titleItemLabel.text = title
         contentItemTV.text = content
         sizeItemLabel.text = size
@@ -95,7 +98,6 @@ class PizzaTableViewCell: UITableViewCell {
         newsBtn.rightAnchor.constraint(equalTo: imageContainerView.rightAnchor, constant: -6).isActive = true
         newsBtn.heightAnchor.constraint(equalToConstant: 20.5).isActive = true
         newsBtn.widthAnchor.constraint(equalToConstant: 20.5).isActive = true
-//        newsBtn.setBackgroundImage(#imageLiteral(resourceName: "New"), for: .normal)
     
         containerView.addSubview(contentContainerView)
         contentContainerView.translatesAutoresizingMaskIntoConstraints = false

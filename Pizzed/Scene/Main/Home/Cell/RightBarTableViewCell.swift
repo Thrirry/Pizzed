@@ -30,9 +30,21 @@ class RightBarTableViewCell: UITableViewCell {
         setupColour()
     }
     
-    func displayContent(image: UIImage, title: String) {
-        iconImageView.image = image
+//    func displayContent(image: UIImage, title: String) {
+//        iconImageView.image = image
+//        titleLabelView.text = title
+////        if titleLabelView.text == "Home" {
+////            let gifURL : String = "https://static.tumblr.com/vgmqumd/JPMpeiu3h/buddha_preloader_short.gif"
+////            let imageURL = UIImage.gifImageWithURL(gifURL)
+////            iconImageView.image = imageURL
+////        }
+//    }
+    
+    func displayContent(image: String, title: String) {
+        iconImageView.pin_updateWithProgress = true
+        iconImageView.pin_setImage(from: URL(string: image)!)
         titleLabelView.text = title
+        
     }
     
     func setupLayout() {

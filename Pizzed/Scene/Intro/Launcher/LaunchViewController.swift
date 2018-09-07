@@ -58,12 +58,11 @@ class LaunchViewController: UIViewController {
         
         self.logoImageView.translatesAutoresizingMaskIntoConstraints = false
         self.logoImageView.contentMode = .scaleAspectFit
-        self.logoImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        
-        self.logoImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        self.logoImageView.heightAnchor.constraint(equalToConstant: 110).isActive = true
+        self.logoImageView.widthAnchor.constraint(equalToConstant: 110).isActive = true
         self.logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         self.logoImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        self.logoImageView.image =  #imageLiteral(resourceName: "Logo")
+        self.logoImageView.image =  #imageLiteral(resourceName: "logo-pizza-final")
     }
     
     func setUpLayout(){

@@ -26,24 +26,26 @@ final class DataForPizza {
                     let newPizzaData = PizzaData(dictionary: dict)
                     self.pizzaData.append(newPizzaData)
                 }
+                OperationQueue.main.addOperation {
                     completion()
+                }
             }
         }
     }
     
-    func getPizzaImages(completion: @escaping () -> Void) {
-        getPizzaData {
-            for image in self.pizzaData {
-                let url = URL(string: image.image)
-                let data = try? Data(contentsOf: url!)
-                if let imageData = data {
-                    let image = UIImage(data: imageData)
-                    self.images.append(image!)
-                }
-            }
-            OperationQueue.main.addOperation {
-                completion()
-            }
-        }
-    }
+//    func getPizzaImages(completion: @escaping () -> Void) {
+//        getPizzaData {
+//            for image in self.pizzaData {
+//                let url = URL(string: image.image)
+//                let data = try? Data(contentsOf: url!)
+//                if let imageData = data {
+//                    let image = UIImage(data: imageData)
+//                    self.images.append(image!)
+//                }
+//            }
+//            OperationQueue.main.addOperation {
+//                completion()
+//            }
+//        }
+//    }
 }

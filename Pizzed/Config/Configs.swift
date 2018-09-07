@@ -13,10 +13,12 @@ import Foundation
 struct Config {
     
     #if DEBUG
-    static let apiRightbarURL = "https://static.tumblr.com/vgmqumd/loNpehpwq/menudata.json"
+    static let apiRightbarURL = "https://static.tumblr.com/vgmqumd/yOGpej2r7/menudata.json"
     static let apiPizzaURL = "https://static.tumblr.com/vgmqumd/vHfpehnx6/pizzadata.json"
+    static let apiLogoURL = "https://static.tumblr.com/vgmqumd/lEjpeisvw/logodata.json"
     #else
-    static let apiRightbarURL = "https://static.tumblr.com/vgmqumd/loNpehpwq/menudata.json"
+    static let apiRightbarURL = "https://static.tumblr.com/vgmqumd/yOGpej2r7/menudata.json"
     static let apiPizzaURL = "https://static.tumblr.com/vgmqumd/vHfpehnx6/pizzadata.json"
+    static let apiLogoURL = "https://static.tumblr.com/vgmqumd/lEjpeisvw/logodata.json"
     #endif
 }

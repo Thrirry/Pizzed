@@ -41,3 +41,9 @@ struct PizzaData {
         self.id = dictionary["id"] as! String
     }
 }
+
+struct iconMenuSlide {
+    let cell: Int
+    let Image: UIImage
+    let Title: String
+}
