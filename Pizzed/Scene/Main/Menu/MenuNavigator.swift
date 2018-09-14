@@ -9,11 +9,8 @@
 import UIKit
 
 protocol MenuNavigator {
-    
 }
-
-struct DefaultMenuNavigator:MenuNavigator {
-    
+struct DefaultMenuNavigator: MenuNavigator {
     private weak var navigation: UINavigationController?
     
     init(navigation: UINavigationController) {
@@ -27,11 +24,9 @@ struct DefaultMenuNavigator:MenuNavigator {
         vc.viewModel = HomeViewModel(navigator: navigator)
         navigation?.pushViewController(vc, animated: true)
     }
-    
-    func toMenu(){
+    func toMenu() {
         guard let vc = MenuViewController.viewController() else { return }
         vc.viewModel = MenuViewModel(navigator: self)
         navigation?.pushViewController(vc, animated: true)
     }
-    
 }

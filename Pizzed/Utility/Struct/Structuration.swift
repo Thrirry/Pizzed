@@ -12,8 +12,7 @@ struct RightbarData {
     let name: String
     let cell: String
     let coverImage: String
-    
-    init(dictionary: apiJSON) {
+    init(dictionary: APIJSON) {
         self.name = dictionary["name"] as! String
         self.cell = dictionary["cell"] as! String
         self.coverImage = dictionary["image"] as! String
@@ -28,9 +27,8 @@ struct PizzaData {
     let price: String
     let image: String
     let state: String
-    let id: String
-    
-    init(dictionary: apiJSON) {
+    let idPizza: String
+    init(dictionary: APIJSON) {
         self.cell = dictionary["cell"] as! String
         self.image = dictionary["image"] as! String
         self.title = dictionary["title"] as! String
@@ -38,12 +36,12 @@ struct PizzaData {
         self.content = dictionary["content"] as! String
         self.price = dictionary["price"] as! String
         self.state = dictionary["state"] as! String
-        self.id = dictionary["id"] as! String
+        self.idPizza = dictionary["id"] as! String
     }
 }
 
-struct iconMenuSlide {
+struct IconMenuSlide {
     let cell: Int
-    let Image: UIImage
-    let Title: String
+    let image: UIImage
+    let title: String
 }

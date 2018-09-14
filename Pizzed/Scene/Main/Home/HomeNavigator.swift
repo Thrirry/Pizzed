@@ -11,19 +11,14 @@ import UIKit
 protocol HomeNavigator {
 
 }
-
 struct DefaultHomeNavigator: HomeNavigator {
-    
     private weak var navigation: UINavigationController?
-    
     init(navigation: UINavigationController) {
         self.navigation = navigation
     }
-    
     func toHome() {
         guard let vc = HomeViewController.viewController() else { return }
         vc.viewModel = HomeViewModel(navigator: self)
         navigation?.pushViewController(vc, animated: true)
     }
 }
-

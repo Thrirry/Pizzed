@@ -10,18 +10,14 @@ import Foundation
 import UIKit
 
 final class DataForPizza {
-    
     static let sharedInstance = DataForPizza()
     fileprivate init() {}
-    
     var pizzaData: [PizzaData] = []
     var images: [UIImage] = []
-    
     func getPizzaData(completion: @escaping () -> Void) {
-        
-        APIClient.getObjectsAPI(named: Config.apiPizzaURL){ (json) in
-            let feed = json?["feed"] as? apiJSON
-            if let results = feed?["pizza"] as? [apiJSON] {
+        APIClient.getObjectsAPI(named: Config.apiPizzaURL) { (json) in
+            let feed = json?["feed"] as? APIJSON
+            if let results = feed?["pizza"] as? [APIJSON] {
                 for dict in results {
                     let newPizzaData = PizzaData(dictionary: dict)
                     self.pizzaData.append(newPizzaData)
@@ -32,7 +28,6 @@ final class DataForPizza {
             }
         }
     }
-    
 //    func getPizzaImages(completion: @escaping () -> Void) {
 //        getPizzaData {
 //            for image in self.pizzaData {

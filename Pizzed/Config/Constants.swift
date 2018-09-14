@@ -9,9 +9,7 @@
 import UIKit
 
 struct Constants {
-    
     struct Types {
-        
     }
 }
 

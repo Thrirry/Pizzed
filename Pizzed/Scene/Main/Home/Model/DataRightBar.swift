@@ -10,18 +10,15 @@ import Foundation
 import UIKit
 
 final class DataForRightbar {
-    
     static let sharedInstance = DataForRightbar()
     fileprivate init() {}
-    
     var rightbarData: [RightbarData] = []
     var images: [UIImage] = []
-    
     func getRightbarData(completion: @escaping () -> Void) {
 
         APIClient.getObjectsAPI(named: Config.apiRightbarURL) { (json) in
-            let feed = json?["feed"] as? apiJSON
-            if let results = feed?["pizza"] as? [apiJSON] {
+            let feed = json?["feed"] as? APIJSON
+            if let results = feed?["pizza"] as? [APIJSON] {
                 for dict in results {
                     let newRightbarData = RightbarData(dictionary: dict)
                     self.rightbarData.append(newRightbarData)
@@ -32,7 +29,6 @@ final class DataForRightbar {
             }
         }
     }
-    
 //    func getRightbarImages(completion: @escaping () -> Void) {
 //        getRightbarData {
 //            for data in self.rightbarData {

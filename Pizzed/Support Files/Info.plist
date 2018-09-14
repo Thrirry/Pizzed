@@ -17,6 +17,8 @@
 		<string>Dosis-SemiBold.otf</string>
 		<string>Lekton-Bold.ttf</string>
 		<string>Lekton-Regular.ttf</string>
+		<string>Charter-Regular.ttf</string>
+		<string>Charter-Bold.ttf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>

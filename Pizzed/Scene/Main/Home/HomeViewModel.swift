@@ -11,23 +11,16 @@ import RxCocoa
 import RxSwift
 
 class HomeViewModel: ViewModelType {
-    
     typealias T = Constants.Types
-    
     // MARK: - Properties
     private let navigator: HomeNavigator
-    
     // MARK: - Input, Output
     struct Input {}
     struct Output {}
-    
-    
     init(navigator: HomeNavigator) {
         self.navigator = navigator
     }
-    
     func transform(input: HomeViewModel.Input) -> HomeViewModel.Output {
         return Output()
     }
 }
-

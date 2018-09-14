@@ -13,20 +13,15 @@ import RxSwift
 class MenuViewModel: ViewModelType {
 
     typealias T = Constants.Types
-    
     // MARK: - Properties
     private let navigator: MenuNavigator
-    
     // MARK: - Input, Output
     struct Input {}
     struct Output {}
-    
-    init(navigator: MenuNavigator){
+    init(navigator: MenuNavigator) {
         self.navigator = navigator
     }
-    
     func transform(input: MenuViewModel.Input) -> MenuViewModel.Output {
         return Output()
     }
-    
 }

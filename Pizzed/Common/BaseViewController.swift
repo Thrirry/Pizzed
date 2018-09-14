@@ -25,41 +25,33 @@ class BaseViewController: UIViewController {
     @objc func dismissVC() {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    func setupNav(){
+    func setupNav() {
         self.navigationController?.isNavigationBarHidden = true
     }
-    
     func loadViewFromNib(named: String) -> UITableViewCell {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: named, bundle: bundle)
-        let view = nib.instantiate(withOwner: self, options: nil).first as! UITableViewCell
-//        let view = Bundle.main.loadNibNamed(named, owner: self, options: nil)?.first as! UITableViewCell
+        guard let view = nib.instantiate(withOwner: self, options: nil).first as? UITableViewCell else {
+            fatalError("Misconfigured cell type, \(nib)!")
+        }
         return view
     }
-
-    
-    func onSlideMenuButtonPressed(){
-        let menuVC : MenuViewController = self.storyboard!.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
-    
+    func onSlideMenuButtonPressed() {
+        guard let menuVC: MenuViewController = self.storyboard!.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController else {
+            fatalError("Misconfigured view controller!")
+        }
         menuVC.delegate = self as? MenuDelegate
         self.view.addSubview(menuVC.view)
         self.addChildViewController(menuVC)
         menuVC.view.layoutIfNeeded()
-        
-        menuVC.view.frame=CGRect(x: 0, y: 0  - UIScreen.main.bounds.size.height, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height);
-        
+        menuVC.view.frame=CGRect(x: 0, y: 0  - UIScreen.main.bounds.size.height, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
         UIView.animate(withDuration: 0.2, animations: { () -> Void in
-            menuVC.view.frame=CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height);
-            
-        }, completion:nil)
-        
+            menuVC.view.frame=CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+        }, completion: nil)
     }
-    
-    func onCloseMenuClick(){
-        
+    func onCloseMenuClick() {
         UIView.animate(withDuration: 0.2, animations: { () -> Void in
-            self.view.frame = CGRect(x: 0, y: 0 - UIScreen.main.bounds.size.height, width: UIScreen.main.bounds.size.width,height: UIScreen.main.bounds.size.height)
+            self.view.frame = CGRect(x: 0, y: 0 - UIScreen.main.bounds.size.height, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
             self.view.layoutIfNeeded()
             self.view.backgroundColor = UIColor.clear
         }, completion: { (finished) -> Void in
@@ -67,5 +59,20 @@ class BaseViewController: UIViewController {
             self.removeFromParentViewController()
         })
     }
-    
+    @objc func insideItemDetailsButtonPressed(_ sender: UIButton) {
+        guard let itemDetailVC: ProductViewController = self.storyboard!.instantiateViewController(withIdentifier: "ProductViewController") as? ProductViewController else {
+            fatalError("Misconfigured view controller!\(sender)")
+        }
+
+        self.addChildViewController(itemDetailVC)
+        self.view.addSubview(itemDetailVC.view)
+        itemDetailVC.view.layoutIfNeeded()
+
+        itemDetailVC.view.frame = CGRect(x: 0 - UIScreen.main.bounds.size.width, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+
+        UIView.animate(withDuration: 0.3, animations: { () -> Void in
+            itemDetailVC.view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+            sender.isEnabled = true
+        }, completion: nil)
+    }
 }

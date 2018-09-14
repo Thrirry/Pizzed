@@ -10,5 +10,6 @@ target 'Pizzed' do
   pod 'RxSwift', '~> 4.0'
   pod 'RxCocoa', '~> 4.0'
   pod 'PINRemoteImage'
+  pod 'SwiftLint'
 
 end

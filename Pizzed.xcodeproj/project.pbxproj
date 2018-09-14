@@ -13,6 +13,12 @@
 		F1379E192121885000CFE247 /* IntroNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1379E182121885000CFE247 /* IntroNavigator.swift */; };
 		F137F5162142622300CCE23B /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F137F5142142622300CCE23B /* MenuTableViewCell.swift */; };
 		F137F5172142622300CCE23B /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F137F5152142622300CCE23B /* MenuTableViewCell.xib */; };
+		F137F51A214280D400CCE23B /* CharterBoldBT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F137F5182142805100CCE23B /* CharterBoldBT.ttf */; };
+		F137F51C2142822D00CCE23B /* Charter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F137F51B2142822D00CCE23B /* Charter-Bold.ttf */; };
+		F137F51E2142823500CCE23B /* Charter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F137F51D2142823500CCE23B /* Charter-Regular.ttf */; };
+		F137F5212142861200CCE23B /* PizzaDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F137F51F2142861200CCE23B /* PizzaDetailsCollectionViewCell.swift */; };
+		F137F5222142861200CCE23B /* PizzaDetailsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F137F5202142861200CCE23B /* PizzaDetailsCollectionViewCell.xib */; };
+		F137F525214288BE00CCE23B /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F137F524214288BE00CCE23B /* ProductViewController.swift */; };
 		F13B25A9213D393100C04E3E /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13B25A6213D393000C04E3E /* Roboto-Light.ttf */; };
 		F13B25AA213D393100C04E3E /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13B25A7213D393100C04E3E /* Roboto-Bold.ttf */; };
 		F13B25AB213D393100C04E3E /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13B25A8213D393100C04E3E /* Roboto-Regular.ttf */; };
@@ -24,6 +30,8 @@
 		F145D44A21385A6800CE3E2E /* DataRightBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F145D44921385A6800CE3E2E /* DataRightBar.swift */; };
 		F145D44D21385B1F00CE3E2E /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F145D44C21385B1F00CE3E2E /* APIClient.swift */; };
 		F145D44F21386B7700CE3E2E /* DataPizza.swift in Sources */ = {isa = PBXBuildFile; fileRef = F145D44E21386B7700CE3E2E /* DataPizza.swift */; };
+		F14807FA214B89AC00ECA676 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = F14807F9214B89AC00ECA676 /* .swiftlint.yml */; };
+		F1531168214A2C9C00CA4B71 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1531167214A2C9C00CA4B71 /* UIStackView.swift */; };
 		F165B30A213B7968007297A8 /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F165B309213B7968007297A8 /* Configs.swift */; };
 		F1B2AA4F2132E35D00DE4979 /* Interstate-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1B2AA4E2132E35D00DE4979 /* Interstate-Regular.ttf */; };
 		F1B2AA51213304D800DE4979 /* Interstate-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1B2AA50213304D800DE4979 /* Interstate-Bold.ttf */; };
@@ -49,6 +57,7 @@
 		F1C2D14121216260006452A3 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C2D14021216260006452A3 /* View.swift */; };
 		F1C2D143212162D8006452A3 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C2D142212162D8006452A3 /* Animation.swift */; };
 		F1C809702121F9FE007993B0 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C8096F2121F9FE007993B0 /* LaunchViewController.swift */; };
+		F1CA5F662147C1A600102D20 /* UILableExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CA5F652147C1A600102D20 /* UILableExts.swift */; };
 		F1CAC25D21228499002DC312 /* PizzaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CAC25B21228499002DC312 /* PizzaTableViewCell.swift */; };
 		F1CAC25E21228499002DC312 /* PizzaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1CAC25C21228499002DC312 /* PizzaTableViewCell.xib */; };
 		F1CAC26121228C67002DC312 /* Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CAC26021228C67002DC312 /* Colours.swift */; };
@@ -56,7 +65,6 @@
 		F1D1ADEC21272EB7009620DD /* Lekton-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1D1ADEB21272A1A009620DD /* Lekton-Bold.ttf */; };
 		F1D1ADED21272EBA009620DD /* Lekton-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1D1ADEA21272A1A009620DD /* Lekton-Italic.ttf */; };
 		F1D1ADEE21272EBD009620DD /* Lekton-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1D1ADE921272A1A009620DD /* Lekton-Regular.ttf */; };
-		F1E3449E213E74D1006FB928 /* iOSDevCenters+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E3449D213E74D1006FB928 /* iOSDevCenters+GIF.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +75,12 @@
 		F1379E182121885000CFE247 /* IntroNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroNavigator.swift; sourceTree = "<group>"; };
 		F137F5142142622300CCE23B /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		F137F5152142622300CCE23B /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
+		F137F5182142805100CCE23B /* CharterBoldBT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CharterBoldBT.ttf; sourceTree = "<group>"; };
+		F137F51B2142822D00CCE23B /* Charter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Charter-Bold.ttf"; sourceTree = "<group>"; };
+		F137F51D2142823500CCE23B /* Charter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Charter-Regular.ttf"; sourceTree = "<group>"; };
+		F137F51F2142861200CCE23B /* PizzaDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
+		F137F5202142861200CCE23B /* PizzaDetailsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PizzaDetailsCollectionViewCell.xib; sourceTree = "<group>"; };
+		F137F524214288BE00CCE23B /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		F13B25A6213D393000C04E3E /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		F13B25A7213D393100C04E3E /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		F13B25A8213D393100C04E3E /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -78,6 +92,8 @@
 		F145D44921385A6800CE3E2E /* DataRightBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRightBar.swift; sourceTree = "<group>"; };
 		F145D44C21385B1F00CE3E2E /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		F145D44E21386B7700CE3E2E /* DataPizza.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPizza.swift; sourceTree = "<group>"; };
+		F14807F9214B89AC00ECA676 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		F1531167214A2C9C00CA4B71 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		F165B309213B7968007297A8 /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
 		F1B2AA4E2132E35D00DE4979 /* Interstate-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Interstate-Regular.ttf"; sourceTree = "<group>"; };
 		F1B2AA50213304D800DE4979 /* Interstate-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Interstate-Bold.ttf"; sourceTree = "<group>"; };
@@ -105,6 +121,7 @@
 		F1C2D14021216260006452A3 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		F1C2D142212162D8006452A3 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		F1C8096F2121F9FE007993B0 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LaunchViewController.swift; path = Pizzed/Scene/Intro/Launcher/LaunchViewController.swift; sourceTree = SOURCE_ROOT; };
+		F1CA5F652147C1A600102D20 /* UILableExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILableExts.swift; sourceTree = "<group>"; };
 		F1CAC25B21228499002DC312 /* PizzaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaTableViewCell.swift; sourceTree = "<group>"; };
 		F1CAC25C21228499002DC312 /* PizzaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PizzaTableViewCell.xib; sourceTree = "<group>"; };
 		F1CAC26021228C67002DC312 /* Colours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colours.swift; sourceTree = "<group>"; };
@@ -112,7 +129,6 @@
 		F1D1ADE921272A1A009620DD /* Lekton-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lekton-Regular.ttf"; sourceTree = "<group>"; };
 		F1D1ADEA21272A1A009620DD /* Lekton-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lekton-Italic.ttf"; sourceTree = "<group>"; };
 		F1D1ADEB21272A1A009620DD /* Lekton-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lekton-Bold.ttf"; sourceTree = "<group>"; };
-		F1E3449D213E74D1006FB928 /* iOSDevCenters+GIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOSDevCenters+GIF.swift"; sourceTree = "<group>"; };
 		F2ABCE9C13105BF8627DD4C9 /* Pods_Pizzed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pizzed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -170,6 +186,14 @@
 				F137F5142142622300CCE23B /* MenuTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		F137F5232142889F00CCE23B /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				F137F524214288BE00CCE23B /* ProductViewController.swift */,
+			);
+			path = Product;
 			sourceTree = "<group>";
 		};
 		F145D44821385A2E00CE3E2E /* Model */ = {
@@ -237,6 +261,7 @@
 				F1C2D13D212161D2006452A3 /* ServicePlatform */,
 				30286A9E15ECE81B398BFC50 /* Pods */,
 				281BE2C782B7356830C53170 /* Frameworks */,
+				F14807F9214B89AC00ECA676 /* .swiftlint.yml */,
 			);
 			sourceTree = "<group>";
 		};
@@ -278,7 +303,7 @@
 			children = (
 				F1C2D114212135B6006452A3 /* Helper */,
 				F1C2D11321213597006452A3 /* Customization */,
-				F1C2D11221213581006452A3 /* Extension */,
+				F1C2D11221213581006452A3 /* Extensions */,
 				F1C2D11121213579006452A3 /* Enum */,
 				F1C2D10E21213533006452A3 /* Struct */,
 			);
@@ -300,13 +325,14 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
-		F1C2D11221213581006452A3 /* Extension */ = {
+		F1C2D11221213581006452A3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				F1C2D13B2121611D006452A3 /* VCExts.swift */,
-				F1E3449D213E74D1006FB928 /* iOSDevCenters+GIF.swift */,
+				F1CA5F652147C1A600102D20 /* UILableExts.swift */,
+				F1531167214A2C9C00CA4B71 /* UIStackView.swift */,
 			);
-			path = Extension;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		F1C2D11321213597006452A3 /* Customization */ = {
@@ -366,6 +392,7 @@
 		F1C2D11B21213FC2006452A3 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				F137F5232142889F00CCE23B /* Product */,
 				F1C2D13221214A31006452A3 /* Menu */,
 				F1C2D123212141E6006452A3 /* Coverage */,
 				F1C2D122212141C9006452A3 /* Cart */,
@@ -390,8 +417,11 @@
 				F13B25A7213D393100C04E3E /* Roboto-Bold.ttf */,
 				F13B25A6213D393000C04E3E /* Roboto-Light.ttf */,
 				F13B25A8213D393100C04E3E /* Roboto-Regular.ttf */,
+				F137F5182142805100CCE23B /* CharterBoldBT.ttf */,
 				F1B2AA4E2132E35D00DE4979 /* Interstate-Regular.ttf */,
 				F13B25AE213D3A4F00C04E3E /* Dosis-Light.otf */,
+				F137F51B2142822D00CCE23B /* Charter-Bold.ttf */,
+				F137F51D2142823500CCE23B /* Charter-Regular.ttf */,
 				F13B25AD213D3A4F00C04E3E /* Dosis-Medium.otf */,
 				F13B25AC213D3A4F00C04E3E /* Dosis-SemiBold.otf */,
 				F1B2AA50213304D800DE4979 /* Interstate-Bold.ttf */,
@@ -421,6 +451,7 @@
 		F1C2D12021214132006452A3 /* Xib */ = {
 			isa = PBXGroup;
 			children = (
+				F137F5202142861200CCE23B /* PizzaDetailsCollectionViewCell.xib */,
 				F137F5152142622300CCE23B /* MenuTableViewCell.xib */,
 				F1CAC25C21228499002DC312 /* PizzaTableViewCell.xib */,
 				F13D5CCF2122E4A4009C7625 /* RightBarTableViewCell.xib */,
@@ -504,6 +535,7 @@
 			children = (
 				F13D5CCE2122E4A4009C7625 /* RightBarTableViewCell.swift */,
 				F1CAC25B21228499002DC312 /* PizzaTableViewCell.swift */,
+				F137F51F2142861200CCE23B /* PizzaDetailsCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -520,6 +552,7 @@
 				F1C2D0F221213484006452A3 /* Frameworks */,
 				F1C2D0F321213484006452A3 /* Resources */,
 				00D7A629648D3F8FB9DB1159 /* [CP] Embed Pods Frameworks */,
+				F14807F3214B609500ECA676 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -568,17 +601,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F137F5222142861200CCE23B /* PizzaDetailsCollectionViewCell.xib in Resources */,
 				F1B2AA51213304D800DE4979 /* Interstate-Bold.ttf in Resources */,
 				F13B25B0213D3A4F00C04E3E /* Dosis-Medium.otf in Resources */,
+				F137F51E2142823500CCE23B /* Charter-Regular.ttf in Resources */,
 				F1D1ADED21272EBA009620DD /* Lekton-Italic.ttf in Resources */,
 				F13B25AA213D393100C04E3E /* Roboto-Bold.ttf in Resources */,
 				F1CAC25E21228499002DC312 /* PizzaTableViewCell.xib in Resources */,
 				F13B25A9213D393100C04E3E /* Roboto-Light.ttf in Resources */,
 				F1D1ADEE21272EBD009620DD /* Lekton-Regular.ttf in Resources */,
+				F137F51C2142822D00CCE23B /* Charter-Bold.ttf in Resources */,
+				F14807FA214B89AC00ECA676 /* .swiftlint.yml in Resources */,
 				F1C2D10321213485006452A3 /* LaunchScreen.storyboard in Resources */,
 				F13B25AF213D3A4F00C04E3E /* Dosis-SemiBold.otf in Resources */,
 				F1D1ADEC21272EB7009620DD /* Lekton-Bold.ttf in Resources */,
 				F1C2D10021213485006452A3 /* Assets.xcassets in Resources */,
+				F137F51A214280D400CCE23B /* CharterBoldBT.ttf in Resources */,
 				F1B2AA4F2132E35D00DE4979 /* Interstate-Regular.ttf in Resources */,
 				F13B25AB213D393100C04E3E /* Roboto-Regular.ttf in Resources */,
 				F13B25B1213D3A4F00C04E3E /* Dosis-Light.otf in Resources */,
@@ -635,6 +673,19 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F14807F3214B609500ECA676 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -646,12 +697,15 @@
 				F1C2D13121214610006452A3 /* Application.swift in Sources */,
 				F1C2D12F212145B1006452A3 /* ViewModelType.swift in Sources */,
 				F1CAC25D21228499002DC312 /* PizzaTableViewCell.swift in Sources */,
+				F137F525214288BE00CCE23B /* ProductViewController.swift in Sources */,
 				F1C2D13821214F02006452A3 /* Helper.swift in Sources */,
 				F165B30A213B7968007297A8 /* Configs.swift in Sources */,
 				F1C2D12D21214590006452A3 /* BaseViewModel.swift in Sources */,
 				F1C2D13C2121611D006452A3 /* VCExts.swift in Sources */,
 				F1C2D11021213557006452A3 /* Structuration.swift in Sources */,
+				F1CA5F662147C1A600102D20 /* UILableExts.swift in Sources */,
 				F1D16CC52133E40300084393 /* pizzedTests.swift in Sources */,
+				F137F5212142861200CCE23B /* PizzaDetailsCollectionViewCell.swift in Sources */,
 				F137F5162142622300CCE23B /* MenuTableViewCell.swift in Sources */,
 				F1CAC26121228C67002DC312 /* Colours.swift in Sources */,
 				F1C2D0F921213484006452A3 /* AppDelegate.swift in Sources */,
@@ -664,7 +718,6 @@
 				F1C2D116212135C6006452A3 /* UIHelper.swift in Sources */,
 				F1C2D12B21214321006452A3 /* BaseViewController.swift in Sources */,
 				F1C2D13621214A83006452A3 /* MenuNavigator.swift in Sources */,
-				F1E3449E213E74D1006FB928 /* iOSDevCenters+GIF.swift in Sources */,
 				F1C2D1272121429F006452A3 /* HomeNavigator.swift in Sources */,
 				F1C2D143212162D8006452A3 /* Animation.swift in Sources */,
 				F1C2D14121216260006452A3 /* View.swift in Sources */,
@@ -674,6 +727,7 @@
 				F1C809702121F9FE007993B0 /* LaunchViewController.swift in Sources */,
 				F1C2D13A21215A8A006452A3 /* MenuViewModel.swift in Sources */,
 				F1379E152121882500CFE247 /* IntroViewController.swift in Sources */,
+				F1531168214A2C9C00CA4B71 /* UIStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

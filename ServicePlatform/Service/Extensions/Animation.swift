@@ -9,7 +9,6 @@
 import UIKit
 
 public extension UIView {
-    
     public typealias Action = () -> ()
     typealias Animation = (duration: TimeInterval, action: Action, completion: (() -> Void)? )
     /// Showing view on super view with fade animation
@@ -22,7 +21,6 @@ public extension UIView {
         let animation = (duration, { self.alpha = isShow ? 1: 0 }, completion)
         spring ? springAnimation(delay: delay, animation: animation) : defaultAnimation(delay: delay, animation: animation)
     }
-    
     /// Basic animation with custom affection
     ///
     /// - Parameters:
@@ -31,7 +29,6 @@ public extension UIView {
     public func basicAnimation(_ animation: @escaping Action, duration: TimeInterval = 0.25, completion: (() -> Void)? = nil) {
         defaultAnimation(animation: (duration, animation, completion))
     }
-    
     /// Executing change constraint's constant animation
     ///
     /// - Parameters:
@@ -43,7 +40,6 @@ public extension UIView {
             self.layoutIfNeeded()
         }
     }
-    
     /// Animation with spring effection
     ///
     /// - Parameter animation: Animation objects
@@ -54,7 +50,6 @@ public extension UIView {
             animation.completion?()
         })
     }
-    
     /// Animation without any additional effection
     ///
     /// - Parameter animation: Animation objects
@@ -65,7 +60,6 @@ public extension UIView {
             animation.completion?()
         }
     }
-    
     /// Animation to rotate view
     ///
     /// - Parameters:
@@ -83,7 +77,6 @@ public extension UIView {
         rotateAnimation.isRemovedOnCompletion = false
         layer.add(rotateAnimation, forKey: "rotationAnimation")
     }
-    
     /// Animation for location dialog
     ///
     /// - Parameters:
@@ -93,14 +86,12 @@ public extension UIView {
     public func locationAnimation(duration: TimeInterval = 2, delay: TimeInterval = 0, scale: CGFloat = 0 ) {
         self.layer.transform = CATransform3DIdentity
         self.layer.removeAllAnimations()
-        
         UIView.animate(withDuration: duration, delay: delay, options: .repeat, animations: {
             self.transform = CGAffineTransform(scaleX: scale, y: scale)
         }, completion: {(finished: Bool) in
             self.transform = CGAffineTransform(scaleX: 0, y: 0)
         })
     }
-    
     /// Move animation
     ///
     /// - Parameters:
@@ -112,7 +103,6 @@ public extension UIView {
             self.frame.origin.y += 100
         }, completion: nil)
     }
-    
     /// Rotate animation and no repeat for mask image
     ///
     /// - Parameters:
@@ -123,7 +113,6 @@ public extension UIView {
             self.transform = CGAffineTransform(rotationAngle: .pi/6)
         }, completion: nil)
     }
-    
     /// Shake the animation
     ///
     /// - Parameters:
@@ -131,9 +120,8 @@ public extension UIView {
     public func shake(duration: CFTimeInterval = 0.01, repeatCount: Float = Float.infinity, reverse: Bool = true, values: [Any]? = nil) {
         /// Clean previous animation for safe
         layer.removeAnimation(forKey: "shakeIt")
-        
         /// Start initializing new one
-        let transformAnim  = CAKeyframeAnimation(keyPath:"transform")
+        let transformAnim  = CAKeyframeAnimation(keyPath: "transform")
         transformAnim.autoreverses = reverse
         transformAnim.duration  = duration
         transformAnim.repeatCount = repeatCount
@@ -142,7 +130,6 @@ public extension UIView {
         transformAnim.isRemovedOnCompletion = false
         self.layer.add(transformAnim, forKey: "shakeIt")
     }
-    
     /// Hide animation
     ///
     /// - Parameters:
@@ -155,7 +142,6 @@ public extension UIView {
             completion?()
         })
     }
-    
     /// Zoom animation
     ///
     /// - Parameters:
@@ -172,7 +158,6 @@ public extension UIView {
             completion?()
         })
     }
-    
     /// Slide in left and right animation
     ///
     /// - Parameters:

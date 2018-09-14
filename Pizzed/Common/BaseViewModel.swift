@@ -16,4 +16,3 @@ import UIKit
 protocol BaseViewModel {}
 
 extension BaseViewModel {}
-
