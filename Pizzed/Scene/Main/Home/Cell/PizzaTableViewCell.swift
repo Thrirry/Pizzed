@@ -10,8 +10,8 @@ import UIKit
 import PINRemoteImage
 
 class PizzaTableViewCell: UITableViewCell {
-    @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var imageContainerView: UIView!
+    @IBOutlet weak var mainContainView: UIView!
+    @IBOutlet weak var imageContainView: UIView!
     @IBOutlet weak var contentContainerView: UIView!
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var titleItemView: UIView!
@@ -49,49 +49,40 @@ class PizzaTableViewCell: UITableViewCell {
             newsBtn.setBackgroundImage(#imageLiteral(resourceName: "newed"), for: UIControlState.normal)
         }
     }
-    func setupLayout() {
-        // MARK: - Setup Content layout
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        containerView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        containerView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        containerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
-        containerView.addSubview(imageContainerView)
-        imageContainerView.translatesAutoresizingMaskIntoConstraints = false
-        imageContainerView.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
-        imageContainerView.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 1).isActive = true
-        imageContainerView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.49).isActive = true
-        imageContainerView.addSubview(itemImageView)
+    func setupItemImageLayout() {
+        // Setup image contain view
+        imageContainView.translatesAutoresizingMaskIntoConstraints = false
+        imageContainView.leftAnchor.constraint(equalTo: mainContainView.leftAnchor).isActive = true
+        imageContainView.heightAnchor.constraint(equalTo: mainContainView.heightAnchor, multiplier: 1).isActive = true
+        imageContainView.widthAnchor.constraint(equalTo: mainContainView.widthAnchor, multiplier: 0.49).isActive = true
+        imageContainView.addSubview(itemImageView)
+        // Setup item image view
         itemImageView.translatesAutoresizingMaskIntoConstraints = false
-        itemImageView.centerYAnchor.constraint(equalTo: imageContainerView.centerYAnchor).isActive = true
-        itemImageView.heightAnchor.constraint(equalTo: imageContainerView.heightAnchor, multiplier: 1).isActive = true
-        itemImageView.widthAnchor.constraint(equalTo: imageContainerView.widthAnchor, multiplier: 1).isActive = true
+        itemImageView.centerYAnchor.constraint(equalTo: imageContainView.centerYAnchor).isActive = true
+        itemImageView.heightAnchor.constraint(equalTo: imageContainView.heightAnchor, multiplier: 1).isActive = true
+        itemImageView.widthAnchor.constraint(equalTo: imageContainView.widthAnchor, multiplier: 1).isActive = true
         itemImageView.contentMode = .scaleAspectFit
-        imageContainerView.addSubview(reactBtn)
+        imageContainView.addSubview(reactBtn)
         reactBtn.translatesAutoresizingMaskIntoConstraints = false
-        reactBtn.topAnchor.constraint(equalTo: imageContainerView.topAnchor, constant: 7).isActive = true
-        reactBtn.leftAnchor.constraint(equalTo: imageContainerView.leftAnchor, constant: 7).isActive = true
+        reactBtn.topAnchor.constraint(equalTo: imageContainView.topAnchor, constant: 7).isActive = true
+        reactBtn.leftAnchor.constraint(equalTo: imageContainView.leftAnchor, constant: 7).isActive = true
         reactBtn.heightAnchor.constraint(equalToConstant: 18.5).isActive = true
         reactBtn.widthAnchor.constraint(equalToConstant: 20).isActive = true
         reactBtn.setBackgroundImage(#imageLiteral(resourceName: "like"), for: .normal)
-
-        imageContainerView.addSubview(newsBtn)
+        
+        imageContainView.addSubview(newsBtn)
         newsBtn.translatesAutoresizingMaskIntoConstraints = false
-        newsBtn.topAnchor.constraint(equalTo: imageContainerView.topAnchor, constant: 6).isActive = true
-        newsBtn.rightAnchor.constraint(equalTo: imageContainerView.rightAnchor, constant: -6).isActive = true
+        newsBtn.topAnchor.constraint(equalTo: imageContainView.topAnchor, constant: 6).isActive = true
+        newsBtn.rightAnchor.constraint(equalTo: imageContainView.rightAnchor, constant: -6).isActive = true
         newsBtn.heightAnchor.constraint(equalToConstant: 20.5).isActive = true
         newsBtn.widthAnchor.constraint(equalToConstant: 20.5).isActive = true
-        containerView.addSubview(contentContainerView)
+        mainContainView.addSubview(contentContainerView)
         contentContainerView.translatesAutoresizingMaskIntoConstraints = false
-        contentContainerView.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 1).isActive = true
-        contentContainerView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.49).isActive = true
-        contentContainerView.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
-
-        contentContainerView.addSubview(titleItemView)
-        contentContainerView.addSubview(contentItemView)
-        contentContainerView.addSubview(descItemView)
-        contentContainerView.addSubview(orderView)
-        contentContainerView.addSubview(spaceView)
+        contentContainerView.heightAnchor.constraint(equalTo: mainContainView.heightAnchor, multiplier: 1).isActive = true
+        contentContainerView.widthAnchor.constraint(equalTo: mainContainView.widthAnchor, multiplier: 0.49).isActive = true
+        contentContainerView.rightAnchor.constraint(equalTo: mainContainView.rightAnchor).isActive = true
+    }
+    func setupTitleLayout() {
         titleItemView.translatesAutoresizingMaskIntoConstraints = false
         titleItemView.topAnchor.constraint(equalTo: contentContainerView.topAnchor).isActive = true
         titleItemView.rightAnchor.constraint(equalTo: contentContainerView.rightAnchor).isActive = true
@@ -104,6 +95,8 @@ class PizzaTableViewCell: UITableViewCell {
         titleItemLabel.bottomAnchor.constraint(equalTo: titleItemView.bottomAnchor).isActive = true
         titleItemLabel.leftAnchor.constraint(equalTo: titleItemView.leftAnchor).isActive = true
         formatTextLabelTitle(named: titleItemLabel)
+    }
+    func setupContentLayout() {
         contentItemView.translatesAutoresizingMaskIntoConstraints = false
         contentItemView.topAnchor.constraint(equalTo: titleItemView.bottomAnchor).isActive = true
         contentItemView.rightAnchor.constraint(equalTo: contentContainerView.rightAnchor).isActive = true
@@ -118,11 +111,8 @@ class PizzaTableViewCell: UITableViewCell {
         contentItemTV.isUserInteractionEnabled = false
         contentItemTV.setContentOffset(.zero, animated: false)
         formatTextTVContent(named: contentItemTV)
-        spaceView.translatesAutoresizingMaskIntoConstraints = false
-        spaceView.heightAnchor.constraint(equalTo: contentContainerView.heightAnchor, multiplier: 0.05).isActive = true
-        spaceView.widthAnchor.constraint(equalTo: contentContainerView.widthAnchor, multiplier: 1).isActive = true
-        spaceView.topAnchor.constraint(equalTo: contentItemView.bottomAnchor).isActive = true
-        spaceView.rightAnchor.constraint(equalTo: contentContainerView.rightAnchor).isActive = true
+    }
+    func setupDescriptionLayout(){
         descItemView.translatesAutoresizingMaskIntoConstraints = false
         descItemView.topAnchor.constraint(equalTo: spaceView.bottomAnchor).isActive = true
         descItemView.rightAnchor.constraint(equalTo: contentContainerView.rightAnchor).isActive = true
@@ -143,6 +133,8 @@ class PizzaTableViewCell: UITableViewCell {
         priceItemLabel.widthAnchor.constraint(equalTo: descItemView.widthAnchor, multiplier: 0.5).isActive = true
         priceItemLabel.textAlignment = .right
         formatTextLableContent(named: priceItemLabel)
+    }
+    func setupOrderLayout(){
         orderView.translatesAutoresizingMaskIntoConstraints = false
         orderView.topAnchor.constraint(equalTo: descItemView.bottomAnchor).isActive = true
         orderView.rightAnchor.constraint(equalTo: contentContainerView.rightAnchor).isActive = true
@@ -160,6 +152,31 @@ class PizzaTableViewCell: UITableViewCell {
         orderBtn.tintColor = UIColor(red: 0.21, green: 0.21, blue: 0.21, alpha: 1.0)
         orderBtn.titleLabel?.isHidden = true
         orderBtn.setTitleColor(UIColor.clear, for: UIControlState.normal)
+    }
+    // MARK: - Setup layout for UIView
+    func setupLayout() {
+        // Setup main contain view
+        mainContainView.translatesAutoresizingMaskIntoConstraints = false
+        mainContainView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        mainContainView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        mainContainView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        mainContainView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
+        mainContainView.addSubview(imageContainView)
+        setupItemImageLayout()
+        contentContainerView.addSubview(titleItemView)
+        contentContainerView.addSubview(contentItemView)
+        contentContainerView.addSubview(descItemView)
+        contentContainerView.addSubview(orderView)
+        contentContainerView.addSubview(spaceView)
+        setupTitleLayout()
+        setupContentLayout()
+        spaceView.translatesAutoresizingMaskIntoConstraints = false
+        spaceView.heightAnchor.constraint(equalTo: contentContainerView.heightAnchor, multiplier: 0.05).isActive = true
+        spaceView.widthAnchor.constraint(equalTo: contentContainerView.widthAnchor, multiplier: 1).isActive = true
+        spaceView.topAnchor.constraint(equalTo: contentItemView.bottomAnchor).isActive = true
+        spaceView.rightAnchor.constraint(equalTo: contentContainerView.rightAnchor).isActive = true
+        setupDescriptionLayout()
+        setupOrderLayout()
     }
     func formatTextTVContent(named: UITextView) {
         named.sizeToFit()
@@ -184,8 +201,8 @@ class PizzaTableViewCell: UITableViewCell {
         named.font = UIFont(name: "Lekton-Bold", size: fontSize)
     }
     func setupColour() {
-        containerView.backgroundColor = UIColor.FlatColor.Background.ItemsBackground
-        imageContainerView.backgroundColor = UIColor.FlatColor.Background.ItemsBackground
+        mainContainView.backgroundColor = UIColor.FlatColor.Background.ItemsBackground
+        imageContainView.backgroundColor = UIColor.FlatColor.Background.ItemsBackground
         itemImageView.backgroundColor = UIColor.FlatColor.ItemProduct.BackgroundImage
         contentContainerView.backgroundColor = UIColor.FlatColor.ItemProduct.BackgroundContent
         titleItemView.backgroundColor = UIColor.FlatColor.Background.ItemsBackground

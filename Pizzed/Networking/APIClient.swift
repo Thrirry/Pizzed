@@ -12,6 +12,7 @@ typealias APIJSON = [String: Any]
 
 struct APIClient {
     static func getObjectsAPI(named: String, completion: @escaping (APIJSON?) -> Void) {
+        
         let url = URL(string: named)
         let session = URLSession.shared
         guard let unwrappedURL = url else { print("Error unwrapping URL"); return }

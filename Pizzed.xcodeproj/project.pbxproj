@@ -32,6 +32,8 @@
 		F145D44F21386B7700CE3E2E /* DataPizza.swift in Sources */ = {isa = PBXBuildFile; fileRef = F145D44E21386B7700CE3E2E /* DataPizza.swift */; };
 		F14807FA214B89AC00ECA676 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = F14807F9214B89AC00ECA676 /* .swiftlint.yml */; };
 		F1531168214A2C9C00CA4B71 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1531167214A2C9C00CA4B71 /* UIStackView.swift */; };
+		F15765A6214FB6EE00967887 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15765A5214FB6EE00967887 /* ProductViewModel.swift */; };
+		F15765A8214FB70C00967887 /* ProductNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15765A7214FB70C00967887 /* ProductNavigator.swift */; };
 		F165B30A213B7968007297A8 /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F165B309213B7968007297A8 /* Configs.swift */; };
 		F1B2AA4F2132E35D00DE4979 /* Interstate-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1B2AA4E2132E35D00DE4979 /* Interstate-Regular.ttf */; };
 		F1B2AA51213304D800DE4979 /* Interstate-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1B2AA50213304D800DE4979 /* Interstate-Bold.ttf */; };
@@ -94,6 +96,8 @@
 		F145D44E21386B7700CE3E2E /* DataPizza.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPizza.swift; sourceTree = "<group>"; };
 		F14807F9214B89AC00ECA676 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		F1531167214A2C9C00CA4B71 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
+		F15765A5214FB6EE00967887 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
+		F15765A7214FB70C00967887 /* ProductNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductNavigator.swift; sourceTree = "<group>"; };
 		F165B309213B7968007297A8 /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
 		F1B2AA4E2132E35D00DE4979 /* Interstate-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Interstate-Regular.ttf"; sourceTree = "<group>"; };
 		F1B2AA50213304D800DE4979 /* Interstate-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Interstate-Bold.ttf"; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 			isa = PBXGroup;
 			children = (
 				F137F524214288BE00CCE23B /* ProductViewController.swift */,
+				F15765A5214FB6EE00967887 /* ProductViewModel.swift */,
+				F15765A7214FB70C00967887 /* ProductNavigator.swift */,
 			);
 			path = Product;
 			sourceTree = "<group>";
@@ -694,6 +700,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F145D44F21386B7700CE3E2E /* DataPizza.swift in Sources */,
+				F15765A8214FB70C00967887 /* ProductNavigator.swift in Sources */,
 				F1C2D13121214610006452A3 /* Application.swift in Sources */,
 				F1C2D12F212145B1006452A3 /* ViewModelType.swift in Sources */,
 				F1CAC25D21228499002DC312 /* PizzaTableViewCell.swift in Sources */,
@@ -707,6 +714,7 @@
 				F1D16CC52133E40300084393 /* pizzedTests.swift in Sources */,
 				F137F5212142861200CCE23B /* PizzaDetailsCollectionViewCell.swift in Sources */,
 				F137F5162142622300CCE23B /* MenuTableViewCell.swift in Sources */,
+				F15765A6214FB6EE00967887 /* ProductViewModel.swift in Sources */,
 				F1CAC26121228C67002DC312 /* Colours.swift in Sources */,
 				F1C2D0F921213484006452A3 /* AppDelegate.swift in Sources */,
 				F1379E172121883900CFE247 /* IntroViewModel.swift in Sources */,

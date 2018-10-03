@@ -13,7 +13,8 @@ final class DataForPizza {
     static let sharedInstance = DataForPizza()
     fileprivate init() {}
     var pizzaData: [PizzaData] = []
-    var images: [UIImage] = []
+//    var images: [UIImage] = []
+    
     func getPizzaData(completion: @escaping () -> Void) {
         APIClient.getObjectsAPI(named: Config.apiPizzaURL) { (json) in
             let feed = json?["feed"] as? APIJSON

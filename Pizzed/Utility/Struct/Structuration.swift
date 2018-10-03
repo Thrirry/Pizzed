@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+// swiftlint:disable force_cast
 struct RightbarData {
     let name: String
     let cell: String
@@ -29,7 +29,7 @@ struct PizzaData {
     let state: String
     let idPizza: String
     init(dictionary: APIJSON) {
-        self.cell = dictionary["cell"] as! String
+        self.cell = dictionary["cell"] as? String ?? ""
         self.image = dictionary["image"] as! String
         self.title = dictionary["title"] as! String
         self.size = dictionary["size"] as! String

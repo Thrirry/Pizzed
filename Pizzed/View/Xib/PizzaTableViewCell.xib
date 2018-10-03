@@ -125,13 +125,13 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="containerView" destination="1SK-Zo-yLV" id="3c1-hx-z0G"/>
                 <outlet property="contentContainerView" destination="9ie-Jb-18x" id="cfS-xd-oSv"/>
                 <outlet property="contentItemTV" destination="cS1-fF-Bcg" id="sQJ-Y3-OMS"/>
                 <outlet property="contentItemView" destination="DGA-jc-heI" id="8US-lD-uCw"/>
                 <outlet property="descItemView" destination="jsl-OK-nPq" id="4je-e7-CPl"/>
-                <outlet property="imageContainerView" destination="Ole-TK-8sf" id="ZUW-OX-9f8"/>
+                <outlet property="imageContainView" destination="Ole-TK-8sf" id="pNB-bP-KwI"/>
                 <outlet property="itemImageView" destination="seC-LB-hW0" id="DcV-LW-HoO"/>
+                <outlet property="mainContainView" destination="1SK-Zo-yLV" id="ijA-d0-33Q"/>
                 <outlet property="newsBtn" destination="ja3-9S-adk" id="RBY-m5-DFg"/>
                 <outlet property="orderBtn" destination="aXv-KW-FIm" id="99b-vS-bqz"/>
                 <outlet property="orderView" destination="kHH-6S-A9f" id="hG5-Hg-i4U"/>

@@ -37,7 +37,7 @@ class BaseViewController: UIViewController {
         return view
     }
     func onSlideMenuButtonPressed() {
-        guard let menuVC: MenuViewController = self.storyboard!.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController else {
+        guard let menuVC: MenuViewController = self.storyboard?.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController else {
             fatalError("Misconfigured view controller!")
         }
         menuVC.delegate = self as? MenuDelegate
@@ -54,22 +54,37 @@ class BaseViewController: UIViewController {
             self.view.frame = CGRect(x: 0, y: 0 - UIScreen.main.bounds.size.height, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
             self.view.layoutIfNeeded()
             self.view.backgroundColor = UIColor.clear
-        }, completion: { (finished) -> Void in
+        }, completion: { (_) -> Void in
             self.view.removeFromSuperview()
             self.removeFromParentViewController()
         })
     }
+    
+    @objc func onCloseCollectionClick(_ sender: UIButton) {
+//        removeChildVC()
+        
+        sender.tag = 1
+        if sender.tag == 1 {
+         print("remove button actived")
+            sender.tag = 0
+            removeChildVC()
+        }
+//        UIView.animate(withDuration: 0.2, animations: { () -> Void in
+//            self.view.frame = CGRect(x: 0, y: 0 - UIScreen.main.bounds.size.height, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+//            self.view.layoutIfNeeded()
+//            self.view.backgroundColor = UIColor.clear
+//        }, completion: nil)
+    }
+    
     @objc func insideItemDetailsButtonPressed(_ sender: UIButton) {
-        guard let itemDetailVC: ProductViewController = self.storyboard!.instantiateViewController(withIdentifier: "ProductViewController") as? ProductViewController else {
+        guard let itemDetailVC: ProductViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProductViewController") as? ProductViewController else {
             fatalError("Misconfigured view controller!\(sender)")
         }
-
-        self.addChildViewController(itemDetailVC)
-        self.view.addSubview(itemDetailVC.view)
-        itemDetailVC.view.layoutIfNeeded()
-
+        
+//        itemDetailVC.delegate = self as? ItemDetailsDelegate
+        addChildVC(itemDetailVC)
         itemDetailVC.view.frame = CGRect(x: 0 - UIScreen.main.bounds.size.width, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
-
+        
         UIView.animate(withDuration: 0.3, animations: { () -> Void in
             itemDetailVC.view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
             sender.isEnabled = true

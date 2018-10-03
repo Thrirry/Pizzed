@@ -15,7 +15,7 @@ class PizzaDetailsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var detailContainView: UIView!
-    @IBOutlet weak var orderBntContainView: UIView!
+    @IBOutlet weak var orderContainView: UIView!
     @IBOutlet weak var dissmissButton: UIButton!
     @IBOutlet weak var compositionLabel: UILabel!
     @IBOutlet weak var compositionText: UITextView!
@@ -23,11 +23,12 @@ class PizzaDetailsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nutriInfoTableView: UITableView!
     @IBOutlet weak var descContainView: UIView!
     @IBOutlet weak var tradiDoughLabel: UILabel!
-    
     @IBOutlet weak var sizeItemTitleLabel: UILabel!
     @IBOutlet weak var sizeItemLabel: UILabel!
     @IBOutlet weak var weightItemLabel: UILabel!
     @IBOutlet weak var weightItemTitleLabel: UILabel!
+    @IBOutlet weak var orderBtn: UIButton!
+    @IBOutlet weak var priceLabel: UILabel!
     let cellId = "cellId"
     let testString = "Italian flour, mozzarella, creamsauce, turkey, orange, almonds, green mix, cranberry, orange mustard"
     override func setNeedsLayout() {
@@ -35,48 +36,51 @@ class PizzaDetailsCollectionViewCell: UICollectionViewCell {
         setupColours()
         tableViewSetup()
     }
+    
     func tableViewSetup() {
         nutriInfoTableView.delegate = (self as UITableViewDelegate)
         nutriInfoTableView.dataSource = (self as UITableViewDataSource)
         nutriInfoTableView.register(nutriInfoTableViewCell.self, forCellReuseIdentifier: cellId)
     }
-    func setupLayout() {
+    
+    func setupItemImageLayout() {
+        // Setup item image view
         imageContainView.translatesAutoresizingMaskIntoConstraints = false
         imageContainView.topAnchor.constraint(equalTo: topAnchor, constant: 20).isActive = true
-        imageContainView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
-        imageContainView.rightAnchor.constraint(equalTo: rightAnchor, constant: -20).isActive = true
+        imageContainView.leftAnchor.constraint(equalTo: leftAnchor, constant: 25).isActive = true
+        imageContainView.rightAnchor.constraint(equalTo: rightAnchor, constant: -25).isActive = true
         imageContainView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.34).isActive = true
-        imageContainView.backgroundColor = UIColor.FlatColor.Background.ItemsBackground
         imageContainView.addSubview(dissmissButton)
+        // Dissmiss button
         dissmissButton.translatesAutoresizingMaskIntoConstraints = false
         dissmissButton.topAnchor.constraint(equalTo: imageContainView.topAnchor, constant: 5).isActive = true
         dissmissButton.leftAnchor.constraint(equalTo: imageContainView.leftAnchor, constant: 2).isActive = true
         dissmissButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
         dissmissButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        contentContainView.translatesAutoresizingMaskIntoConstraints = false
-        contentContainView.topAnchor.constraint(equalTo: imageContainView.bottomAnchor, constant: 5).isActive = true
-        contentContainView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
-        contentContainView.rightAnchor.constraint(equalTo: rightAnchor, constant: -20).isActive = true
-        contentContainView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.6).isActive = true
-        contentContainView.addSubview(titleContainView)
-        contentContainView.addSubview(detailContainView)
-        contentContainView.addSubview(orderBntContainView)
+    }
+
+    func setupTitleLayout() {
+        // Setup title view & label view
         titleContainView.translatesAutoresizingMaskIntoConstraints = false
         titleContainView.topAnchor.constraint(equalTo: contentContainView.topAnchor).isActive = true
-        titleContainView.leftAnchor.constraint(equalTo: contentContainView.leftAnchor).isActive = true
+        titleContainView.leftAnchor.constraint(equalTo: contentContainView.leftAnchor, constant: 15).isActive = true
         titleContainView.heightAnchor.constraint(equalTo: contentContainView.heightAnchor, multiplier: 0.1).isActive = true
         titleContainView.widthAnchor.constraint(equalTo: contentContainView.widthAnchor, multiplier: 1).isActive = true
         titleContainView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.topAnchor.constraint(equalTo: titleContainView.topAnchor).isActive = true
-        titleLabel.leftAnchor.constraint(equalTo: titleContainView.leftAnchor).isActive = true
+        titleLabel.leftAnchor.constraint(equalTo: titleContainView.leftAnchor, constant: 2).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: titleContainView.rightAnchor).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: titleContainView.bottomAnchor).isActive = true
         titleLabel.formatTextMainLabelTitle(named: titleLabel, title: "Chicken with turkey")
+    }
+    
+    func setupDetailContainLayout() {
+        // Setup detail contain view
         detailContainView.translatesAutoresizingMaskIntoConstraints = false
         detailContainView.topAnchor.constraint(equalTo: titleContainView.bottomAnchor, constant: 5).isActive = true
-        detailContainView.leftAnchor.constraint(equalTo: contentContainView.leftAnchor).isActive = true
-        detailContainView.rightAnchor.constraint(equalTo: contentContainView.rightAnchor).isActive = true
+        detailContainView.leftAnchor.constraint(equalTo: contentContainView.leftAnchor, constant: 15).isActive = true
+        detailContainView.rightAnchor.constraint(equalTo: contentContainView.rightAnchor, constant: -15).isActive = true
         detailContainView.heightAnchor.constraint(equalTo: contentContainView.heightAnchor, multiplier: 0.72).isActive = true
         detailContainView.addSubview(compositionLabel)
         detailContainView.addSubview(compositionText)
@@ -84,6 +88,16 @@ class PizzaDetailsCollectionViewCell: UICollectionViewCell {
         detailContainView.addSubview(nutriInfoTableView)
         detailContainView.addSubview(descContainView)
         detailContainView.addSubview(tradiDoughLabel)
+
+        setupComposition()
+        setupNutritionalLayout()
+        setupDescriptionLayout()
+        setupTraditionalDoughLayout()
+        setupOrderLayout()
+    }
+    
+    func setupComposition() {
+        // Setup composition label & text view
         compositionLabel.translatesAutoresizingMaskIntoConstraints = false
         compositionLabel.topAnchor.constraint(equalTo: detailContainView.topAnchor, constant: 2).isActive = true
         compositionLabel.leftAnchor.constraint(equalTo: detailContainView.leftAnchor, constant: 2).isActive = true
@@ -97,18 +111,25 @@ class PizzaDetailsCollectionViewCell: UICollectionViewCell {
         compositionText.heightAnchor.constraint(equalTo: detailContainView.heightAnchor, multiplier: 0.2).isActive = true
         compositionText.text = testString
         compositionText.formatTextViewContent(named: compositionText)
+    }
+    
+    func setupNutritionalLayout() {
+        // Setup nutritional infotional per item label view
         nutriInfoLabel.translatesAutoresizingMaskIntoConstraints = false
         nutriInfoLabel.topAnchor.constraint(equalTo: compositionText.bottomAnchor, constant: 10).isActive = true
         nutriInfoLabel.leftAnchor.constraint(equalTo: detailContainView.leftAnchor, constant: 2).isActive = true
         nutriInfoLabel.widthAnchor.constraint(equalTo: detailContainView.widthAnchor, multiplier: 1).isActive = true
         nutriInfoLabel.heightAnchor.constraint(equalTo: detailContainView.heightAnchor, multiplier: 0.06).isActive = true
         nutriInfoLabel.formatTextLabelTitle(named: nutriInfoLabel, title: "Nutritional information per 100 g:")
+        // Setup nutritional infotional per item table view
         nutriInfoTableView.translatesAutoresizingMaskIntoConstraints  = false
         nutriInfoTableView.topAnchor.constraint(equalTo: nutriInfoLabel.bottomAnchor, constant: 5).isActive = true
         nutriInfoTableView.heightAnchor.constraint(equalTo: detailContainView.heightAnchor, multiplier: 0.3).isActive = true
         nutriInfoTableView.rightAnchor.constraint(equalTo: detailContainView.rightAnchor, constant: -2).isActive = true
         nutriInfoTableView.leftAnchor.constraint(equalTo: detailContainView.leftAnchor, constant: 4).isActive = true
-
+    }
+    func setupDescriptionLayout() {
+        // Setup description view
         descContainView.translatesAutoresizingMaskIntoConstraints = false
         descContainView.topAnchor.constraint(equalTo: nutriInfoTableView.bottomAnchor, constant: 5).isActive = true
         descContainView.heightAnchor.constraint(equalTo: detailContainView.heightAnchor, multiplier: 0.1).isActive = true
@@ -118,6 +139,7 @@ class PizzaDetailsCollectionViewCell: UICollectionViewCell {
         descContainView.addSubview(weightItemTitleLabel)
         descContainView.addSubview(sizeItemLabel)
         descContainView.addSubview(weightItemLabel)
+        // Setup size item view - Description
         sizeItemTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         sizeItemTitleLabel.topAnchor.constraint(equalTo: descContainView.topAnchor).isActive = true
         sizeItemTitleLabel.leftAnchor.constraint(equalTo: descContainView.leftAnchor).isActive = true
@@ -128,40 +150,79 @@ class PizzaDetailsCollectionViewCell: UICollectionViewCell {
         sizeItemLabel.topAnchor.constraint(equalTo: descContainView.topAnchor).isActive = true
         sizeItemLabel.leftAnchor.constraint(equalTo: sizeItemTitleLabel.rightAnchor).isActive = true
         sizeItemLabel.bottomAnchor.constraint(equalTo: descContainView.bottomAnchor).isActive = true
-        sizeItemLabel.widthAnchor.constraint(equalTo: descContainView.widthAnchor, multiplier: 0.3).isActive = true
+        sizeItemLabel.widthAnchor.constraint(equalTo: descContainView.widthAnchor, multiplier: 0.2).isActive = true
         sizeItemLabel.formatTextLableContent(named: sizeItemLabel)
         sizeItemLabel.textAlignment = .left
         sizeItemLabel.text = "30 cm"
+        // Setup weight item view - Description
         weightItemTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        weightItemTitleLabel.topAnchor.constraint(equalTo: descContainView.topAnchor).isActive = true
-        weightItemTitleLabel.leftAnchor.constraint(equalTo: sizeItemLabel.rightAnchor, constant: 5).isActive = true
-        weightItemTitleLabel.bottomAnchor.constraint(equalTo: descContainView.bottomAnchor).isActive = true
-        weightItemTitleLabel.widthAnchor.constraint(equalTo: descContainView.widthAnchor, multiplier: 0.2).isActive = true
-        weightItemTitleLabel.textAlignment = .left
+        weightItemTitleLabel.centerXAnchor.constraint(equalTo: descContainView.centerXAnchor).isActive = true
+        weightItemTitleLabel.centerYAnchor.constraint(equalTo: descContainView.centerYAnchor).isActive = true
+        weightItemTitleLabel.widthAnchor.constraint(equalTo: descContainView.widthAnchor, multiplier: 0.3).isActive = true
         weightItemTitleLabel.formatTextLabelTitle(named: weightItemTitleLabel, title: "Weight:")
+        weightItemTitleLabel.textAlignment = .right
         weightItemLabel.translatesAutoresizingMaskIntoConstraints = false
         weightItemLabel.topAnchor.constraint(equalTo: descContainView.topAnchor).isActive = true
         weightItemLabel.leftAnchor.constraint(equalTo: weightItemTitleLabel.rightAnchor).isActive = true
         weightItemLabel.bottomAnchor.constraint(equalTo: descContainView.bottomAnchor).isActive = true
-        weightItemLabel.widthAnchor.constraint(equalTo: descContainView.widthAnchor, multiplier: 0.25).isActive = true
-        weightItemLabel.textAlignment = .center
+        weightItemLabel.widthAnchor.constraint(equalTo: descContainView.widthAnchor, multiplier: 0.3).isActive = true
         weightItemLabel.formatTextLableContent(named: weightItemLabel)
         weightItemLabel.text = "480 ± 50g"
+        weightItemLabel.textAlignment = .right
+    }
+    
+    func setupTraditionalDoughLayout() {
+        // Setup Traditional View
         tradiDoughLabel.translatesAutoresizingMaskIntoConstraints = false
         tradiDoughLabel.topAnchor.constraint(equalTo: descContainView.bottomAnchor, constant: 5).isActive = true
         tradiDoughLabel.heightAnchor.constraint(equalTo: detailContainView.heightAnchor, multiplier: 0.06).isActive = true
         tradiDoughLabel.rightAnchor.constraint(equalTo: detailContainView.rightAnchor, constant: -2).isActive = true
         tradiDoughLabel.leftAnchor.constraint(equalTo: detailContainView.leftAnchor, constant: 2).isActive = true
-        tradiDoughLabel.formatTextLableContent(named: tradiDoughLabel)
-        tradiDoughLabel.text = "Traditional dough"
-        orderBntContainView.translatesAutoresizingMaskIntoConstraints = false
-        orderBntContainView.topAnchor.constraint(equalTo: detailContainView.bottomAnchor).isActive = true
-        orderBntContainView.leftAnchor.constraint(equalTo: contentContainView.leftAnchor).isActive = true
-        orderBntContainView.rightAnchor.constraint(equalTo: contentContainView.rightAnchor).isActive = true
-        orderBntContainView.heightAnchor.constraint(equalTo: contentContainView.heightAnchor, multiplier: 0.12).isActive = true
+        tradiDoughLabel.formatTextLabelTitle(named: tradiDoughLabel, title: "Traditional dough")
     }
+    
+    func setupOrderLayout() {
+        // Order View
+        orderContainView.translatesAutoresizingMaskIntoConstraints = false
+        orderContainView.topAnchor.constraint(equalTo: detailContainView.bottomAnchor).isActive = true
+        orderContainView.leftAnchor.constraint(equalTo: contentContainView.leftAnchor, constant: 17).isActive = true
+        orderContainView.rightAnchor.constraint(equalTo: contentContainView.rightAnchor, constant: -17).isActive = true
+        orderContainView.heightAnchor.constraint(equalTo: contentContainView.heightAnchor, multiplier: 0.12).isActive = true
+        orderContainView.layer.borderWidth = 1
+        orderContainView.addSubview(orderBtn)
+        orderContainView.addSubview(priceLabel)
+        orderBtn.translatesAutoresizingMaskIntoConstraints = false
+        orderBtn.topAnchor.constraint(equalTo: orderContainView.topAnchor).isActive = true
+        orderBtn.rightAnchor.constraint(lessThanOrEqualTo: orderContainView.rightAnchor).isActive = true
+        orderBtn.bottomAnchor.constraint(equalTo: orderContainView.bottomAnchor).isActive = true
+        orderBtn.widthAnchor.constraint(equalTo: orderContainView.widthAnchor, multiplier: 0.5).isActive = true
+        orderBtn.layer.borderWidth = 1
+        priceLabel.translatesAutoresizingMaskIntoConstraints = false
+        priceLabel.topAnchor.constraint(equalTo: orderContainView.topAnchor).isActive = true
+        priceLabel.leftAnchor.constraint(lessThanOrEqualTo: orderContainView.leftAnchor).isActive = true
+        priceLabel.bottomAnchor.constraint(equalTo: orderContainView.bottomAnchor).isActive = true
+        priceLabel.widthAnchor.constraint(equalTo: orderContainView.widthAnchor, multiplier: 0.5).isActive = true
+        priceLabel.formatTextLableButton(named: priceLabel, title: "$15.00")
+    }
+    // MARK: - Setup layout for UIView
+    func setupLayout() {
+        setupItemImageLayout()
+        // Setup item content view
+        contentContainView.translatesAutoresizingMaskIntoConstraints = false
+        contentContainView.topAnchor.constraint(equalTo: imageContainView.bottomAnchor, constant: 5).isActive = true
+        contentContainView.leftAnchor.constraint(equalTo: leftAnchor, constant: 25).isActive = true
+        contentContainView.rightAnchor.constraint(equalTo: rightAnchor, constant: -25).isActive = true
+        contentContainView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.6).isActive = true
+        contentContainView.addSubview(titleContainView)
+        contentContainView.addSubview(detailContainView)
+        contentContainView.addSubview(orderContainView)
+        setupTitleLayout()
+        setupDetailContainLayout()
+    }
+    // MARK: - Setup colours for UIView
     func setupColours() {
-        contentContainView.backgroundColor  = UIColor.clear
+        imageContainView.backgroundColor = UIColor.FlatColor.Background.ItemDetailBackground
+        contentContainView.backgroundColor  = UIColor.FlatColor.Background.ItemDetailBackground
         titleContainView.backgroundColor = UIColor.clear
         titleLabel.backgroundColor = UIColor.clear
         detailContainView.backgroundColor  = UIColor.clear
@@ -172,6 +233,11 @@ class PizzaDetailsCollectionViewCell: UICollectionViewCell {
         nutriInfoTableView.backgroundColor = UIColor.clear
         descContainView.backgroundColor = UIColor.clear
         tradiDoughLabel.backgroundColor = UIColor.clear
+        orderContainView.backgroundColor = UIColor.clear
+        orderBtn.backgroundColor = UIColor.FlatColor.ItemProduct.orderButton
+        orderBtn.layer.borderColor = UIColor.FlatColor.ItemProduct.borderOrderButton.cgColor
+        orderContainView.layer.borderColor = UIColor.FlatColor.ItemProduct.borderOrderButton.cgColor
+        dissmissButton.backgroundColor = UIColor.blue
     }
 }
 extension PizzaDetailsCollectionViewCell: UITableViewDataSource, UITableViewDelegate {
@@ -179,7 +245,9 @@ extension PizzaDetailsCollectionViewCell: UITableViewDataSource, UITableViewDele
         return 5
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! nutriInfoTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? nutriInfoTableViewCell else {
+            fatalError("")
+        }
         cell.backgroundColor = UIColor.clear
         cell.selectionStyle = .none
         return cell
@@ -188,7 +256,6 @@ extension PizzaDetailsCollectionViewCell: UITableViewDataSource, UITableViewDele
         return 20
     }
 }
-
 class nutriInfoTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -197,7 +264,6 @@ class nutriInfoTableViewCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    // creating a label to display some dummy text
     let label: UILabel = {
         let label = UILabel()
         label.text = "Calories ...................300 kcal"

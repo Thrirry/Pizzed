@@ -39,9 +39,11 @@ class LaunchViewController: UIViewController {
         UIView.animate(withDuration: 3.3, animations: { () -> Void in
             let translate = CGAffineTransform(translationX: self.pizzaCutterProgress.width * 0.97, y: 0)
             self.pizzaCutterImage.transform = translate
-        }, completion: {
-            _ in (UIApplication.shared.delegate as! AppDelegate).redirect()
-        })
+        }, completion: {(_) -> Void in
+            
+//            (UIApplication.shared.delegate as! AppDelegate).redirect()
+            (UIApplication.shared.delegate as? AppDelegate)?.redirect()
+})
     }
     func transformLogoImage() {
         UIView.animate(withDuration: 3.3, animations: { () -> Void in

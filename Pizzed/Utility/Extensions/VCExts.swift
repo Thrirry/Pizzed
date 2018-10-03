@@ -85,6 +85,20 @@ extension UIViewController {
         viewController.modalPresentationStyle = .overCurrentContext
         tabbar.present(viewController, animated: false, completion: nil)
     }
+    
+    func addChildVC(_ child: UIViewController) {
+        addChildViewController(child)
+        view.addSubview(child.view)
+        child.didMove(toParentViewController: self)
+    }
+    func removeChildVC() {
+        guard parent != nil else {
+            return
+        }
+        willMove(toParentViewController: nil)
+        removeFromParentViewController()
+        view.removeFromSuperview()
+    }
 }
 
 extension UIWindow {

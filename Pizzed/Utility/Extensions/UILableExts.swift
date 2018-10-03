@@ -32,6 +32,15 @@ extension UILabel {
         let fontSize = named.font.pointSize
         named.font = UIFont(name: "Lekton-Regular", size: fontSize)
     }
+    func formatTextLableButton(named: UILabel, title: String) {
+        named.sizeToFit()
+        named.text = title
+        named.textAlignment = .center
+        named.adjustsFontSizeToFitWidth = true
+        named.textColor = UIColor(red: 0.21, green: 0.41, blue: 0.35, alpha: 1.0)
+        let fontSize = 25
+        named.font = UIFont(name: "Lekton-Regular", size: CGFloat(fontSize))
+    }
 }
 
 extension UITextView {

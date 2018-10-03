@@ -55,13 +55,12 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
             let cell = loadViewFromNib(named: "PizzaTableViewCell") as! PizzaTableViewCell
             let data = pizza.pizzaData[indexPath.row]
             cell.displayContent(image: data.image, title: data.title, price: data.price, size: data.size, content: data.content, idpizza: data.idPizza, state: data.state)
-//          Test ProductDetailsCollectionView
+
             cell.orderBtn.addTarget(self, action: #selector(insideItemDetailsButtonPressed(_:)), for: .touchUpInside)
             cell.backgroundColor = UIColor.FlatColor.Background.HomeBackground
             cell.selectionStyle = .none
             return cell
         } else {
-            // swiftlint:disable force_cast
             let cell = loadViewFromNib(named: "RightBarTableViewCell") as! RightBarTableViewCell
             cell.backgroundColor = UIColor.FlatColor.Background.HomeBackground
             let data = rightbar.rightbarData[indexPath.row]
