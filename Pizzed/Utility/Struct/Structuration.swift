@@ -78,6 +78,6 @@ extension ProductStorage {
 
 struct IconMenuSlide {
     let cell: Int
-    let image: UIImage
+    let image: UIImage?
     let title: String
 }

@@ -67,6 +67,7 @@
 		F1D1ADEC21272EB7009620DD /* Lekton-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1D1ADEB21272A1A009620DD /* Lekton-Bold.ttf */; };
 		F1D1ADED21272EBA009620DD /* Lekton-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1D1ADEA21272A1A009620DD /* Lekton-Italic.ttf */; };
 		F1D1ADEE21272EBD009620DD /* Lekton-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1D1ADE921272A1A009620DD /* Lekton-Regular.ttf */; };
+		F1E9B51B21660BB400E71BDB /* UIButtonExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E9B51A21660BB400E71BDB /* UIButtonExts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,6 +134,7 @@
 		F1D1ADE921272A1A009620DD /* Lekton-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lekton-Regular.ttf"; sourceTree = "<group>"; };
 		F1D1ADEA21272A1A009620DD /* Lekton-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lekton-Italic.ttf"; sourceTree = "<group>"; };
 		F1D1ADEB21272A1A009620DD /* Lekton-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lekton-Bold.ttf"; sourceTree = "<group>"; };
+		F1E9B51A21660BB400E71BDB /* UIButtonExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExts.swift; sourceTree = "<group>"; };
 		F2ABCE9C13105BF8627DD4C9 /* Pods_Pizzed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pizzed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -337,6 +339,7 @@
 				F1C2D13B2121611D006452A3 /* VCExts.swift */,
 				F1CA5F652147C1A600102D20 /* UILableExts.swift */,
 				F1531167214A2C9C00CA4B71 /* UIStackView.swift */,
+				F1E9B51A21660BB400E71BDB /* UIButtonExts.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -732,6 +735,7 @@
 				F1C2D10C212134D8006452A3 /* Constants.swift in Sources */,
 				F145D44A21385A6800CE3E2E /* DataRightBar.swift in Sources */,
 				F1C2D12521214276006452A3 /* HomeViewController.swift in Sources */,
+				F1E9B51B21660BB400E71BDB /* UIButtonExts.swift in Sources */,
 				F1C809702121F9FE007993B0 /* LaunchViewController.swift in Sources */,
 				F1C2D13A21215A8A006452A3 /* MenuViewModel.swift in Sources */,
 				F1379E152121882500CFE247 /* IntroViewController.swift in Sources */,

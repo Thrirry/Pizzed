@@ -42,7 +42,7 @@ class PizzaTableViewCell: UITableViewCell {
         itemImageView.pin_updateWithProgress = true
         titleItemLabel.text = title
         if state == "new" {
-            newsBtn.setBackgroundImage(#imageLiteral(resourceName: "newed"), for: UIControlState.normal)
+            newsBtn.setBackgroundImageForButton(urlImg: "btnNewActive", btnNamed: newsBtn)
         }
     }
     func displayComposition(composition: String) {
@@ -79,7 +79,9 @@ class PizzaTableViewCell: UITableViewCell {
         reactBtn.leftAnchor.constraint(equalTo: imageContainView.leftAnchor, constant: 7).isActive = true
         reactBtn.heightAnchor.constraint(equalToConstant: 18.5).isActive = true
         reactBtn.widthAnchor.constraint(equalToConstant: 20).isActive = true
-        reactBtn.setBackgroundImage(#imageLiteral(resourceName: "like"), for: .normal)
+        reactBtn.setBackgroundImageForButton(urlImg: "btnLike", btnNamed: reactBtn)
+//        let reactLikeBtn = UIImage(named: "btnLike")
+//        reactBtn.setBackgroundImage(reactLikeBtn, for: .normal)
         
         imageContainView.addSubview(newsBtn)
         newsBtn.translatesAutoresizingMaskIntoConstraints = false
@@ -158,7 +160,10 @@ class PizzaTableViewCell: UITableViewCell {
         orderBtn.centerXAnchor.constraint(equalTo: orderView.centerXAnchor).isActive = true
         orderBtn.widthAnchor.constraint(equalToConstant: 27).isActive = true
         orderBtn.heightAnchor.constraint(equalToConstant: 27).isActive = true
-        orderBtn.setImage(#imageLiteral(resourceName: "pizza-cutter-1"), for: UIControlState.normal)
+        
+        let orderBtnNamed = UIImage(named: "btnPizzaCutter")
+        orderBtn.setImage(orderBtnNamed, for: .normal)
+        
         orderBtn.contentMode = .scaleAspectFit
         orderBtn.tintColor = UIColor(red: 0.21, green: 0.21, blue: 0.21, alpha: 1.0)
         orderBtn.titleLabel?.isHidden = true

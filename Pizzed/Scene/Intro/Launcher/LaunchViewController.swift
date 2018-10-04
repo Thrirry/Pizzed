@@ -56,7 +56,8 @@ class LaunchViewController: UIViewController {
         self.logoImageView.widthAnchor.constraint(equalToConstant: 110).isActive = true
         self.logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         self.logoImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        self.logoImageView.image =  #imageLiteral(resourceName: "logo-pizza-final")
+        
+        self.logoImageView.image = UIImage(named: "mainLogo")
     }
     func setUpLayout() {
         view.backgroundColor = UIColor.FlatColor.Background.HomeBackground
@@ -76,7 +77,7 @@ class LaunchViewController: UIViewController {
         pizzaCutterProgress.layer.sublayers![1].cornerRadius = 3
         pizzaCutterProgress.subviews[1].clipsToBounds = true
         pizzaCutterImage.translatesAutoresizingMaskIntoConstraints = false
-        pizzaCutterImage.image = #imageLiteral(resourceName: "pizza-cutter")
+        pizzaCutterImage.image = UIImage(named: "btnPizzaCutterActive")
         pizzaCutterImage.heightAnchor.constraint(equalToConstant: 30).isActive = true
         pizzaCutterImage.widthAnchor.constraint(equalToConstant: 30).isActive = true
         pizzaCutterImage.bottomAnchor.constraint(equalTo: pizzaCutterProgress.topAnchor, constant: -1).isActive = true

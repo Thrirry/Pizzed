@@ -1,4 +1,3 @@
-
 //
 //  PizzaDetailsCollectionViewCell.swift
 //  Pizzed
@@ -238,7 +237,6 @@ class PizzaDetailsCollectionViewCell: UICollectionViewCell {
         orderBtn.backgroundColor = UIColor.FlatColor.ItemProduct.orderButton
         orderBtn.layer.borderColor = UIColor.FlatColor.ItemProduct.borderOrderButton.cgColor
         orderContainView.layer.borderColor = UIColor.FlatColor.ItemProduct.borderOrderButton.cgColor
-        
     }
 }
 extension PizzaDetailsCollectionViewCell: UITableViewDataSource, UITableViewDelegate {

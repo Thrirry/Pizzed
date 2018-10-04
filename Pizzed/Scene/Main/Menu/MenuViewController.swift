@@ -24,25 +24,20 @@ class MenuViewController: BaseViewController, UITableViewDelegate, UITableViewDa
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        binding()
         setupLayout()
-        // Do any additional setup after loading the view.
+        binding()
     }
-    func updateArrayMenuOptions() {
-        arrayMenuOptions.append(["title": "Home", "icon": "HomeIcon"])
-        arrayMenuOptions.append(["title": "Play", "icon": "PlayIcon"])
-        menuTableView.reloadData()
+    
+    func binding(){
+        arrayIconOfMenuSlide = [IconMenuSlide(cell: 0, image: UIImage(named: Constants.CResourceImage.PizzaWorld), title: " "),
+                                IconMenuSlide(cell: 1, image: UIImage(named: Constants.CResourceImage.PizzaWorld), title: "Pizza World"),
+                                IconMenuSlide(cell: 1, image: UIImage(named: Constants.CResourceImage.Cart), title: "Your Cart"),
+                                IconMenuSlide(cell: 1, image: UIImage(named: Constants.CResourceImage.Map), title: "Coverage Area"),
+                                IconMenuSlide(cell: 1, image: UIImage(named: Constants.CResourceImage.Telephone), title: "Telephone"),
+                                IconMenuSlide(cell: 1, image: UIImage(named: Constants.CResourceImage.Clock), title: "8AM - 10PM"),
+                                IconMenuSlide(cell: 2, image: UIImage(named: Constants.CResourceImage.Back), title: " ")]
     }
-    func binding() {
-        arrayIconOfMenuSlide = [IconMenuSlide(cell: 0, image: #imageLiteral(resourceName: "MainLogo"), title: " "),
-                                IconMenuSlide(cell: 1, image: #imageLiteral(resourceName: "logo-pizza-final"), title: "Pizza World"),
-                                IconMenuSlide(cell: 1, image: #imageLiteral(resourceName: "Cart"), title: "Your Cart"),
-                                IconMenuSlide(cell: 1, image: #imageLiteral(resourceName: "map-location"), title: "Coverage Area"),
-                                IconMenuSlide(cell: 1, image: #imageLiteral(resourceName: "Telephone"), title: "Telephone"),
-                                IconMenuSlide(cell: 1, image: #imageLiteral(resourceName: "alarm-clock"), title: "8AM - 11PM"),
-                                IconMenuSlide(cell: 2, image: #imageLiteral(resourceName: "back-arrow-final"), title: " ") ]
-    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayIconOfMenuSlide.count
     }
