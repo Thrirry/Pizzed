@@ -22,14 +22,14 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         Helper.showLoading()
         var count = 0
-        rightbar.getRightbarData { [weak self] in
+        rightbar.fetchJSON { [weak self] in
             self?.rightBarTableView.reloadData()
             count += 1
             if count == 2 {
                 Helper.hideLoading()
             }
         }
-        pizza.getPizzaData { [weak self] in
+        pizza.fetchJSON { [weak self] in
             self?.leftBarTableView.reloadData()
             count += 1
             if count == 2 {
@@ -42,10 +42,10 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == leftBarTableView {
-            return pizza.pizzaData.count
+            return pizza.serviceProduct.count
         }
         if tableView == rightBarTableView {
-            return rightbar.rightbarData.count
+            return rightbar.menu.count
         }
         return 0
     }
@@ -53,9 +53,22 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         if tableView == leftBarTableView {
             // swiftlint:disable force_cast
             let cell = loadViewFromNib(named: "PizzaTableViewCell") as! PizzaTableViewCell
-            let data = pizza.pizzaData[indexPath.row]
-            cell.displayContent(image: data.image, title: data.title, price: data.price, size: data.size, content: data.content, idpizza: data.idPizza, state: data.state)
-
+            let mainData = pizza.serviceProduct[indexPath.row]
+            let otherData = pizza.pizzaStore[indexPath.row]
+            
+            for info in mainData.productInfo {
+               cell.displayTitle(title: info.name, state: info.state )
+                
+                for compositions in info.detail {
+                    cell.displayComposition(composition: compositions.composition)
+                }
+            }
+            for description in otherData.descriptions {
+                cell.displayDescription(weight: description.weight, size: description.size, price: description.price)
+            }
+            for imageUrl in otherData.imageUrls {
+                cell.displayProductImage(image: imageUrl.firstImg)
+            }
             cell.orderBtn.addTarget(self, action: #selector(insideItemDetailsButtonPressed(_:)), for: .touchUpInside)
             cell.backgroundColor = UIColor.FlatColor.Background.HomeBackground
             cell.selectionStyle = .none
@@ -63,9 +76,9 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         } else {
             let cell = loadViewFromNib(named: "RightBarTableViewCell") as! RightBarTableViewCell
             cell.backgroundColor = UIColor.FlatColor.Background.HomeBackground
-            let data = rightbar.rightbarData[indexPath.row]
+            let data = rightbar.menu[indexPath.row]
 //            cell.displayContent(image: rightbar.images[indexPath.row], title: data.name)
-            cell.displayContent(image: data.coverImage, title: data.name)
+            cell.displayContent(image: data.iconBackground, title: data.iconName)
             cell.selectionStyle = .none
             return cell
         }
@@ -73,7 +86,7 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == leftBarTableView {
         } else {
-            let taped = rightbar.rightbarData[indexPath.row].name
+            let taped = rightbar.menu[indexPath.row].iconName
             if taped == "Hey" {
                 onSlideMenuButtonPressed()
             }

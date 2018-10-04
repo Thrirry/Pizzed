@@ -38,17 +38,28 @@ class PizzaTableViewCell: UITableViewCell {
         setupColour()
     }
     // MARK: - Displaying Contents
-    func displayContent(image: String, title: String, price: String, size: String, content: String, idpizza: String, state: String ) {
+    func displayTitle(title: String, state: String ) {
         itemImageView.pin_updateWithProgress = true
-        itemImageView.pin_setImage(from: URL(string: image)!)
         titleItemLabel.text = title
-        contentItemTV.text = content
-        sizeItemLabel.text = size
-        priceItemLabel.text = price + " $"
         if state == "new" {
             newsBtn.setBackgroundImage(#imageLiteral(resourceName: "newed"), for: UIControlState.normal)
         }
     }
+    func displayComposition(composition: String) {
+        contentItemTV.text = composition
+    }
+    
+    func  displayProductImage(image: String) {
+        guard let url = URL(string: image) else {
+            return
+        }
+        itemImageView.pin_setImage(from: url)
+    }
+    func displayDescription(weight: String, size: String, price: Int){
+        sizeItemLabel.text = size
+        priceItemLabel.text = String(String(price) + "$")
+    }
+    
     func setupItemImageLayout() {
         // Setup image contain view
         imageContainView.translatesAutoresizingMaskIntoConstraints = false
@@ -181,8 +192,10 @@ class PizzaTableViewCell: UITableViewCell {
     func formatTextTVContent(named: UITextView) {
         named.sizeToFit()
         named.textColor = UIColor(red: 0.21, green: 0.41, blue: 0.35, alpha: 1.0)
-        let fontSize = named.font?.pointSize
-        named.font = UIFont(name: "Dosis-Medium", size: fontSize!)
+        guard let fontSize = named.font?.pointSize else {
+            return
+        }
+        named.font = UIFont(name: "Dosis-Medium", size: fontSize)
     }
     func formatTextLableContent(named: UILabel) {
         named.sizeToFit()

@@ -53,7 +53,7 @@ class PizzaDetailsCollectionViewCell: UICollectionViewCell {
         imageContainView.addSubview(dissmissButton)
         // Dissmiss button
         dissmissButton.translatesAutoresizingMaskIntoConstraints = false
-        dissmissButton.topAnchor.constraint(equalTo: imageContainView.topAnchor, constant: 5).isActive = true
+        dissmissButton.topAnchor.constraint(equalTo: imageContainView.topAnchor, constant: 8).isActive = true
         dissmissButton.leftAnchor.constraint(equalTo: imageContainView.leftAnchor, constant: 2).isActive = true
         dissmissButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
         dissmissButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
@@ -237,7 +237,7 @@ class PizzaDetailsCollectionViewCell: UICollectionViewCell {
         orderBtn.backgroundColor = UIColor.FlatColor.ItemProduct.orderButton
         orderBtn.layer.borderColor = UIColor.FlatColor.ItemProduct.borderOrderButton.cgColor
         orderContainView.layer.borderColor = UIColor.FlatColor.ItemProduct.borderOrderButton.cgColor
-        dissmissButton.backgroundColor = UIColor.blue
+        
     }
 }
 extension PizzaDetailsCollectionViewCell: UITableViewDataSource, UITableViewDelegate {

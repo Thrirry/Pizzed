@@ -40,9 +40,10 @@ class BaseViewController: UIViewController {
         guard let menuVC: MenuViewController = self.storyboard?.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController else {
             fatalError("Misconfigured view controller!")
         }
-        menuVC.delegate = self as? MenuDelegate
-        self.view.addSubview(menuVC.view)
-        self.addChildViewController(menuVC)
+//        menuVC.delegate = self as? MenuDelegate
+//        self.view.addSubview(menuVC.view)
+//        self.addChildViewController(menuVC)
+        addChildVC(menuVC)
         menuVC.view.layoutIfNeeded()
         menuVC.view.frame=CGRect(x: 0, y: 0  - UIScreen.main.bounds.size.height, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
         UIView.animate(withDuration: 0.2, animations: { () -> Void in
@@ -55,25 +56,27 @@ class BaseViewController: UIViewController {
             self.view.layoutIfNeeded()
             self.view.backgroundColor = UIColor.clear
         }, completion: { (_) -> Void in
-            self.view.removeFromSuperview()
-            self.removeFromParentViewController()
+//            self.view.removeFromSuperview()
+//            self.removeFromParentViewController()
+            self.removeChildVC()
         })
     }
     
     @objc func onCloseCollectionClick(_ sender: UIButton) {
-//        removeChildVC()
         
-        sender.tag = 1
-        if sender.tag == 1 {
-         print("remove button actived")
-            sender.tag = 0
-            removeChildVC()
-        }
-//        UIView.animate(withDuration: 0.2, animations: { () -> Void in
-//            self.view.frame = CGRect(x: 0, y: 0 - UIScreen.main.bounds.size.height, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
-//            self.view.layoutIfNeeded()
-//            self.view.backgroundColor = UIColor.clear
-//        }, completion: nil)
+//        sender.tag = 1
+//        if sender.tag == 1 {
+//         print("remove button actived")
+//            sender.tag = 0
+//            removeChildVC()
+//        }
+        UIView.animate(withDuration: 0.2, animations: { () -> Void in
+            self.view.frame = CGRect(x: 0 - UIScreen.main.bounds.size.width, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+            self.view.layoutIfNeeded()
+            self.view.backgroundColor = UIColor.clear
+        }, completion: { (_) -> Void in
+             self.removeChildVC()
+        })
     }
     
     @objc func insideItemDetailsButtonPressed(_ sender: UIButton) {

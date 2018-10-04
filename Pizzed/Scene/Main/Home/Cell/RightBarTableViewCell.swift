@@ -28,7 +28,10 @@ class RightBarTableViewCell: UITableViewCell {
     }
     func displayContent(image: String, title: String) {
         iconImageView.pin_updateWithProgress = true
-        iconImageView.pin_setImage(from: URL(string: image)!)
+        guard let url = URL(string: image) else {
+            return
+        }
+        iconImageView.pin_setImage(from: url)
         titleLabelView.text = title
     }
     func setupLayout() {
