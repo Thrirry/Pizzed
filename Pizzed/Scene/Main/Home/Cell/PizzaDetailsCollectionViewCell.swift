@@ -1,3 +1,4 @@
+
 //
 //  PizzaDetailsCollectionViewCell.swift
 //  Pizzed
@@ -58,7 +59,7 @@ class PizzaDetailsCollectionViewCell: UICollectionViewCell {
         dissmissButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
         dissmissButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
     }
-
+    
     func setupTitleLayout() {
         // Setup title view & label view
         titleContainView.translatesAutoresizingMaskIntoConstraints = false
@@ -88,7 +89,7 @@ class PizzaDetailsCollectionViewCell: UICollectionViewCell {
         detailContainView.addSubview(nutriInfoTableView)
         detailContainView.addSubview(descContainView)
         detailContainView.addSubview(tradiDoughLabel)
-
+        
         setupComposition()
         setupNutritionalLayout()
         setupDescriptionLayout()
