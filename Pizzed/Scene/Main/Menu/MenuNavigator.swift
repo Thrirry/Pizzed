@@ -9,8 +9,10 @@
 import UIKit
 
 protocol MenuNavigator {
+    func toMenuDetails(title: String, indexPath: IndexPath)
 }
 struct DefaultMenuNavigator: MenuNavigator {
+    
     private weak var navigation: UINavigationController?
     
     init(navigation: UINavigationController) {
@@ -24,9 +26,38 @@ struct DefaultMenuNavigator: MenuNavigator {
         vc.viewModel = HomeViewModel(navigator: navigator)
         navigation?.pushViewController(vc, animated: true)
     }
-    func toMenu() {
-        guard let vc = MenuViewController.viewController() else { return }
-        vc.viewModel = MenuViewModel(navigator: self)
-        navigation?.pushViewController(vc, animated: true)
+    
+    func toMenuDetails(title: String, indexPath: IndexPath) {
+        switch indexPath.row {
+        case Menu.Cart:
+            toCartDetails(title: title)
+            print(title)
+        default:
+            toHome()
+        }
+    }
+    
+    private func toCartDetails(title: String) {
+        print("here \(title)")
+        guard let navigation = navigation else { return }
+        let navigator = DefaultCartNavigator(navigation: navigation)
+        navigator.toCartDetails()
+    }
+
+    func toMenu(window: UIWindow?) {
+        let menuNavigationController = UINavigationController()
+        let menuNavigator = DefaultMenuNavigator(navigation: menuNavigationController)
+        
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [
+           menuNavigationController
+        ]
+        
+        if let window = window {
+            window.rootViewController = tabBarController
+        } else {
+            self.navigation?.viewControllers.first?.setRootController(viewController: tabBarController)
+        }
+        menuNavigator.toHome()
     }
 }

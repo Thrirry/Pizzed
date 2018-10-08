@@ -12,6 +12,8 @@ import RxCocoa
 
 class BaseViewController: UIViewController {
 
+    var disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNav()
@@ -40,6 +42,9 @@ class BaseViewController: UIViewController {
         guard let menuVC: MenuViewController = self.storyboard?.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController else {
             fatalError("Misconfigured view controller!")
         }
+        let navigation = UINavigationController(rootViewController: menuVC)
+        let navigator = DefaultMenuNavigator(navigation: navigation)
+        menuVC.viewModel = MenuViewModel(navigator: navigator)
 //        menuVC.delegate = self as? MenuDelegate
 //        self.view.addSubview(menuVC.view)
 //        self.addChildViewController(menuVC)

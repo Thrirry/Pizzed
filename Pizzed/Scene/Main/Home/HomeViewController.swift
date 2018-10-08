@@ -11,7 +11,7 @@ import UIKit
 class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var rightBarTableView: UITableView!
     @IBOutlet weak var leftBarTableView: UITableView!
-    let rightbar = DataForRightbar.sharedInstance
+    let rightBar = DataForRightbar.sharedInstance
     let pizza = DataForPizza.sharedInstance
     // MARK: - Compulsory ones
     static func viewController() -> HomeViewController? {
@@ -22,7 +22,7 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         Helper.showLoading()
         var count = 0
-        rightbar.fetchJSON { [weak self] in
+        rightBar.fetchJSON { [weak self] in
             self?.rightBarTableView.reloadData()
             count += 1
             if count == 2 {
@@ -45,7 +45,7 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
             return pizza.serviceProduct.count
         }
         if tableView == rightBarTableView {
-            return rightbar.menu.count
+            return rightBar.rightBarData.count
         }
         return 0
     }
@@ -76,7 +76,7 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         } else {
             let cell = loadViewFromNib(named: "RightBarTableViewCell") as! RightBarTableViewCell
             cell.backgroundColor = UIColor.FlatColor.Background.HomeBackground
-            let data = rightbar.menu[indexPath.row]
+            let data = rightBar.rightBarData[indexPath.row]
 //            cell.displayContent(image: rightbar.images[indexPath.row], title: data.name)
             cell.displayContent(image: data.iconBackground, title: data.iconName)
             cell.selectionStyle = .none
@@ -86,7 +86,7 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == leftBarTableView {
         } else {
-            let taped = rightbar.menu[indexPath.row].iconName
+            let taped = rightBar.rightBarData[indexPath.row].iconName
             if taped == "Hey" {
                 onSlideMenuButtonPressed()
             }

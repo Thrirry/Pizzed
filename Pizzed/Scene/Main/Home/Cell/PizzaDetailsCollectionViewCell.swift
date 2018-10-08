@@ -27,6 +27,7 @@ class PizzaDetailsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var sizeItemLabel: UILabel!
     @IBOutlet weak var weightItemLabel: UILabel!
     @IBOutlet weak var weightItemTitleLabel: UILabel!
+    @IBOutlet weak var orderBtnView: UIView!
     @IBOutlet weak var orderBtn: UIButton!
     @IBOutlet weak var priceLabel: UILabel!
     let cellId = "cellId"
@@ -189,14 +190,23 @@ class PizzaDetailsCollectionViewCell: UICollectionViewCell {
         orderContainView.rightAnchor.constraint(equalTo: contentContainView.rightAnchor, constant: -17).isActive = true
         orderContainView.heightAnchor.constraint(equalTo: contentContainView.heightAnchor, multiplier: 0.12).isActive = true
         orderContainView.layer.borderWidth = 1
-        orderContainView.addSubview(orderBtn)
+        orderContainView.addSubview(orderBtnView)
         orderContainView.addSubview(priceLabel)
+        
+        orderBtnView.translatesAutoresizingMaskIntoConstraints = false
+        orderBtnView.topAnchor.constraint(equalTo: orderContainView.topAnchor).isActive = true
+        orderBtnView.rightAnchor.constraint(lessThanOrEqualTo: orderContainView.rightAnchor).isActive = true
+        orderBtnView.bottomAnchor.constraint(equalTo: orderContainView.bottomAnchor).isActive = true
+        orderBtnView.widthAnchor.constraint(equalTo: orderContainView.widthAnchor, multiplier: 0.5).isActive = true
+        orderBtnView.layer.borderWidth = 1
+        
+        orderBtnView.addSubview(orderBtn)
         orderBtn.translatesAutoresizingMaskIntoConstraints = false
-        orderBtn.topAnchor.constraint(equalTo: orderContainView.topAnchor).isActive = true
-        orderBtn.rightAnchor.constraint(lessThanOrEqualTo: orderContainView.rightAnchor).isActive = true
-        orderBtn.bottomAnchor.constraint(equalTo: orderContainView.bottomAnchor).isActive = true
-        orderBtn.widthAnchor.constraint(equalTo: orderContainView.widthAnchor, multiplier: 0.5).isActive = true
-        orderBtn.layer.borderWidth = 1
+        orderBtn.centerXAnchor.constraint(equalTo: orderBtnView.centerXAnchor).isActive = true
+        orderBtn.centerYAnchor.constraint(equalTo: orderBtnView.centerYAnchor).isActive = true
+        orderBtn.heightAnchor.constraint(equalTo: orderBtnView.heightAnchor, multiplier: 0.7).isActive = true
+        orderBtn.widthAnchor.constraint(equalTo: orderBtnView.widthAnchor, multiplier: 0.28).isActive = true
+        
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
         priceLabel.topAnchor.constraint(equalTo: orderContainView.topAnchor).isActive = true
         priceLabel.leftAnchor.constraint(lessThanOrEqualTo: orderContainView.leftAnchor).isActive = true
@@ -234,8 +244,8 @@ class PizzaDetailsCollectionViewCell: UICollectionViewCell {
         descContainView.backgroundColor = UIColor.clear
         tradiDoughLabel.backgroundColor = UIColor.clear
         orderContainView.backgroundColor = UIColor.clear
-        orderBtn.backgroundColor = UIColor.FlatColor.ItemProduct.orderButton
-        orderBtn.layer.borderColor = UIColor.FlatColor.ItemProduct.borderOrderButton.cgColor
+        orderBtnView.backgroundColor = UIColor.clear
+        orderBtnView.layer.borderColor = UIColor.FlatColor.ItemProduct.borderOrderButton.cgColor
         orderContainView.layer.borderColor = UIColor.FlatColor.ItemProduct.borderOrderButton.cgColor
     }
 }

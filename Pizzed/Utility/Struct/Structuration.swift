@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct MenuStore: Codable {
+struct RightBar: Codable {
     var iconId: String
     var iconName: String
     var cell: String
@@ -76,8 +76,11 @@ extension ProductStorage {
     }
 }
 
-struct IconMenuSlide {
-    let cell: Int
-    let image: UIImage?
-    let title: String
+public struct Menu {
+    static let PizzaWorld = 0
+    static let Cart = 1
+    static let Map = 2
+    static let Clock = 3
+    static let Telephone = 4
+    static let Back = 5
 }

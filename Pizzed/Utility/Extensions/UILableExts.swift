@@ -48,7 +48,9 @@ extension UITextView {
         named.textColor = UIColor(red: 0.21, green: 0.41, blue: 0.35, alpha: 1.0)
         named.adjustsFontForContentSizeCategory = true
         named.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        let fontSize = (named.font?.lineHeight)! + 0.01
-        named.font = UIFont(name: "Lekton-Regular", size: fontSize)
+        guard let fontSize = named.font?.lineHeight else {
+            return
+        }
+        named.font = UIFont(name: "Lekton-Regular", size: fontSize + 0.01)
     }
 }

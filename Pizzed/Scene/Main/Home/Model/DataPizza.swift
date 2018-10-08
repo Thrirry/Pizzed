@@ -15,7 +15,6 @@ final class DataForPizza {
     var serviceProduct = [ProductStorageService]()
     var pizzaStore = [ProductStorage]()
     
-    var menu = [MenuStore]()
     func fetchJSON(completion: @escaping () -> Void) {
         guard let url = URL(string: Config.apiPizzaURL) else { return }
         URLSession.shared.dataTask(with: url) { (data, _, err) in

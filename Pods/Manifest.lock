@@ -1,5 +1,6 @@
 PODS:
   - FLAnimatedImage (1.0.12)
+  - Kingfisher (4.10.0)
   - PINCache (2.3)
   - PINRemoteImage (2.1.4):
     - PINRemoteImage/FLAnimatedImage (= 2.1.4)
@@ -8,34 +9,41 @@ PODS:
   - PINRemoteImage/FLAnimatedImage (2.1.4):
     - FLAnimatedImage (>= 1.0)
     - PINRemoteImage/Core
-  - RxCocoa (4.2.0):
+  - RxCocoa (4.3.1):
     - RxSwift (~> 4.0)
-  - RxSwift (4.2.0)
+  - RxSwift (4.3.1)
+  - SwiftDate (4.5.0)
   - SwiftLint (0.27.0)
 
 DEPENDENCIES:
+  - Kingfisher (~> 4.0)
   - PINRemoteImage
   - RxCocoa (~> 4.0)
   - RxSwift (~> 4.0)
+  - SwiftDate (= 4.5.0)
   - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - FLAnimatedImage
+    - Kingfisher
     - PINCache
     - PINRemoteImage
     - RxCocoa
     - RxSwift
+    - SwiftDate
     - SwiftLint
 
 SPEC CHECKSUMS:
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
   PINRemoteImage: 4ac4011c5caefd6befd99758e09becede05d3226
-  RxCocoa: 0b54909c902e1e581212a03e690bbd94032d8baa
-  RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
+  RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
+  RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
+  SwiftDate: 17dd829c004a2d60432ef63ffcdb26ca2eb97a60
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
 
-PODFILE CHECKSUM: 3134320a44f69bde8a324e4d8592bcc77938590a
+PODFILE CHECKSUM: d688b4a86de45882a7a1bbcef8439d2ad6dbdf67
 
 COCOAPODS: 1.5.3

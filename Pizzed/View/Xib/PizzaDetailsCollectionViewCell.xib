@@ -135,11 +135,6 @@
                                         <rect key="frame" x="0.0" y="724" width="539" height="104"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0jU-qL-0nQ">
-                                                <rect key="frame" x="342" y="8" width="157" height="88"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button"/>
-                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qc3-F5-cTz">
                                                 <rect key="frame" x="30" y="25" width="151" height="54"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -147,6 +142,18 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H2Z-KB-Yhm">
+                                                <rect key="frame" x="274" y="0.0" width="265" height="104"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0jU-qL-0nQ">
+                                                        <rect key="frame" x="95" y="15" width="80" height="75"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" image="btnPizzaCutter"/>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
@@ -171,6 +178,7 @@
                 <outlet property="nutriInfoLabel" destination="f5w-Tj-OCY" id="xHd-FY-5cU"/>
                 <outlet property="nutriInfoTableView" destination="f1i-3l-1u1" id="Z7x-nZ-nCk"/>
                 <outlet property="orderBtn" destination="0jU-qL-0nQ" id="zct-Jk-ebx"/>
+                <outlet property="orderBtnView" destination="H2Z-KB-Yhm" id="2h8-OP-Vca"/>
                 <outlet property="orderContainView" destination="uSB-bD-Xpn" id="MIH-Ci-U0A"/>
                 <outlet property="priceLabel" destination="qc3-F5-cTz" id="hfD-M8-yE7"/>
                 <outlet property="sizeItemLabel" destination="zue-Wp-ZJU" id="teJ-v7-FlY"/>
@@ -181,10 +189,11 @@
                 <outlet property="weightItemLabel" destination="bzT-60-yQU" id="cc5-dm-vI3"/>
                 <outlet property="weightItemTitleLabel" destination="dVR-Sj-ZxE" id="iru-dw-um3"/>
             </connections>
-            <point key="canvasLocation" x="283.5" y="716"/>
+            <point key="canvasLocation" x="282.39999999999998" y="715.14242878560731"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="btnBackSmall" width="1018" height="795"/>
+        <image name="btnPizzaCutter" width="179" height="182"/>
     </resources>
 </document>

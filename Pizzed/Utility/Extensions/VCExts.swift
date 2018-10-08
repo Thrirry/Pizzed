@@ -69,7 +69,7 @@ extension UIViewController {
     func setRootController(viewController: UIViewController, animated: Bool = true) {
         guard let window = UIApplication.shared.keyWindow else { return }
         if animated {
-            window.replaceRoot(vc: viewController)
+//            window.replaceRoot(vc: viewController)
         } else {
             window.rootViewController = viewController
         }
@@ -101,28 +101,28 @@ extension UIViewController {
     }
 }
 
-extension UIWindow {
-    
-    func replaceRoot(vc: UIViewController) {
-        let snapshotImgView = UIImageView(image: snapshot())
-        addSubview(snapshotImgView)
-        let dismissCompletion: Action = {
-            self.rootViewController = vc
-            self.bringSubview(toFront: snapshotImgView)
-            snapshotImgView.fadeAnimation(isShow: false, completion: {
-                snapshotImgView.removeFromSuperview()
-            })
-        }
-        dismissPresentations(completed: dismissCompletion)
-    }
-    
-    private func dismissPresentations(completed: @escaping Action) {
-        if rootViewController?.presentedViewController != nil {
-            rootViewController?.dismiss(animated: false, completion: {
-                self.dismissPresentations(completed: completed)
-            })
-        } else {
-            completed()
-        }
-    }
-}
+//extension UIWindow {
+//
+//    func replaceRoot(vc: UIViewController) {
+//        let snapshotImgView = UIImageView(image: snapshot())
+//        addSubview(snapshotImgView)
+//        let dismissCompletion: Action = {
+//            self.rootViewController = vc
+//            self.bringSubview(toFront: snapshotImgView)
+//            snapshotImgView.fadeAnimation(isShow: false, completion: {
+//                snapshotImgView.removeFromSuperview()
+//            })
+//        }
+//        dismissPresentations(completed: dismissCompletion)
+//    }
+//
+//    private func dismissPresentations(completed: @escaping Action) {
+//        if rootViewController?.presentedViewController != nil {
+//            rootViewController?.dismiss(animated: false, completion: {
+//                self.dismissPresentations(completed: completed)
+//            })
+//        } else {
+//            completed()
+//        }
+//    }
+//}

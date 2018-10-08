@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ServicePlatform
 
 class MenuTableViewCell: UITableViewCell {
 
@@ -23,22 +24,32 @@ class MenuTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        setupLayout()
-        containerView.backgroundColor = UIColor.clear
+        setUpLayout()
+        setUpColor()
     }
-    var data: IconMenuSlide? {
-        didSet {
-            guard let data = data else { return }
-            iconImageView.image = data.image
-            titleLableView.text = data.title
-        }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
     }
-    func setupLayout() {
+    
+//    var superStar: String? {
+//        didSet {
+//            guard let superStar = superStar else { return }
+//            titleLableView.text = superStar
+//        }
+//    }
+    func bind(_ viewModel: MenuViewModel.MenuData) {
+            self.iconImageView.image = viewModel.0
+            self.titleLableView.text = viewModel.1
+    }
+    
+    func setUpLayout() {
         containerView.translatesAutoresizingMaskIntoConstraints  = false
         containerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.6).isActive = true
         containerView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.175).isActive = true
         containerView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         containerView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        
         containerView.addSubview(iconImageView)
         iconImageView.translatesAutoresizingMaskIntoConstraints = false
         iconImageView.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.8).isActive = true
@@ -55,6 +66,10 @@ class MenuTableViewCell: UITableViewCell {
         titleLableView.contentMode = .scaleAspectFit
         let fontSizeRightBar = titleLableView.font.pointSize
         titleLableView.font = UIFont(name: "Charter-Bold", size: fontSizeRightBar)
+    }
+    
+    func setUpColor(){
+        containerView.backgroundColor = UIColor.FlatColor.Background.HomeBackground
         titleLableView.textColor = UIColor.FlatColor.Menu.green
     }
 }

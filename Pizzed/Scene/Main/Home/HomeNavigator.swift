@@ -9,7 +9,7 @@
 import UIKit
 
 protocol HomeNavigator {
-
+    func toHome()
 }
 struct DefaultHomeNavigator: HomeNavigator {
     private weak var navigation: UINavigationController?

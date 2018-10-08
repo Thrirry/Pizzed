@@ -36,7 +36,6 @@ class RightBarTableViewCell: UITableViewCell {
     }
     func setupLayout() {
         containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.backgroundColor = UIColor.FlatColor.Background.RightBarBackground
         containerView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         containerView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         containerView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
@@ -69,6 +68,7 @@ class RightBarTableViewCell: UITableViewCell {
         formatTextLabelTitle(named: titleLabelView)
     }
     func setupColour() {
+        containerView.backgroundColor = UIColor.FlatColor.Background.RightBarBackground
         iconContainerView.backgroundColor = UIColor.FlatColor.Background.HomeBackground
         titleContainerView.backgroundColor = UIColor.FlatColor.Background.HomeBackground
     }

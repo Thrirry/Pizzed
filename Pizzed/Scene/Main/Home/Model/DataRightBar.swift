@@ -13,7 +13,7 @@ final class DataForRightbar {
     static let sharedInstance = DataForRightbar()
     fileprivate init() {}
     
-    var menu = [MenuStore]()
+    var rightBarData = [RightBar]()
     func fetchJSON(completion: @escaping () -> Void) {
         guard let url = URL(string: Config.apiRightBarURL) else { return }
         URLSession.shared.dataTask(with: url) { (data, _, err) in
@@ -26,7 +26,7 @@ final class DataForRightbar {
                 do {
                     let decoder = JSONDecoder()
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
-                    self.menu = try decoder.decode([MenuStore].self, from: data)
+                    self.rightBarData = try decoder.decode([RightBar].self, from: data)
                     
                 } catch let jsonErr {
                     print("Failed to decode:", jsonErr)

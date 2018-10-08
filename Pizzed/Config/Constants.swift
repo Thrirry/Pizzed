@@ -11,28 +11,14 @@ import UIKit
 struct Constants {
     
     struct Types {
-    }
-    
-    // MARK: - Resoure Images constants
-    struct CResourceImage {
-        static let PizzaWorld = "mainLogo"
-        static let Cart = "btnCart"
-        static let Map = "btnMap"
-        static let Clock = "btnClock"
-        static let Telephone = "btnTelephone"
-        static let Back = "btnBackLarge"
+        static let PizzaWorld = "Pizza World"
+        static let Cart = "Your Cart"
+        static let Map = "Coverage Area"
+        static let Clock = "Opening Hours"
+        static let Telephone = "099 9090 000"
+        static let Back = ""
     }
 }
 
-//    func binding() {
-//        arrayIconOfMenuSlide = [IconMenuSlide(cell: 0, image: #imageLiteral(resourceName: "mainLogo"), title: " "),
-//                                IconMenuSlide(cell: 1, image: #imageLiteral(resourceName: "mainLogo"), title: "Pizza World"),
-//                                IconMenuSlide(cell: 1, image:, title: "Your Cart"),
-//                                IconMenuSlide(cell: 1, image: #imageLiteral(resourceName: "map-location"), title: "Coverage Area"),
-//                                IconMenuSlide(cell: 1, image: #imageLiteral(resourceName: "Telephone"), title: "Telephone"),
-//                                IconMenuSlide(cell: 1, image: #imageLiteral(resourceName: "alarm-clock"), title: "8AM - 11PM"),
-//                                IconMenuSlide(cell: 2, image: #imageLiteral(resourceName: "back-arrow-final"), title: " ") ]
-//    }
-
 // MARK: - Global defining
-typealias Action = () -> Void
+//typealias Action = () -> Void

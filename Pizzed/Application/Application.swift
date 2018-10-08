@@ -11,12 +11,12 @@ import UIKit
 struct Application {
     // MARK: - Singleton pattern
     static let shared = Application()
+    
     private init() {}
     func configMainInterface(window: UIWindow) {
         let navigationController = UINavigationController()
         let navigator = DefaultHomeNavigator(navigation: navigationController)
         window.rootViewController = navigationController
-
         navigator.toHome()
     }
     private func switchRootViewController(rootVC: UIViewController) {
