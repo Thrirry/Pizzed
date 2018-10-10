@@ -10,6 +10,8 @@ import UIKit
 
 protocol MenuNavigator {
     func toMenuDetails(title: String, indexPath: IndexPath)
+    func toMenu()
+    func toBack()
 }
 struct DefaultMenuNavigator: MenuNavigator {
     
@@ -31,33 +33,36 @@ struct DefaultMenuNavigator: MenuNavigator {
         switch indexPath.row {
         case Menu.Cart:
             toCartDetails(title: title)
-            print(title)
+        case Menu.Map:
+            toMapDetails(title: title)
+        case Menu.Back:
+            toBack()
         default:
             toHome()
         }
     }
     
-    private func toCartDetails(title: String) {
-        print("here \(title)")
-        guard let navigation = navigation else { return }
-        let navigator = DefaultCartNavigator(navigation: navigation)
+    public func toCartDetails(title: String) {
+        guard let navig = navigation else { return }
+        let navigator = DefaultCartNavigator(navigation: navig)
         navigator.toCartDetails()
     }
 
-    func toMenu(window: UIWindow?) {
-        let menuNavigationController = UINavigationController()
-        let menuNavigator = DefaultMenuNavigator(navigation: menuNavigationController)
-        
-        let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [
-           menuNavigationController
-        ]
-        
-        if let window = window {
-            window.rootViewController = tabBarController
-        } else {
-            self.navigation?.viewControllers.first?.setRootController(viewController: tabBarController)
+    public func toMapDetails(title: String){
+        guard let navig = navigation else { return }
+        let navigator = DefaultMapNavigator(navigation: navig)
+        navigator.toMapDetails()
+    }
+    
+    func toMenu() {
+        guard let vc = MenuViewController.viewController() else {
+            return
         }
-        menuNavigator.toHome()
+        vc.viewModel = MenuViewModel(navigator: self)
+        navigation?.pushViewController(vc, animated: true)
+    }
+    
+    func toBack() {
+        self.navigation?.popViewController(animated: true)
     }
 }

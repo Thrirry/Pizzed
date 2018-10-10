@@ -89,7 +89,6 @@ extension UIViewController {
     func addChildVC(_ child: UIViewController) {
         addChildViewController(child)
         view.addSubview(child.view)
-        child.didMove(toParentViewController: self)
     }
     func removeChildVC() {
         guard parent != nil else {
@@ -99,30 +98,61 @@ extension UIViewController {
         removeFromParentViewController()
         view.removeFromSuperview()
     }
+    
+    /// Auto layout
+    var sa_safeAreaInsets: UIEdgeInsets {
+        if #available(iOS 11, *) {
+            return view.safeAreaInsets
+        }
+        return UIEdgeInsets(top: topLayoutGuide.length, left: 0.0, bottom: bottomLayoutGuide.length, right: 0.0)
+    }
+    
+    var sa_safeAreaFrame: CGRect {
+        if #available(iOS 11, *) {
+            return view.safeAreaLayoutGuide.layoutFrame
+        }
+        return UIEdgeInsetsInsetRect(view.bounds, sa_safeAreaInsets)
+    }
+
+    func setupRightBarView(rightBarContainView: UIView){
+        rightBarContainView.translatesAutoresizingMaskIntoConstraints = false
+        
+        rightBarContainView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        rightBarContainView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
+        rightBarContainView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1).isActive = true
+        rightBarContainView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.18).isActive = true
+    }
+    
+    func setupItemsOrderTableView(itemOrderTableView: UITableView){
+        itemOrderTableView.translatesAutoresizingMaskIntoConstraints = false
+        itemOrderTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        itemOrderTableView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.75).isActive = true
+        itemOrderTableView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1).isActive = true
+    }
 }
 
-//extension UIWindow {
-//
-//    func replaceRoot(vc: UIViewController) {
-//        let snapshotImgView = UIImageView(image: snapshot())
-//        addSubview(snapshotImgView)
-//        let dismissCompletion: Action = {
-//            self.rootViewController = vc
-//            self.bringSubview(toFront: snapshotImgView)
-//            snapshotImgView.fadeAnimation(isShow: false, completion: {
-//                snapshotImgView.removeFromSuperview()
-//            })
-//        }
-//        dismissPresentations(completed: dismissCompletion)
-//    }
-//
-//    private func dismissPresentations(completed: @escaping Action) {
-//        if rootViewController?.presentedViewController != nil {
-//            rootViewController?.dismiss(animated: false, completion: {
-//                self.dismissPresentations(completed: completed)
-//            })
-//        } else {
-//            completed()
-//        }
-//    }
-//}
+extension UIWindow {
+
+    func replaceRoot(vc: UIViewController) {
+        let snapshotImgView = UIImageView(image: snapshot())
+        addSubview(snapshotImgView)
+        let dismissCompletion: Action = {
+            self.rootViewController = vc
+            self.bringSubview(toFront: snapshotImgView)
+            snapshotImgView.fadeAnimation(isShow: false, completion: {
+                snapshotImgView.removeFromSuperview()
+            })
+        }
+        dismissPresentations(completed: dismissCompletion)
+    }
+
+    private func dismissPresentations(completed: @escaping Action) {
+        if rootViewController?.presentedViewController != nil {
+            rootViewController?.dismiss(animated: false, completion: {
+                self.dismissPresentations(completed: completed)
+            })
+        } else {
+            completed()
+        }
+    }
+}

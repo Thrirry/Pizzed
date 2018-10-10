@@ -46,17 +46,21 @@ class MenuTableViewCell: UITableViewCell {
     func setUpLayout() {
         containerView.translatesAutoresizingMaskIntoConstraints  = false
         containerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.6).isActive = true
-        containerView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.175).isActive = true
+        containerView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2).isActive = true
         containerView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         containerView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
         containerView.addSubview(iconImageView)
+        
+        /// Set icon image view
         iconImageView.translatesAutoresizingMaskIntoConstraints = false
-        iconImageView.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.8).isActive = true
-        iconImageView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.8).isActive = true
+        iconImageView.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 1).isActive = true
+        iconImageView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 1).isActive = true
         iconImageView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
-        iconImageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+        iconImageView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
         iconImageView.contentMode = .scaleAspectFit
+        
+        /// Set title label
         titleLableView.translatesAutoresizingMaskIntoConstraints = false
         titleLableView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2).isActive = true
         titleLableView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.4).isActive = true
@@ -69,7 +73,7 @@ class MenuTableViewCell: UITableViewCell {
     }
     
     func setUpColor(){
-        containerView.backgroundColor = UIColor.FlatColor.Background.HomeBackground
+        containerView.backgroundColor = UIColor.clear
         titleLableView.textColor = UIColor.FlatColor.Menu.green
     }
 }

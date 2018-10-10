@@ -18,6 +18,27 @@ struct Constants {
         static let Telephone = "099 9090 000"
         static let Back = ""
     }
+    
+    struct Menu {
+        static let Hey = "Hey"
+        static let Marine = "Marine"
+        static let MultiMeat = "Multi Meat"
+        static let Cheese = "Cheese"
+        static let Chili = "Chili"
+        static let Pineapple = "Pineapple"
+        static let Salad = "Salad"
+        static let Onion = "Onion"
+        static let Strawberry = "Strawberry"
+        static let Vegetarian = "Vegetarian"
+        static let Mushroom = "x-Mushroom"
+        static let Olives = "x-Olives"
+        static let Drinks = "Drinks"
+        static let News = "News"
+    }
+    
+    struct RightBar {
+        static let Cart = "The minimum order is 12 $"
+    }
 }
 
 // MARK: - Global defining

@@ -8,13 +8,6 @@
 
 import UIKit
 
-struct RightBar: Codable {
-    var iconId: String
-    var iconName: String
-    var cell: String
-    var iconBackground: String
-}
-
 struct ProductStorage {
     var composition: String
     var nutritionals: [Nutritional]
@@ -84,3 +77,27 @@ public struct Menu {
     static let Telephone = 4
     static let Back = 5
 }
+
+public struct RighBar {
+    static let Hey = 0
+    static let Marine = 1
+    static let MultiMeat = 2
+    static let Cheese = 3
+    static let Chili = 4
+    static let Pineapple = 5
+    static let Salad = 6
+    static let Onion = 7
+    static let Strawberry = 8
+    static let Vegetarian = 9
+    static let Mushroom = 10
+    static let Olives = 11
+    static let Drinks = 12
+    static let News = 13
+}
+
+//struct RightBar: Codable {
+//    var iconId: String
+//    var iconName: String
+//    var cell: String
+//    var iconBackground: String
+//}

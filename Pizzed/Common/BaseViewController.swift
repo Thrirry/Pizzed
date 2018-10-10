@@ -39,42 +39,31 @@ class BaseViewController: UIViewController {
         return view
     }
     func onSlideMenuButtonPressed() {
-        guard let menuVC: MenuViewController = self.storyboard?.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController else {
-            fatalError("Misconfigured view controller!")
+        guard let menuVC = MenuViewController.viewController() else {
+            return
         }
         let navigation = UINavigationController(rootViewController: menuVC)
         let navigator = DefaultMenuNavigator(navigation: navigation)
         menuVC.viewModel = MenuViewModel(navigator: navigator)
-//        menuVC.delegate = self as? MenuDelegate
-//        self.view.addSubview(menuVC.view)
-//        self.addChildViewController(menuVC)
-        addChildVC(menuVC)
-        menuVC.view.layoutIfNeeded()
-        menuVC.view.frame=CGRect(x: 0, y: 0  - UIScreen.main.bounds.size.height, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+        addChildVC(navigation)
+        
+        menuVC.view.frame=CGRect(x: 0, y: 0 - UIScreen.main.bounds.size.height, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
         UIView.animate(withDuration: 0.2, animations: { () -> Void in
             menuVC.view.frame=CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
         }, completion: nil)
     }
+    
     func onCloseMenuClick() {
         UIView.animate(withDuration: 0.2, animations: { () -> Void in
             self.view.frame = CGRect(x: 0, y: 0 - UIScreen.main.bounds.size.height, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
             self.view.layoutIfNeeded()
             self.view.backgroundColor = UIColor.clear
         }, completion: { (_) -> Void in
-//            self.view.removeFromSuperview()
-//            self.removeFromParentViewController()
             self.removeChildVC()
         })
     }
     
     @objc func onCloseCollectionClick(_ sender: UIButton) {
-        
-//        sender.tag = 1
-//        if sender.tag == 1 {
-//         print("remove button actived")
-//            sender.tag = 0
-//            removeChildVC()
-//        }
         UIView.animate(withDuration: 0.2, animations: { () -> Void in
             self.view.frame = CGRect(x: 0 - UIScreen.main.bounds.size.width, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
             self.view.layoutIfNeeded()
@@ -89,7 +78,6 @@ class BaseViewController: UIViewController {
             fatalError("Misconfigured view controller!\(sender)")
         }
         
-//        itemDetailVC.delegate = self as? ItemDetailsDelegate
         addChildVC(itemDetailVC)
         itemDetailVC.view.frame = CGRect(x: 0 - UIScreen.main.bounds.size.width, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
         
@@ -97,5 +85,32 @@ class BaseViewController: UIViewController {
             itemDetailVC.view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
             sender.isEnabled = true
         }, completion: nil)
+    }
+    
+    func setupPreviousButton(btn: UIButton) {
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        btn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+        btn.heightAnchor.constraint(equalToConstant: 15).isActive = true
+        btn.widthAnchor.constraint(equalToConstant: 29.5).isActive = true
+        btn.setBackgroundImageForButton(urlImg: "btnBackLarge", btnNamed: btn)
+        btn.contentMode = .scaleToFill
+        btn.rx.tap
+            .subscribe(){_ in
+                self.popViewControler()
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    func setCategoriesButton(btn: UIButton) {
+        btn.rx.tap
+            .subscribe(){_ in
+                self.onSlideMenuButtonPressed()
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    func popViewControler() {
+        self.navigationController?.popViewController(animated: true)
     }
 }

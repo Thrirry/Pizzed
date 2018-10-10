@@ -13,7 +13,6 @@ import ServicePlatform
 
 class MenuViewController: BaseViewController{
     @IBOutlet weak var menuTableView: UITableView!
-
     // MARK: - Compulsory ones
     static func viewController() -> MenuViewController? {
         return Helper.getViewController(named: "MenuViewController", inSb: "Main")
@@ -24,6 +23,7 @@ class MenuViewController: BaseViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpLayout()
+        setupColor()
         
         configureTableView()
         bind()
@@ -39,13 +39,16 @@ class MenuViewController: BaseViewController{
         menuTableView.rowHeight = 95
     }
     
-    private func bind() {
+    public func bind() {
         let input = MenuViewModel.Input(selection: menuTableView.rx.itemSelected.asDriver())
         let output = viewModel.transform(input: input)
         
         output.menu.drive(menuTableView.rx.items(cellIdentifier: "MenuTableViewCell", cellType: MenuTableViewCell.self)) { _, data, cell in
-//            cell.superStar = data
                 cell.bind(data)
+                cell.backgroundColor = UIColor.FlatColor.Menu.background
+                let backgroundView = UIView()
+                backgroundView.backgroundColor = UIColor.FlatColor.Menu.hover
+                cell.selectedBackgroundView = backgroundView
             }.disposed(by: disposeBag)
         output.error.ignoreNil().drive(onNext: showError).disposed(by: disposeBag)
         output.selectedMenu.drive().disposed(by: disposeBag)
@@ -61,12 +64,17 @@ class MenuViewController: BaseViewController{
     }
     func setUpLayout() {
         menuTableView.translatesAutoresizingMaskIntoConstraints = false
-        menuTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        menuTableView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.83).isActive = true
         menuTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         menuTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         menuTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         menuTableView.showsVerticalScrollIndicator = false
         menuTableView.showsHorizontalScrollIndicator = false
+    }
+    
+    func setupColor() {
         menuTableView.separatorColor  = UIColor.clear
+        menuTableView.backgroundColor = UIColor.FlatColor.Menu.background
+        view.backgroundColor = UIColor.FlatColor.Menu.background
     }
 }

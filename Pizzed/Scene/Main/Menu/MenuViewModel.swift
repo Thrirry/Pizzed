@@ -37,7 +37,7 @@ final class MenuViewModel: ViewModelType {
     
     init(navigator: MenuNavigator) {
         self.navigator = navigator
-        data.value = [(#imageLiteral(resourceName: "mainLogo"), T.PizzaWorld),(#imageLiteral(resourceName: "btnCart") ,T.Cart),(#imageLiteral(resourceName: "btnMap.png"),T.Map),(#imageLiteral(resourceName: "btnClock"),T.Clock),(#imageLiteral(resourceName: "btnTelephone"),T.Telephone),(#imageLiteral(resourceName: "btnBackLarge"),T.Back)]
+        data.value = [(#imageLiteral(resourceName: "mainLogo"), T.PizzaWorld),(#imageLiteral(resourceName: "btnCart") ,T.Cart),(#imageLiteral(resourceName: "btnMap.png"),T.Map),(#imageLiteral(resourceName: "btnClock"),T.Clock),(#imageLiteral(resourceName: "btnTelephone"),T.Telephone),(#imageLiteral(resourceName: "btnBackSmall"),T.Back)]
     }
     
     func transform(input: MenuViewModel.Input) -> MenuViewModel.Output {

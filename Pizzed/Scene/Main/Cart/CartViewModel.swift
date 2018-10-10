@@ -7,14 +7,26 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import ServicePlatform
 
 class CartViewModel: ViewModelType {
-    // MARK: - Input, Output
-    struct Input {}
-    struct Output {}
+    
+    typealias T = Constants.RightBar
+    public typealias RightBarData = (UIImage, String)
     
     // MARK: - Properties
     private let navigator: DefaultCartNavigator
+    private let disposeBag = DisposeBag()
+    private let error = PublishSubject<(String, String)?>()
+    private let data: Variable<[RightBarData]> = Variable([])
+    
+    // MARK: - Input, Output
+    struct Input {
+        let selection: Driver<IndexPath>
+    }
+    struct Output {}
     
     init(navigator: DefaultCartNavigator) {
         self.navigator = navigator

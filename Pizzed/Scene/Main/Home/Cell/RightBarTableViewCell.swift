@@ -34,6 +34,12 @@ class RightBarTableViewCell: UITableViewCell {
         iconImageView.pin_setImage(from: url)
         titleLabelView.text = title
     }
+    
+    func bind(_ viewModel: HomeViewModel.RightBarData) {
+        self.iconImageView.image = viewModel.0
+        self.titleLabelView.text = viewModel.1
+    }
+    
     func setupLayout() {
         containerView.translatesAutoresizingMaskIntoConstraints = false
         containerView.topAnchor.constraint(equalTo: topAnchor).isActive = true

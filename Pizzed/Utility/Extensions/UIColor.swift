@@ -9,6 +9,7 @@
 import UIKit
 
 extension UIColor {
+    
     struct FlatColor {
         struct Background {
             static let HomeBackground = UIColor(red: 1.00, green: 0.98, blue: 0.90, alpha: 1.0)
@@ -26,6 +27,27 @@ extension UIColor {
         }
         struct Menu {
             static let green = UIColor(red: 0.99, green: 0.33, blue: 0.14, alpha: 1.0)
+            static let background = UIColor(red: 1.00, green: 0.98, blue: 0.90, alpha: 1.0)
+            static let hover = UIColor(red: 0.99, green: 0.98, blue: 0.92, alpha: 1.0)
         }
+        
+        struct RightBar {
+            static let background = UIColor(red: 1.00, green: 0.98, blue: 0.90, alpha: 1.0)
+        }
+    }
+    
+    struct Button {
+        struct previousButton {
+            static let color = UIColor(red: 0.33, green: 0.53, blue: 0.57, alpha: 1.0)
+        }
+    }
+    
+    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
     }
 }

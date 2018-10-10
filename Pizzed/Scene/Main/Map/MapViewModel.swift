@@ -8,23 +8,18 @@
 
 import UIKit
 
-class MapViewModel: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+class MapViewModel: ViewModelType {
+    struct Input {}
+    struct Output {}
+    
+    private let navigator: DefaultMapNavigator
+    
+    init(navigator: DefaultMapNavigator) {
+        self.navigator = navigator
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func transform(input: MapViewModel.Input) ->
+        MapViewModel.Output {
+            return Output()
     }
-    */
-
 }

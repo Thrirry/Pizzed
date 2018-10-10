@@ -8,23 +8,29 @@
 
 import UIKit
 
-class MapNavigator: UIViewController {
+protocol MapDetailsNavigator {
+    func toMapDetails()
+    func back()
+}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+struct DefaultMapNavigator: MapDetailsNavigator {
+    
+    private weak var navigation: UINavigationController?
+    
+    init(navigation: UINavigationController) {
+        self.navigation = navigation
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func toMapDetails() {
+        guard let vc = MapViewController.viewController() else {
+            return
+        }
+        vc.viewModel = MapViewModel(navigator: self)
+        navigation?.pushViewController(vc, animated: true)
     }
-    */
+    
+    func back(){
+        navigation?.popViewController(animated: true)
+    }
 
 }

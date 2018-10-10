@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
+import ServicePlatform
 
 class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var rightBarTableView: UITableView!
@@ -18,39 +21,58 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         return Helper.getViewController(named: "HomeViewController", inSb: "Main")
     }
     var viewModel: HomeViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         Helper.showLoading()
         var count = 0
-        rightBar.fetchJSON { [weak self] in
-            self?.rightBarTableView.reloadData()
-            count += 1
-            if count == 2 {
-                Helper.hideLoading()
-            }
-        }
+
         pizza.fetchJSON { [weak self] in
             self?.leftBarTableView.reloadData()
             count += 1
-            if count == 2 {
+            if count == 1 {
                 Helper.hideLoading()
             }
         }
         setupLayout()
         setupColour()
+        configureTableView()
+        bind()
         // Do any additional setup after loading the view.
     }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == leftBarTableView {
-            return pizza.serviceProduct.count
-        }
-        if tableView == rightBarTableView {
-            return rightBar.rightBarData.count
-        }
-        return 0
+    
+    private func registerCell() {
+        let nib = UINib(nibName: "RightBarTableViewCell", bundle: nil)
+        rightBarTableView.register(nib, forCellReuseIdentifier: "RightBarTableViewCell")
     }
+    
+    private func configureTableView() {
+        registerCell()
+        rightBarTableView.rowHeight = 90
+    }
+    
+    private func bind() {
+        let input = HomeViewModel.Input(selection: rightBarTableView.rx.itemSelected.asDriver())
+        let output = viewModel.transform(input: input)
+        
+        output.rightBar.drive(rightBarTableView.rx.items(cellIdentifier: "RightBarTableViewCell", cellType: RightBarTableViewCell.self)) {_, data, cell in
+            cell.bind(data)
+        }.disposed(by: disposeBag)
+        
+        output.error.ignoreNil().drive(onNext: showError).disposed(by: disposeBag)
+        output.selectedRightBar.drive().disposed(by: disposeBag)
+    }
+    
+    private func showError(title: String, msg: String) {
+        showPopup(title: title, message: msg, handler: {  _ in
+        })
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return pizza.serviceProduct.count
+    }
+        
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == leftBarTableView {
             // swiftlint:disable force_cast
             let cell = loadViewFromNib(named: "PizzaTableViewCell") as! PizzaTableViewCell
             let mainData = pizza.serviceProduct[indexPath.row]
@@ -73,34 +95,10 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
             cell.backgroundColor = UIColor.FlatColor.Background.HomeBackground
             cell.selectionStyle = .none
             return cell
-        } else {
-            let cell = loadViewFromNib(named: "RightBarTableViewCell") as! RightBarTableViewCell
-            cell.backgroundColor = UIColor.FlatColor.Background.HomeBackground
-            let data = rightBar.rightBarData[indexPath.row]
-//            cell.displayContent(image: rightbar.images[indexPath.row], title: data.name)
-            cell.displayContent(image: data.iconBackground, title: data.iconName)
-            cell.selectionStyle = .none
-            return cell
-        }
-    }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView == leftBarTableView {
-        } else {
-            let taped = rightBar.rightBarData[indexPath.row].iconName
-            if taped == "Hey" {
-                onSlideMenuButtonPressed()
-            }
-        }
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if tableView == self.leftBarTableView {
-            return 210
-        }
-        if tableView == self.rightBarTableView {
-            return 90
-        }
-        return 0
+        return 210
     }
     func setupLayout() {
         // MARK: - Left Bar
