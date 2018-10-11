@@ -57,6 +57,7 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         
         output.rightBar.drive(rightBarTableView.rx.items(cellIdentifier: "RightBarTableViewCell", cellType: RightBarTableViewCell.self)) {_, data, cell in
             cell.bind(data)
+            cell.backgroundColor = UIColor.FlatColor.Background.HomeBackground
         }.disposed(by: disposeBag)
         
         output.error.ignoreNil().drive(onNext: showError).disposed(by: disposeBag)
@@ -102,22 +103,14 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     }
     func setupLayout() {
         // MARK: - Left Bar
-        leftBarTableView.translatesAutoresizingMaskIntoConstraints = false
-        leftBarTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-        leftBarTableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
-        leftBarTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-        leftBarTableView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.75).isActive = true
+        setupItemsTableView(itemOrderTableView: leftBarTableView)
         // MARK: - Right Bar
-        rightBarTableView.translatesAutoresizingMaskIntoConstraints = false
-        rightBarTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
-        rightBarTableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
-        rightBarTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-        rightBarTableView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.18).isActive = true
+        setupRightBarView(rightBarContainView: rightBarTableView)
     }
     func setupColour() {
         view.backgroundColor = UIColor.FlatColor.Background.HomeBackground
         // MARK: - Left Bar
-         leftBarTableView.backgroundColor = UIColor.FlatColor.Background.HomeBackground
+        leftBarTableView.backgroundColor = UIColor.FlatColor.Background.HomeBackground
         leftBarTableView.separatorColor = UIColor.clear
         // MARK: - Right Bar
         rightBarTableView.backgroundColor = UIColor.FlatColor.Background.HomeBackground

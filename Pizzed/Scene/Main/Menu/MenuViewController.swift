@@ -62,6 +62,7 @@ class MenuViewController: BaseViewController{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
     func setUpLayout() {
         menuTableView.translatesAutoresizingMaskIntoConstraints = false
         menuTableView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.83).isActive = true

@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="539" height="1374"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nId-qZ-dZW" userLabel="MainContainer">
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nId-qZ-dZW" userLabel="mainContainer">
                         <rect key="frame" x="0.0" y="0.0" width="539" height="1375"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -37,7 +36,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gXW-Km-YYL">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gXW-Km-YYL" userLabel="contentContainView">
                                 <rect key="frame" x="0.0" y="547" width="539" height="828"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -175,6 +174,7 @@
                 <outlet property="detailContainView" destination="Od6-8h-SXW" id="QaL-yR-3gR"/>
                 <outlet property="dissmissButton" destination="aVw-i5-rA2" id="JXx-oC-57e"/>
                 <outlet property="imageContainView" destination="UYc-Mu-2Qg" id="O7d-de-tPy"/>
+                <outlet property="mainViewContain" destination="nId-qZ-dZW" id="G1V-Ir-Blr"/>
                 <outlet property="nutriInfoLabel" destination="f5w-Tj-OCY" id="xHd-FY-5cU"/>
                 <outlet property="nutriInfoTableView" destination="f1i-3l-1u1" id="Z7x-nZ-nCk"/>
                 <outlet property="orderBtn" destination="0jU-qL-0nQ" id="zct-Jk-ebx"/>

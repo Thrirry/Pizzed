@@ -38,6 +38,7 @@ class BaseViewController: UIViewController {
         }
         return view
     }
+    
     func onSlideMenuButtonPressed() {
         guard let menuVC = MenuViewController.viewController() else {
             return
@@ -77,8 +78,8 @@ class BaseViewController: UIViewController {
         guard let itemDetailVC: ProductViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProductViewController") as? ProductViewController else {
             fatalError("Misconfigured view controller!\(sender)")
         }
-        
         addChildVC(itemDetailVC)
+        
         itemDetailVC.view.frame = CGRect(x: 0 - UIScreen.main.bounds.size.width, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
         
         UIView.animate(withDuration: 0.3, animations: { () -> Void in

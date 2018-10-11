@@ -41,6 +41,12 @@ extension UILabel {
         let fontSize = 25
         named.font = UIFont(name: "Lekton-Regular", size: CGFloat(fontSize))
     }
+    func formatMenuTitleLabel(named: UILabel){
+        named.contentMode = .scaleAspectFit
+        let fontSizeRightBar = named.font.pointSize
+        named.font = UIFont(name: "Charter-Bold", size: fontSizeRightBar)
+    }
+    
 }
 
 extension UITextView {

@@ -29,6 +29,7 @@ extension UIColor {
             static let green = UIColor(red: 0.99, green: 0.33, blue: 0.14, alpha: 1.0)
             static let background = UIColor(red: 1.00, green: 0.98, blue: 0.90, alpha: 1.0)
             static let hover = UIColor(red: 0.99, green: 0.98, blue: 0.92, alpha: 1.0)
+            static let notificationBackground = UIColor(red: 0.99, green:0.33, blue: 0.14, alpha: 0.85)
         }
         
         struct RightBar {

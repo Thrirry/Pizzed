@@ -9,6 +9,8 @@
 import UIKit
 
 class PizzaDetailsCollectionViewCell: UICollectionViewCell {
+    
+    @IBOutlet weak var mainViewContain: UIView!
     @IBOutlet weak var imageContainView: UIView!
     @IBOutlet weak var contentContainView: UIView!
     @IBOutlet weak var titleContainView: UIView!
@@ -33,7 +35,7 @@ class PizzaDetailsCollectionViewCell: UICollectionViewCell {
     let cellId = "cellId"
     let testString = "Italian flour, mozzarella, creamsauce, turkey, orange, almonds, green mix, cranberry, orange mustard"
     override func setNeedsLayout() {
-        setupLayout()
+        setupUIs()
         setupColours()
         tableViewSetup()
     }
@@ -47,14 +49,15 @@ class PizzaDetailsCollectionViewCell: UICollectionViewCell {
     func setupItemImageLayout() {
         // Setup item image view
         imageContainView.translatesAutoresizingMaskIntoConstraints = false
-        imageContainView.topAnchor.constraint(equalTo: topAnchor, constant: 20).isActive = true
-        imageContainView.leftAnchor.constraint(equalTo: leftAnchor, constant: 25).isActive = true
-        imageContainView.rightAnchor.constraint(equalTo: rightAnchor, constant: -25).isActive = true
-        imageContainView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.34).isActive = true
+        imageContainView.topAnchor.constraint(equalTo: mainViewContain.topAnchor).isActive = true
+        
+        imageContainView.leftAnchor.constraint(equalTo: mainViewContain.leftAnchor, constant: 25).isActive = true
+        imageContainView.rightAnchor.constraint(equalTo: mainViewContain.rightAnchor, constant: -25).isActive = true
+        imageContainView.heightAnchor.constraint(equalTo: mainViewContain.heightAnchor, multiplier: 0.34).isActive = true
         imageContainView.addSubview(dissmissButton)
         // Dissmiss button
         dissmissButton.translatesAutoresizingMaskIntoConstraints = false
-        dissmissButton.topAnchor.constraint(equalTo: imageContainView.topAnchor, constant: 8).isActive = true
+        dissmissButton.topAnchor.constraint(equalTo: imageContainView.topAnchor, constant: 2).isActive = true
         dissmissButton.leftAnchor.constraint(equalTo: imageContainView.leftAnchor, constant: 2).isActive = true
         dissmissButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
         dissmissButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
@@ -185,7 +188,7 @@ class PizzaDetailsCollectionViewCell: UICollectionViewCell {
     func setupOrderLayout() {
         // Order View
         orderContainView.translatesAutoresizingMaskIntoConstraints = false
-        orderContainView.topAnchor.constraint(equalTo: detailContainView.bottomAnchor).isActive = true
+        orderContainView.topAnchor.constraint(equalTo: detailContainView.bottomAnchor, constant: 5).isActive = true
         orderContainView.leftAnchor.constraint(equalTo: contentContainView.leftAnchor, constant: 17).isActive = true
         orderContainView.rightAnchor.constraint(equalTo: contentContainView.rightAnchor, constant: -17).isActive = true
         orderContainView.heightAnchor.constraint(equalTo: contentContainView.heightAnchor, multiplier: 0.12).isActive = true
@@ -205,7 +208,7 @@ class PizzaDetailsCollectionViewCell: UICollectionViewCell {
         orderBtn.centerXAnchor.constraint(equalTo: orderBtnView.centerXAnchor).isActive = true
         orderBtn.centerYAnchor.constraint(equalTo: orderBtnView.centerYAnchor).isActive = true
         orderBtn.heightAnchor.constraint(equalTo: orderBtnView.heightAnchor, multiplier: 0.7).isActive = true
-        orderBtn.widthAnchor.constraint(equalTo: orderBtnView.widthAnchor, multiplier: 0.28).isActive = true
+        orderBtn.widthAnchor.constraint(equalTo: orderBtnView.widthAnchor, multiplier: 0.26).isActive = true
         
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
         priceLabel.topAnchor.constraint(equalTo: orderContainView.topAnchor).isActive = true
@@ -215,14 +218,23 @@ class PizzaDetailsCollectionViewCell: UICollectionViewCell {
         priceLabel.formatTextLableButton(named: priceLabel, title: "$15.00")
     }
     // MARK: - Setup layout for UIView
-    func setupLayout() {
+    func setupUIs() {
+        
+        mainViewContain.translatesAutoresizingMaskIntoConstraints = false
+        mainViewContain.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+        mainViewContain.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1).isActive = true
+        mainViewContain.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
+        
+        mainViewContain.addSubview(imageContainView)
+        mainViewContain.addSubview(contentContainView)
+        
         setupItemImageLayout()
         // Setup item content view
         contentContainView.translatesAutoresizingMaskIntoConstraints = false
         contentContainView.topAnchor.constraint(equalTo: imageContainView.bottomAnchor, constant: 5).isActive = true
-        contentContainView.leftAnchor.constraint(equalTo: leftAnchor, constant: 25).isActive = true
-        contentContainView.rightAnchor.constraint(equalTo: rightAnchor, constant: -25).isActive = true
-        contentContainView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.6).isActive = true
+        contentContainView.leftAnchor.constraint(equalTo: mainViewContain.leftAnchor, constant: 25).isActive = true
+        contentContainView.rightAnchor.constraint(equalTo: mainViewContain.rightAnchor, constant: -25).isActive = true
+        contentContainView.heightAnchor.constraint(equalTo: mainViewContain.heightAnchor, multiplier: 0.6).isActive = true
         contentContainView.addSubview(titleContainView)
         contentContainView.addSubview(detailContainView)
         contentContainView.addSubview(orderContainView)
@@ -231,6 +243,7 @@ class PizzaDetailsCollectionViewCell: UICollectionViewCell {
     }
     // MARK: - Setup colours for UIView
     func setupColours() {
+        mainViewContain.backgroundColor = UIColor.clear
         imageContainView.backgroundColor = UIColor.FlatColor.Background.ItemDetailBackground
         contentContainView.backgroundColor  = UIColor.FlatColor.Background.ItemDetailBackground
         titleContainView.backgroundColor = UIColor.clear

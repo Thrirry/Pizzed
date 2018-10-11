@@ -7,16 +7,45 @@
 //
 
 import UIKit
-protocol ItemDetailsDelegate {
-    func itemDetailsDelegateSelectedAtIndex(_ index: Int32)
-}
+
 class ProductViewController: BaseViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     @IBOutlet weak var productCollectionView: UICollectionView!
-    var delegate: ItemDetailsDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureCollectionView()
+        setupUIs()
+    }
+    
+    private func registerCell() {
         let nib = UINib(nibName: "PizzaDetailsCollectionViewCell", bundle: nil)
         productCollectionView.register(nib, forCellWithReuseIdentifier: "PizzaDetailsCollectionViewCell")
+    }
+    
+    private func configureCollectionView() {
+        registerCell()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PizzaDetailsCollectionViewCell", for: indexPath) as? PizzaDetailsCollectionViewCell else {
+            fatalError()
+        }
+        
+        cell.dissmissButton.addTarget(self, action: #selector(onCloseCollectionClick(_:)), for: .touchUpInside)
+        return cell
+        
+    }
+    
+    func setupUIs() {
         productCollectionView.isPagingEnabled = true
         let itemWidthSize = UIScreen.main.bounds.width
         let itemHeightSize = UIScreen.main.bounds.height
@@ -26,26 +55,7 @@ class ProductViewController: BaseViewController, UICollectionViewDataSource, UIC
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .horizontal
         productCollectionView.collectionViewLayout = layout
-
-        setupLayout()
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
-    }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        // swiftlint:disable force_cast
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PizzaDetailsCollectionViewCell", for: indexPath) as! PizzaDetailsCollectionViewCell
-        cell.dissmissButton.addTarget(self, action: #selector(onCloseCollectionClick(_:)), for: .touchUpInside)
-
-        return cell
-    }
-    func setupLayout() {
+        
         productCollectionView.translatesAutoresizingMaskIntoConstraints = false
         productCollectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         productCollectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true

@@ -26,6 +26,10 @@ class MenuTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         setUpLayout()
         setUpColor()
+        
+        if self.titleLableView.text == "Your Cart" {
+            setupNotificationView()
+        }
     }
     
     override func awakeFromNib() {
@@ -41,6 +45,28 @@ class MenuTableViewCell: UITableViewCell {
     func bind(_ viewModel: MenuViewModel.MenuData) {
             self.iconImageView.image = viewModel.0
             self.titleLableView.text = viewModel.1
+    }
+    
+    let notificationView = UIView()
+    let notificationLabel = UILabel()
+    let cornerRadius: CGFloat = 13.0
+    
+    func setupNotificationView(){
+        iconImageView.addSubview(notificationView)
+        notificationView.addSubview(notificationLabel)
+        
+        notificationLabel.translatesAutoresizingMaskIntoConstraints = false
+        notificationLabel.centerXAnchor.constraint(equalTo: notificationView.centerXAnchor).isActive = true
+        notificationLabel.centerYAnchor.constraint(equalTo: notificationView.centerYAnchor).isActive = true
+        notificationLabel.text = "1"
+        notificationLabel.formatMenuTitleLabel(named: notificationLabel)
+        
+        notificationView.translatesAutoresizingMaskIntoConstraints = false
+        notificationView.heightAnchor.constraint(equalToConstant: 26).isActive = true
+        notificationView.widthAnchor.constraint(equalToConstant: 26).isActive = true
+        notificationView.leftAnchor.constraint(equalTo: iconImageView.leftAnchor, constant: 2).isActive = true
+        notificationView.topAnchor.constraint(equalTo: iconImageView.topAnchor, constant: 2).isActive = true
+        notificationView.layer.cornerRadius = cornerRadius
     }
     
     func setUpLayout() {
@@ -68,12 +94,13 @@ class MenuTableViewCell: UITableViewCell {
         titleLableView.topAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 2).isActive = true
         titleLableView.textAlignment = .center
         titleLableView.contentMode = .scaleAspectFit
-        let fontSizeRightBar = titleLableView.font.pointSize
-        titleLableView.font = UIFont(name: "Charter-Bold", size: fontSizeRightBar)
+        titleLableView.formatMenuTitleLabel(named: titleLableView)
     }
     
     func setUpColor(){
         containerView.backgroundColor = UIColor.clear
         titleLableView.textColor = UIColor.FlatColor.Menu.green
+        notificationView.backgroundColor = UIColor.FlatColor.Menu.notificationBackground
+        notificationLabel.textColor = UIColor.white
     }
 }

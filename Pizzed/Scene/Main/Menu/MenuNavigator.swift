@@ -21,12 +21,19 @@ struct DefaultMenuNavigator: MenuNavigator {
         self.navigation = navigation
     }
 
+//    func toHome() {
+//        guard let vc = HomeViewController.viewController() else { return }
+//        let nav = UINavigationController(rootViewController: vc)
+//        let navigator = DefaultHomeNavigator(navigation: nav)
+//        vc.viewModel = HomeViewModel(navigator: navigator)
+//        navigation?.pushViewController(vc, animated: true)
+//    }
+    
     func toHome() {
-        guard let vc = HomeViewController.viewController() else { return }
-        let nav = UINavigationController(rootViewController: vc)
-        let navigator = DefaultHomeNavigator(navigation: nav)
-        vc.viewModel = HomeViewModel(navigator: navigator)
-        navigation?.pushViewController(vc, animated: true)
+//        guard let navig = navigation else { return }
+//        let navigator = DefaultHomeNavigator(navigation: navig)
+//        navigator.toHome()
+        navigation?.popToRootViewController(animated: true)
     }
     
     func toMenuDetails(title: String, indexPath: IndexPath) {
@@ -64,5 +71,6 @@ struct DefaultMenuNavigator: MenuNavigator {
     
     func toBack() {
         self.navigation?.popViewController(animated: true)
+//        self.navigation?.popToRootViewController(animated: true)
     }
 }

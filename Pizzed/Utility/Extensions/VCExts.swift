@@ -123,11 +123,21 @@ extension UIViewController {
         rightBarContainView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.18).isActive = true
     }
     
-    func setupItemsOrderTableView(itemOrderTableView: UITableView){
+    func setupItemsTableView(itemOrderTableView: UITableView){
         itemOrderTableView.translatesAutoresizingMaskIntoConstraints = false
         itemOrderTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         itemOrderTableView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.75).isActive = true
         itemOrderTableView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1).isActive = true
+        itemOrderTableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
+    }
+    
+    func setupItemDetailsCollectionView(itemOrderTableView: UICollectionView){
+        itemOrderTableView.translatesAutoresizingMaskIntoConstraints = false
+        itemOrderTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        itemOrderTableView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1).isActive = true
+        itemOrderTableView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1).isActive = true
+        itemOrderTableView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        itemOrderTableView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
 }
 
