@@ -65,27 +65,33 @@ class BaseViewController: UIViewController {
     }
     
     @objc func onCloseCollectionClick(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.2, animations: { () -> Void in
-            self.view.frame = CGRect(x: 0 - UIScreen.main.bounds.size.width, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
-            self.view.layoutIfNeeded()
-            self.view.backgroundColor = UIColor.clear
-        }, completion: { (_) -> Void in
-             self.removeChildVC()
-        })
+        popViewControler()
     }
     
+//    func presentDetail(_ viewControllerToPresent: UIViewController) {
+//        let transition = CATransition()
+//        transition.duration = 0.25
+//        transition.type = kCATransitionPush
+//        transition.subtype = kCATransitionFade
+//        self.view.window?.layer.add(transition, forKey: kCATransition)
+//        present(viewControllerToPresent, animated: false)
+//    }
+//
+//    func dismissDetail() {
+//        let transition = CATransition()
+//        transition.duration = 2.0
+//        transition.type = kCATransitionPush
+//        transition.subtype = kCATransitionFromLeft
+//        self.view.window?.layer.add(transition, forKey: kCATransition)
+//        dismiss(animated: false)
+//    }
+    
     @objc func insideItemDetailsButtonPressed(_ sender: UIButton) {
-        guard let itemDetailVC: ProductViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProductViewController") as? ProductViewController else {
-            fatalError("Misconfigured view controller!\(sender)")
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProductViewController") as? ProductViewController
+        {
+            let navControllers = UINavigationController(rootViewController: vc)
+            presentDetail(navControllers)
         }
-        addChildVC(itemDetailVC)
-        
-        itemDetailVC.view.frame = CGRect(x: 0 - UIScreen.main.bounds.size.width, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
-        
-        UIView.animate(withDuration: 0.3, animations: { () -> Void in
-            itemDetailVC.view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
-            sender.isEnabled = true
-        }, completion: nil)
     }
     
     func setupPreviousButton(btn: UIButton) {

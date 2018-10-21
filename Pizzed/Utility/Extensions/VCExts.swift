@@ -99,19 +99,22 @@ extension UIViewController {
         view.removeFromSuperview()
     }
     
-    /// Auto layout
-    var sa_safeAreaInsets: UIEdgeInsets {
-        if #available(iOS 11, *) {
-            return view.safeAreaInsets
-        }
-        return UIEdgeInsets(top: topLayoutGuide.length, left: 0.0, bottom: bottomLayoutGuide.length, right: 0.0)
+    func presentDetail(_ viewControllerToPresent: UIViewController) {
+        let transition = CATransition()
+        transition.duration = 0.25
+        transition.type = kCATransitionPush
+        transition.subtype = kCATransitionFade
+        self.view.window?.layer.add(transition, forKey: kCATransition)
+        present(viewControllerToPresent, animated: false)
     }
     
-    var sa_safeAreaFrame: CGRect {
-        if #available(iOS 11, *) {
-            return view.safeAreaLayoutGuide.layoutFrame
-        }
-        return UIEdgeInsetsInsetRect(view.bounds, sa_safeAreaInsets)
+    func dismissDetail() {
+        let transition = CATransition()
+        transition.duration = 2.0
+        transition.type = kCATransitionPush
+        transition.subtype = kCATransitionFromLeft
+        self.view.window?.layer.add(transition, forKey: kCATransition)
+        dismiss(animated: false)
     }
 
     func setupRightBarView(rightBarContainView: UIView){

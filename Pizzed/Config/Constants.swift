@@ -39,6 +39,10 @@ struct Constants {
     struct RightBar {
         static let Cart = "The minimum order is 12 $"
     }
+    
+    struct Product {
+        static let Background = 0xB9E4C9
+    }
 }
 
 // MARK: - Global defining

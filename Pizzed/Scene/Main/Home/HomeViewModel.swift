@@ -15,6 +15,7 @@ class HomeViewModel: ViewModelType {
     
     typealias T = Constants.Menu
     public typealias RightBarData = (UIImage, String)
+    
     // MARK: - Properties
     private let navigator: HomeNavigator
     private let disposeBag = DisposeBag()

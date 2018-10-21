@@ -14,8 +14,10 @@ import ServicePlatform
 class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var rightBarTableView: UITableView!
     @IBOutlet weak var leftBarTableView: UITableView!
+    
     let rightBar = DataForRightbar.sharedInstance
     let pizza = DataForPizza.sharedInstance
+    
     // MARK: - Compulsory ones
     static func viewController() -> HomeViewController? {
         return Helper.getViewController(named: "HomeViewController", inSb: "Main")
@@ -72,13 +74,20 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pizza.serviceProduct.count
     }
-        
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//       let select = pizza.serviceProduct[indexPath.row]
+//        print(select.productId)
+//    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            // swiftlint:disable force_cast
-            let cell = loadViewFromNib(named: "PizzaTableViewCell") as! PizzaTableViewCell
+        
+        guard let cell = loadViewFromNib(named: "PizzaTableViewCell") as? PizzaTableViewCell else {
+            fatalError("PizzaTableViewCell has not been implemented")
+        }
             let mainData = pizza.serviceProduct[indexPath.row]
             let otherData = pizza.pizzaStore[indexPath.row]
-            
+        
             for info in mainData.productInfo {
                cell.displayTitle(title: info.name, state: info.state )
                 
@@ -94,13 +103,14 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
             }
             cell.orderBtn.addTarget(self, action: #selector(insideItemDetailsButtonPressed(_:)), for: .touchUpInside)
             cell.backgroundColor = UIColor.FlatColor.Background.HomeBackground
-            cell.selectionStyle = .none
+//            cell.selectionStyle = .none
             return cell
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 210
     }
+    
     func setupLayout() {
         // MARK: - Left Bar
         setupItemsTableView(itemOrderTableView: leftBarTableView)

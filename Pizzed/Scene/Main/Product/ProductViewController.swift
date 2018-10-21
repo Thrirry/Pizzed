@@ -7,20 +7,49 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
+import ServicePlatform
 
-class ProductViewController: BaseViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ProductViewController: BaseViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
     @IBOutlet weak var productCollectionView: UICollectionView!
+    
+    var viewModel: ProductViewModel!
+    let pizza = DataForPizza.sharedInstance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        configureCollectionView()
+        var count = 0
+        pizza.fetchJSON { [weak self] in
+            self?.productCollectionView.reloadData()
+            count += 1
+            if count == 1 {
+                Helper.hideLoading()
+            }
+        }
         setupUIs()
+        configureCollectionView()
+        productCollectionView.delegate = self
+    }
+
+    override func viewWillLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        setupCollectionView()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+    }
+    
+    static func viewController() -> ProductViewController? {
+        return Helper.getViewController(named: "ProductViewController", inSb: "Main")
     }
     
     private func registerCell() {
-        let nib = UINib(nibName: "PizzaDetailsCollectionViewCell", bundle: nil)
-        productCollectionView.register(nib, forCellWithReuseIdentifier: "PizzaDetailsCollectionViewCell")
+        let nib = UINib(nibName: "PizzaCollectionViewCell", bundle: nil)
+        productCollectionView.register(nib, forCellWithReuseIdentifier: "PizzaCollectionViewCell")
     }
     
     private func configureCollectionView() {
@@ -32,35 +61,30 @@ class ProductViewController: BaseViewController, UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return pizza.serviceProduct.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PizzaDetailsCollectionViewCell", for: indexPath) as? PizzaDetailsCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PizzaCollectionViewCell", for: indexPath) as? PizzaCollectionViewCell else {
             fatalError()
         }
-        
-        cell.dissmissButton.addTarget(self, action: #selector(onCloseCollectionClick(_:)), for: .touchUpInside)
         return cell
-        
+    }
+    
+    func setupCollectionView() {
+        if let flowLayout = productCollectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.scrollDirection = .horizontal
+            flowLayout.minimumLineSpacing = 0
+            flowLayout.minimumInteritemSpacing = 0
+            let itemWidthSize = productCollectionView.bounds.width
+            let itemHeightSize = productCollectionView.bounds.height
+            flowLayout.itemSize = CGSize(width: itemWidthSize, height: itemHeightSize)
+        }
+        productCollectionView?.isPagingEnabled = true
     }
     
     func setupUIs() {
-        productCollectionView.isPagingEnabled = true
-        let itemWidthSize = UIScreen.main.bounds.width
-        let itemHeightSize = UIScreen.main.bounds.height
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: itemWidthSize, height: itemHeightSize)
-        layout.minimumLineSpacing = 0
-        layout.minimumInteritemSpacing = 0
-        layout.scrollDirection = .horizontal
-        productCollectionView.collectionViewLayout = layout
-        
-        productCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        productCollectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        productCollectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        productCollectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        productCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        productCollectionView.backgroundColor = UIColor.FlatColor.Background.ProductDetailBackground
+        productCollectionView.backgroundColor = UIColor(rgb: UInt(Constants.Product.Background))
+        view.backgroundColor = UIColor(rgb: UInt(Constants.Product.Background))
     }
 }

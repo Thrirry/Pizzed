@@ -35,6 +35,7 @@ struct ProductStorage {
 }
 
 struct ProductStorageService: Decodable {
+    let productId: Int
     let productCategory: String
     let productInfo: [Info]
     

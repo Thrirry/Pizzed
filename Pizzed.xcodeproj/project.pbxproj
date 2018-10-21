@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		09CC0F78F843CF872AAA8E97 /* Pods_Pizzed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2ABCE9C13105BF8627DD4C9 /* Pods_Pizzed.framework */; };
 		655045AE3842FAE01EA54580 /* Pods_ServicePlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F23869FCDF9CF9D68635FFA /* Pods_ServicePlatform.framework */; };
+		F1087F04216F4E57009873DF /* NutritionalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1087F03216F4E57009873DF /* NutritionalTableViewCell.swift */; };
 		F121FB5F21674FD400CBD95C /* ObservableExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F121FB5E21674FD400CBD95C /* ObservableExts.swift */; };
 		F1379E152121882500CFE247 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1379E142121882500CFE247 /* IntroViewController.swift */; };
 		F1379E172121883900CFE247 /* IntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1379E162121883900CFE247 /* IntroViewModel.swift */; };
@@ -18,8 +19,6 @@
 		F137F51A214280D400CCE23B /* CharterBoldBT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F137F5182142805100CCE23B /* CharterBoldBT.ttf */; };
 		F137F51C2142822D00CCE23B /* Charter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F137F51B2142822D00CCE23B /* Charter-Bold.ttf */; };
 		F137F51E2142823500CCE23B /* Charter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F137F51D2142823500CCE23B /* Charter-Regular.ttf */; };
-		F137F5212142861200CCE23B /* PizzaDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F137F51F2142861200CCE23B /* PizzaDetailsCollectionViewCell.swift */; };
-		F137F5222142861200CCE23B /* PizzaDetailsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F137F5202142861200CCE23B /* PizzaDetailsCollectionViewCell.xib */; };
 		F137F525214288BE00CCE23B /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F137F524214288BE00CCE23B /* ProductViewController.swift */; };
 		F13B25A9213D393100C04E3E /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13B25A6213D393000C04E3E /* Roboto-Light.ttf */; };
 		F13B25AA213D393100C04E3E /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13B25A7213D393100C04E3E /* Roboto-Bold.ttf */; };
@@ -95,10 +94,15 @@
 		F181C598216A0BEC00470FAC /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181C56C216A0BEB00470FAC /* Regex.swift */; };
 		F181C599216A0BEC00470FAC /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181C56D216A0BEB00470FAC /* Queue.swift */; };
 		F181C59A216A0BEC00470FAC /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181C56E216A0BEB00470FAC /* Utility.swift */; };
+		F18F42EE217C28B400F1A1F0 /* PizzaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18F42EC217C28B400F1A1F0 /* PizzaCollectionViewCell.swift */; };
+		F18F42EF217C28B400F1A1F0 /* PizzaCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F18F42ED217C28B400F1A1F0 /* PizzaCollectionViewCell.xib */; };
 		F1915935216CAEA800F34AAD /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1915933216CAEA800F34AAD /* CartTableViewCell.swift */; };
 		F1915936216CAEA800F34AAD /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1915934216CAEA800F34AAD /* CartTableViewCell.xib */; };
 		F1B2AA4F2132E35D00DE4979 /* Interstate-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1B2AA4E2132E35D00DE4979 /* Interstate-Regular.ttf */; };
 		F1B2AA51213304D800DE4979 /* Interstate-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1B2AA50213304D800DE4979 /* Interstate-Bold.ttf */; };
+		F1B3BE75217B4E5A005F7924 /* TestCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B3BE74217B4E5A005F7924 /* TestCollectionViewController.swift */; };
+		F1B3BE78217B4EE2005F7924 /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B3BE76217B4EE2005F7924 /* TestCollectionViewCell.swift */; };
+		F1B3BE79217B4EE2005F7924 /* TestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1B3BE77217B4EE2005F7924 /* TestCollectionViewCell.xib */; };
 		F1C2D0F921213484006452A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C2D0F821213484006452A3 /* AppDelegate.swift */; };
 		F1C2D0FE21213484006452A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C2D0FC21213484006452A3 /* Main.storyboard */; };
 		F1C2D10021213485006452A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1C2D0FF21213485006452A3 /* Assets.xcassets */; };
@@ -160,6 +164,7 @@
 		79FF4B8CB9B449AE531E6302 /* Pods-Pizzed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pizzed.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pizzed/Pods-Pizzed.debug.xcconfig"; sourceTree = "<group>"; };
 		9F23869FCDF9CF9D68635FFA /* Pods_ServicePlatform.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ServicePlatform.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE33BA2B8400B62CB48D8B63 /* Pods-Pizzed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pizzed.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pizzed/Pods-Pizzed.release.xcconfig"; sourceTree = "<group>"; };
+		F1087F03216F4E57009873DF /* NutritionalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionalTableViewCell.swift; sourceTree = "<group>"; };
 		F121FB5E21674FD400CBD95C /* ObservableExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableExts.swift; sourceTree = "<group>"; };
 		F1379E142121882500CFE247 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		F1379E162121883900CFE247 /* IntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewModel.swift; sourceTree = "<group>"; };
@@ -169,8 +174,6 @@
 		F137F5182142805100CCE23B /* CharterBoldBT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CharterBoldBT.ttf; sourceTree = "<group>"; };
 		F137F51B2142822D00CCE23B /* Charter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Charter-Bold.ttf"; sourceTree = "<group>"; };
 		F137F51D2142823500CCE23B /* Charter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Charter-Regular.ttf"; sourceTree = "<group>"; };
-		F137F51F2142861200CCE23B /* PizzaDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
-		F137F5202142861200CCE23B /* PizzaDetailsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PizzaDetailsCollectionViewCell.xib; sourceTree = "<group>"; };
 		F137F524214288BE00CCE23B /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		F13B25A6213D393000C04E3E /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		F13B25A7213D393100C04E3E /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
@@ -246,10 +249,15 @@
 		F181C56C216A0BEB00470FAC /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		F181C56D216A0BEB00470FAC /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		F181C56E216A0BEB00470FAC /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		F18F42EC217C28B400F1A1F0 /* PizzaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaCollectionViewCell.swift; sourceTree = "<group>"; };
+		F18F42ED217C28B400F1A1F0 /* PizzaCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PizzaCollectionViewCell.xib; sourceTree = "<group>"; };
 		F1915933216CAEA800F34AAD /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		F1915934216CAEA800F34AAD /* CartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
 		F1B2AA4E2132E35D00DE4979 /* Interstate-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Interstate-Regular.ttf"; sourceTree = "<group>"; };
 		F1B2AA50213304D800DE4979 /* Interstate-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Interstate-Bold.ttf"; sourceTree = "<group>"; };
+		F1B3BE74217B4E5A005F7924 /* TestCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewController.swift; sourceTree = "<group>"; };
+		F1B3BE76217B4EE2005F7924 /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
+		F1B3BE77217B4EE2005F7924 /* TestCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCollectionViewCell.xib; sourceTree = "<group>"; };
 		F1C2D0F521213484006452A3 /* Pizzed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pizzed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1C2D0F821213484006452A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1C2D0FD21213484006452A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -325,6 +333,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F1087F02216F4E08009873DF /* NutritionalTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				F1087F03216F4E57009873DF /* NutritionalTableViewCell.swift */,
+			);
+			path = NutritionalTableViewCell;
+			sourceTree = "<group>";
+		};
 		F1379E122121870E00CFE247 /* Intro */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,6 +372,7 @@
 		F137F5232142889F00CCE23B /* Product */ = {
 			isa = PBXGroup;
 			children = (
+				F1087F02216F4E08009873DF /* NutritionalTableViewCell */,
 				F137F524214288BE00CCE23B /* ProductViewController.swift */,
 				F15765A5214FB6EE00967887 /* ProductViewModel.swift */,
 				F15765A7214FB70C00967887 /* ProductNavigator.swift */,
@@ -572,6 +589,14 @@
 			path = Dummy;
 			sourceTree = "<group>";
 		};
+		F1B3BE73217B4DF7005F7924 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				F1B3BE74217B4E5A005F7924 /* TestCollectionViewController.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
 		F1C2D0EC21213484006452A3 = {
 			isa = PBXGroup;
 			children = (
@@ -705,6 +730,7 @@
 		F1C2D11A21213FB3006452A3 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				F1B3BE73217B4DF7005F7924 /* Test */,
 				F1379E122121870E00CFE247 /* Intro */,
 				F17F7E3821217E79005EF1D8 /* Payment */,
 				F1C2D11B21213FC2006452A3 /* Main */,
@@ -774,9 +800,10 @@
 		F1C2D12021214132006452A3 /* Xib */ = {
 			isa = PBXGroup;
 			children = (
+				F18F42ED217C28B400F1A1F0 /* PizzaCollectionViewCell.xib */,
 				F1915937216CAEB600F34AAD /* Cart */,
-				F137F5202142861200CCE23B /* PizzaDetailsCollectionViewCell.xib */,
 				F137F5152142622300CCE23B /* MenuTableViewCell.xib */,
+				F1B3BE77217B4EE2005F7924 /* TestCollectionViewCell.xib */,
 				F1CAC25C21228499002DC312 /* PizzaTableViewCell.xib */,
 				F13D5CCF2122E4A4009C7625 /* RightBarTableViewCell.xib */,
 			);
@@ -841,7 +868,8 @@
 			children = (
 				F13D5CCE2122E4A4009C7625 /* RightBarTableViewCell.swift */,
 				F1CAC25B21228499002DC312 /* PizzaTableViewCell.swift */,
-				F137F51F2142861200CCE23B /* PizzaDetailsCollectionViewCell.swift */,
+				F1B3BE76217B4EE2005F7924 /* TestCollectionViewCell.swift */,
+				F18F42EC217C28B400F1A1F0 /* PizzaCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -950,8 +978,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F137F5222142861200CCE23B /* PizzaDetailsCollectionViewCell.xib in Resources */,
 				F1B2AA51213304D800DE4979 /* Interstate-Bold.ttf in Resources */,
+				F1B3BE79217B4EE2005F7924 /* TestCollectionViewCell.xib in Resources */,
 				F13B25B0213D3A4F00C04E3E /* Dosis-Medium.otf in Resources */,
 				F137F51E2142823500CCE23B /* Charter-Regular.ttf in Resources */,
 				F1915936216CAEA800F34AAD /* CartTableViewCell.xib in Resources */,
@@ -960,6 +988,7 @@
 				F1CAC25E21228499002DC312 /* PizzaTableViewCell.xib in Resources */,
 				F13B25A9213D393100C04E3E /* Roboto-Light.ttf in Resources */,
 				F1D1ADEE21272EBD009620DD /* Lekton-Regular.ttf in Resources */,
+				F18F42EF217C28B400F1A1F0 /* PizzaCollectionViewCell.xib in Resources */,
 				F137F51C2142822D00CCE23B /* Charter-Bold.ttf in Resources */,
 				F14807FA214B89AC00ECA676 /* .swiftlint.yml in Resources */,
 				F1C2D10321213485006452A3 /* LaunchScreen.storyboard in Resources */,
@@ -1135,8 +1164,9 @@
 				F1C2D11021213557006452A3 /* Structuration.swift in Sources */,
 				F1CA5F662147C1A600102D20 /* UILableExts.swift in Sources */,
 				F1D16CC52133E40300084393 /* pizzedTests.swift in Sources */,
-				F137F5212142861200CCE23B /* PizzaDetailsCollectionViewCell.swift in Sources */,
+				F1B3BE75217B4E5A005F7924 /* TestCollectionViewController.swift in Sources */,
 				F137F5162142622300CCE23B /* MenuTableViewCell.swift in Sources */,
+				F1087F04216F4E57009873DF /* NutritionalTableViewCell.swift in Sources */,
 				F15765A6214FB6EE00967887 /* ProductViewModel.swift in Sources */,
 				F1C2D0F921213484006452A3 /* AppDelegate.swift in Sources */,
 				F14EA06C216B600000115192 /* MapViewModel.swift in Sources */,
@@ -1155,6 +1185,7 @@
 				F1C2D13621214A83006452A3 /* MenuNavigator.swift in Sources */,
 				F1C2D1272121429F006452A3 /* HomeNavigator.swift in Sources */,
 				F1C2D10C212134D8006452A3 /* Constants.swift in Sources */,
+				F18F42EE217C28B400F1A1F0 /* PizzaCollectionViewCell.swift in Sources */,
 				F145D44A21385A6800CE3E2E /* DataRightBar.swift in Sources */,
 				F170ACBA216685E100828BF4 /* CartViewModel.swift in Sources */,
 				F1C2D12521214276006452A3 /* HomeViewController.swift in Sources */,
@@ -1164,6 +1195,7 @@
 				F1C2D13A21215A8A006452A3 /* MenuViewModel.swift in Sources */,
 				F181C51D2169B14E00470FAC /* SuperStar.swift in Sources */,
 				F1379E152121882500CFE247 /* IntroViewController.swift in Sources */,
+				F1B3BE78217B4EE2005F7924 /* TestCollectionViewCell.swift in Sources */,
 				F1531168214A2C9C00CA4B71 /* UIStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
