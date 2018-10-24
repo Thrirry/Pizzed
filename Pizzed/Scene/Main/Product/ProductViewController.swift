@@ -68,6 +68,9 @@ class ProductViewController: BaseViewController, UICollectionViewDataSource, UIC
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PizzaCollectionViewCell", for: indexPath) as? PizzaCollectionViewCell else {
             fatalError()
         }
+        
+        cell.dismissBtn.addTarget(self, action: #selector(onCloseProductViewClick(_ :)), for: .touchUpInside)
+        
         return cell
     }
     
@@ -84,7 +87,7 @@ class ProductViewController: BaseViewController, UICollectionViewDataSource, UIC
     }
     
     func setupUIs() {
-        productCollectionView.backgroundColor = UIColor(rgb: UInt(Constants.Product.Background))
-        view.backgroundColor = UIColor(rgb: UInt(Constants.Product.Background))
+        productCollectionView.backgroundColor = UIColor.FlatColor.mainBackground
+        view.backgroundColor = UIColor.FlatColor.mainBackground
     }
 }

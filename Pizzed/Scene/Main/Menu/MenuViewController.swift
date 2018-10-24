@@ -11,13 +11,14 @@ import RxCocoa
 import RxSwift
 import ServicePlatform
 
-class MenuViewController: BaseViewController{
+class MenuViewController: BaseViewController {
+    
     @IBOutlet weak var menuTableView: UITableView!
+    
     // MARK: - Compulsory ones
     static func viewController() -> MenuViewController? {
         return Helper.getViewController(named: "MenuViewController", inSb: "Main")
     }
-//    var viewModel = FirstSuperStar()
     var viewModel: MenuViewModel!
     
     override func viewDidLoad() {

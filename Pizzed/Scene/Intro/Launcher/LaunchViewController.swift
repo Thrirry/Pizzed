@@ -8,26 +8,25 @@
 
 import UIKit
 
-class LaunchViewController: UIViewController {
+class LaunchViewController: BaseViewController {
+    
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var pizzaCutterProgress: UIProgressView!
     @IBOutlet weak var pizzaCutterImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
-        view.backgroundColor = UIColor.brown
-        setUpLayout()
+        setupUIs()
         updateProgressView()
         transformCutterImage()
         transformLogoImage()
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    @objc func updateProgressView() {
+    
+    func updateProgressView() {
         UIView.animate(withDuration: 3.3, animations: { () -> Void in
             self.pizzaCutterProgress.setProgress(1.0, animated: true)
         })
@@ -35,16 +34,17 @@ class LaunchViewController: UIViewController {
         self.pizzaCutterProgress.progressTintColor = UIColor(red: 0.99, green: 0.33, blue: 0.14, alpha: 1.0)
         self.pizzaCutterProgress.backgroundColor = UIColor(red: 0.99, green: 0.33, blue: 0.14, alpha: 0.3)
     }
+    
     func transformCutterImage() {
         UIView.animate(withDuration: 3.3, animations: { () -> Void in
             let translate = CGAffineTransform(translationX: self.pizzaCutterProgress.width * 0.97, y: 0)
             self.pizzaCutterImage.transform = translate
         }, completion: {(_) -> Void in
             
-//            (UIApplication.shared.delegate as! AppDelegate).redirect()
             (UIApplication.shared.delegate as? AppDelegate)?.redirect()
-})
+        })
     }
+    
     func transformLogoImage() {
         UIView.animate(withDuration: 3.3, animations: { () -> Void in
             self.logoImageView.frame.size.width += 20
@@ -59,8 +59,9 @@ class LaunchViewController: UIViewController {
         
         self.logoImageView.image = UIImage(named: "mainLogo")
     }
-    func setUpLayout() {
-        view.backgroundColor = UIColor.FlatColor.Background.HomeBackground
+    
+    func setupUIs() {
+        view.backgroundColor = UIColor.FlatColor.mainBackground
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "Launch")
         backgroundImage.contentMode = UIViewContentMode.scaleAspectFit
@@ -74,7 +75,7 @@ class LaunchViewController: UIViewController {
         pizzaCutterProgress.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         pizzaCutterProgress.layer.cornerRadius = 3
         pizzaCutterProgress.clipsToBounds = true
-        pizzaCutterProgress.layer.sublayers![1].cornerRadius = 3
+        pizzaCutterProgress.layer.sublayers?[1].cornerRadius = 3
         pizzaCutterProgress.subviews[1].clipsToBounds = true
         pizzaCutterImage.translatesAutoresizingMaskIntoConstraints = false
         pizzaCutterImage.image = UIImage(named: "btnPizzaCutterActive")

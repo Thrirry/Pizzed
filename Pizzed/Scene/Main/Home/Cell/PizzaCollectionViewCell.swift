@@ -83,8 +83,8 @@ class PizzaCollectionViewCell: UICollectionViewCell {
         // Dissmiss button
         imageContainView.addSubview(dismissBtn)
         dismissBtn.translatesAutoresizingMaskIntoConstraints = false
-        dismissBtn.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        dismissBtn.widthAnchor.constraint(equalToConstant: 45).isActive = true
+        dismissBtn.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        dismissBtn.widthAnchor.constraint(equalToConstant: 20).isActive = true
         dismissBtn.topAnchor.constraint(equalTo: imageContainView.topAnchor, constant: 2).isActive = true
         dismissBtn.leftAnchor.constraint(equalTo: imageContainView.leftAnchor, constant: 2).isActive = true
     }
@@ -117,7 +117,7 @@ class PizzaCollectionViewCell: UICollectionViewCell {
         titleLabel.leftAnchor.constraint(equalTo: titleView.leftAnchor, constant: 2).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: titleView.rightAnchor).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: titleView.bottomAnchor).isActive = true
-        titleLabel.formatTextMainLabelTitle(named: titleLabel, title: "Chicken with turkey")
+        titleLabel.formatTextMainLabelLargeTitle(named: titleLabel, title: "Chicken with turkey")
     }
     
     func setupDetails(){
@@ -155,14 +155,14 @@ class PizzaCollectionViewCell: UICollectionViewCell {
         compositionLabel.leftAnchor.constraint(equalTo: detailContentView.leftAnchor, constant: 2).isActive = true
         compositionLabel.widthAnchor.constraint(equalTo: detailContentView.widthAnchor, multiplier: 1).isActive = true
         compositionLabel.heightAnchor.constraint(equalTo: detailContentView.heightAnchor, multiplier: 0.06).isActive = true
-        compositionLabel.formatTextLabelTitle(named: compositionLabel, title: "Composition: ")
+        compositionLabel.formatTextMainLabelTitle(named: compositionLabel, title: "Composition: ")
         
         compositionTV.translatesAutoresizingMaskIntoConstraints = false
         compositionTV.topAnchor.constraint(equalTo: compositionLabel.bottomAnchor, constant: 10).isActive = true
         compositionTV.leftAnchor.constraint(equalTo: detailContentView.leftAnchor).isActive = true
         compositionTV.rightAnchor.constraint(equalTo: detailContentView.rightAnchor).isActive = true
         compositionTV.heightAnchor.constraint(equalTo: detailContentView.heightAnchor, multiplier: 0.25).isActive = true
-        compositionTV.formatTextViewContent(named: compositionTV)
+        compositionTV.formatTextViewContent(named: compositionTV, title: "")
     }
     
     func setupNutritional() {
@@ -172,7 +172,7 @@ class PizzaCollectionViewCell: UICollectionViewCell {
         nutritionalLabel.leftAnchor.constraint(equalTo: detailContentView.leftAnchor, constant: 2).isActive = true
         nutritionalLabel.widthAnchor.constraint(equalTo: detailContentView.widthAnchor, multiplier: 1).isActive = true
         nutritionalLabel.heightAnchor.constraint(equalTo: detailContentView.heightAnchor, multiplier: 0.06).isActive = true
-        nutritionalLabel.formatTextLabelTitle(named: nutritionalLabel, title: "Nutritional information per 100 g:")
+        nutritionalLabel.formatTextMainLabelTitle(named: nutritionalLabel, title: "Nutritional information per 100 g:")
         
         // Setup nutritional infotional per item table view
         nutritionalTable.translatesAutoresizingMaskIntoConstraints  = false
@@ -200,7 +200,7 @@ class PizzaCollectionViewCell: UICollectionViewCell {
         sizeLabel.leftAnchor.constraint(equalTo: descriptionView.leftAnchor).isActive = true
         sizeLabel.bottomAnchor.constraint(equalTo: descriptionView.bottomAnchor).isActive = true
         sizeLabel.widthAnchor.constraint(equalTo: descriptionView.widthAnchor, multiplier: 0.2).isActive = true
-        sizeLabel.formatTextLabelTitle(named: sizeLabel, title: "Size:")
+        sizeLabel.formatTextMainLabelTitle(named: sizeLabel, title: "Size:")
         sizeTextLabel.translatesAutoresizingMaskIntoConstraints = false
         sizeTextLabel.topAnchor.constraint(equalTo: descriptionView.topAnchor).isActive = true
         sizeTextLabel.leftAnchor.constraint(equalTo: sizeLabel.rightAnchor).isActive = true
@@ -214,7 +214,7 @@ class PizzaCollectionViewCell: UICollectionViewCell {
         weightLabel.centerXAnchor.constraint(equalTo: descriptionView.centerXAnchor).isActive = true
         weightLabel.centerYAnchor.constraint(equalTo: descriptionView.centerYAnchor).isActive = true
         weightLabel.widthAnchor.constraint(equalTo: descriptionView.widthAnchor, multiplier: 0.3).isActive = true
-        weightLabel.formatTextLabelTitle(named: weightLabel, title: "Weight:")
+        weightLabel.formatTextMainLabelTitle(named: weightLabel, title: "Weight:")
         weightLabel.textAlignment = .right
         weightTextLabel.translatesAutoresizingMaskIntoConstraints = false
         weightTextLabel.topAnchor.constraint(equalTo: descriptionView.topAnchor).isActive = true
@@ -232,12 +232,12 @@ class PizzaCollectionViewCell: UICollectionViewCell {
         tradDoughLabel.heightAnchor.constraint(equalTo: detailContentView.heightAnchor, multiplier: 0.06).isActive = true
         tradDoughLabel.rightAnchor.constraint(equalTo: detailContentView.rightAnchor, constant: -2).isActive = true
         tradDoughLabel.leftAnchor.constraint(equalTo: detailContentView.leftAnchor, constant: 2).isActive = true
-        tradDoughLabel.formatTextLabelTitle(named: tradDoughLabel, title: "Traditional dough")
+        tradDoughLabel.formatTextMainLabelTitle(named: tradDoughLabel, title: "Traditional dough")
     }
     
     func setupOrder(){
         orderContainView.translatesAutoresizingMaskIntoConstraints = false
-        orderContainView.topAnchor.constraint(equalTo: tradDoughLabel.bottomAnchor, constant: 10).isActive = true
+        orderContainView.topAnchor.constraint(equalTo: tradDoughLabel.bottomAnchor, constant: 15).isActive = true
         orderContainView.leftAnchor.constraint(equalTo: detailContentView.leftAnchor, constant: 2).isActive = true
         orderContainView.rightAnchor.constraint(equalTo: detailContentView.rightAnchor, constant: -2).isActive = true
         orderContainView.heightAnchor.constraint(equalTo: detailContentView.heightAnchor, multiplier: 0.15).isActive = true
@@ -258,7 +258,7 @@ class PizzaCollectionViewCell: UICollectionViewCell {
         orderBtn.centerXAnchor.constraint(equalTo: orderBtnView.centerXAnchor).isActive = true
         orderBtn.centerYAnchor.constraint(equalTo: orderBtnView.centerYAnchor).isActive = true
         orderBtn.heightAnchor.constraint(equalTo: orderBtnView.heightAnchor, multiplier: 0.7).isActive = true
-        orderBtn.widthAnchor.constraint(equalTo: orderBtnView.widthAnchor, multiplier: 0.26).isActive = true
+        orderBtn.widthAnchor.constraint(equalTo: orderBtnView.widthAnchor, multiplier: 0.27).isActive = true
 
         priceView.translatesAutoresizingMaskIntoConstraints = false
         priceView.topAnchor.constraint(equalTo: orderContainView.topAnchor).isActive = true
@@ -277,11 +277,11 @@ class PizzaCollectionViewCell: UICollectionViewCell {
     }
     
     func setupColor(){
-        mainContrainView.backgroundColor = UIColor(rgb: UInt(Constants.Product.Background))
+        mainContrainView.backgroundColor = UIColor.FlatColor.mainBackground
         
         titleView.backgroundColor = UIColor.clear
         titleLabel.backgroundColor = UIColor.clear
-        titleLabel.textColor = UIColor(rgb: 0x356859)
+        titleLabel.textColor = UIColor.FlatColor.mainTitle
         detailContentView.backgroundColor = UIColor.clear
         compositionTV.backgroundColor = UIColor.clear
         compositionLabel.backgroundColor = UIColor.clear
@@ -296,12 +296,12 @@ class PizzaCollectionViewCell: UICollectionViewCell {
         orderContainView.backgroundColor = UIColor.clear
         
         orderBtnView.backgroundColor = UIColor.clear
-        orderBtnView.layer.borderColor = UIColor.FlatColor.ItemProduct.borderOrderButton.cgColor
-        orderContainView.layer.borderColor = UIColor.FlatColor.ItemProduct.borderOrderButton.cgColor
-        priceView.backgroundColor = UIColor.FlatColor.detailsProduct.backgroundPriceButton
+        orderBtnView.layer.borderColor = UIColor.FlatColor.Product.borderButton.cgColor
+        priceView.backgroundColor = UIColor.FlatColor.mainBackground
         priceLabel.backgroundColor = UIColor.clear
     }
 }
+
 extension PizzaCollectionViewCell: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

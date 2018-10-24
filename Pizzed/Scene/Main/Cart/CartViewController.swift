@@ -80,7 +80,7 @@ UITableViewDataSource{
     func setupColor(){
         rightBarContainView.backgroundColor = UIColor.FlatColor.RightBar.background
         iconCategoryContainView.backgroundColor = UIColor.clear
-        titleCategoryContainView.backgroundColor = UIColor.FlatColor.Background.RightBarBackground
+//        titleCategoryContainView.backgroundColor = UIColor.FlatColor.Background.RightBarBackground
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

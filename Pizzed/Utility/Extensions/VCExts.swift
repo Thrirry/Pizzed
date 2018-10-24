@@ -103,16 +103,16 @@ extension UIViewController {
         let transition = CATransition()
         transition.duration = 0.25
         transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFade
+        transition.subtype = kCATransitionReveal
         self.view.window?.layer.add(transition, forKey: kCATransition)
         present(viewControllerToPresent, animated: false)
     }
     
     func dismissDetail() {
         let transition = CATransition()
-        transition.duration = 2.0
+        transition.duration = 0.25
         transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromLeft
+        transition.subtype = kCATransitionReveal
         self.view.window?.layer.add(transition, forKey: kCATransition)
         dismiss(animated: false)
     }
@@ -145,7 +145,6 @@ extension UIViewController {
 }
 
 extension UIWindow {
-
     func replaceRoot(vc: UIViewController) {
         let snapshotImgView = UIImageView(image: snapshot())
         addSubview(snapshotImgView)

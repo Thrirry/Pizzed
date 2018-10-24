@@ -69,7 +69,7 @@ class TestCollectionViewController: BaseViewController, UICollectionViewDelegate
 //        collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
 //        collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
 //        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        collectionView.backgroundColor = UIColor.FlatColor.Background.ProductDetailBackground
+//        collectionView.backgroundColor = UIColor.FlatColor.Background.ProductDetailBackground
     }
     
 }

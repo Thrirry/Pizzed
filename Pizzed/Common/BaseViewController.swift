@@ -64,29 +64,11 @@ class BaseViewController: UIViewController {
         })
     }
     
-    @objc func onCloseCollectionClick(_ sender: UIButton) {
-        popViewControler()
+    @objc func onCloseProductViewClick(_ sender: UIButton) {
+        dismissDetail()
     }
     
-//    func presentDetail(_ viewControllerToPresent: UIViewController) {
-//        let transition = CATransition()
-//        transition.duration = 0.25
-//        transition.type = kCATransitionPush
-//        transition.subtype = kCATransitionFade
-//        self.view.window?.layer.add(transition, forKey: kCATransition)
-//        present(viewControllerToPresent, animated: false)
-//    }
-//
-//    func dismissDetail() {
-//        let transition = CATransition()
-//        transition.duration = 2.0
-//        transition.type = kCATransitionPush
-//        transition.subtype = kCATransitionFromLeft
-//        self.view.window?.layer.add(transition, forKey: kCATransition)
-//        dismiss(animated: false)
-//    }
-    
-    @objc func insideItemDetailsButtonPressed(_ sender: UIButton) {
+    @objc func onOpenProductViewClick(_ sender: UIButton) {
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProductViewController") as? ProductViewController
         {
             let navControllers = UINavigationController(rootViewController: vc)

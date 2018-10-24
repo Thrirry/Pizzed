@@ -36,11 +36,10 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
                 Helper.hideLoading()
             }
         }
-        setupLayout()
-        setupColour()
+        setupUIs()
+        setupColor()
         configureTableView()
         bind()
-        // Do any additional setup after loading the view.
     }
     
     private func registerCell() {
@@ -59,7 +58,6 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         
         output.rightBar.drive(rightBarTableView.rx.items(cellIdentifier: "RightBarTableViewCell", cellType: RightBarTableViewCell.self)) {_, data, cell in
             cell.bind(data)
-            cell.backgroundColor = UIColor.FlatColor.Background.HomeBackground
         }.disposed(by: disposeBag)
         
         output.error.ignoreNil().drive(onNext: showError).disposed(by: disposeBag)
@@ -74,11 +72,6 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pizza.serviceProduct.count
     }
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//       let select = pizza.serviceProduct[indexPath.row]
-//        print(select.productId)
-//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -101,9 +94,7 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
             for imageUrl in otherData.imageUrls {
                 cell.displayProductImage(image: imageUrl.firstImg)
             }
-            cell.orderBtn.addTarget(self, action: #selector(insideItemDetailsButtonPressed(_:)), for: .touchUpInside)
-            cell.backgroundColor = UIColor.FlatColor.Background.HomeBackground
-//            cell.selectionStyle = .none
+            cell.orderBtn.addTarget(self, action: #selector(onOpenProductViewClick(_:)), for: .touchDown)
             return cell
     }
 
@@ -111,19 +102,16 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         return 210
     }
     
-    func setupLayout() {
-        // MARK: - Left Bar
+    func setupUIs() {
         setupItemsTableView(itemOrderTableView: leftBarTableView)
-        // MARK: - Right Bar
         setupRightBarView(rightBarContainView: rightBarTableView)
     }
-    func setupColour() {
-        view.backgroundColor = UIColor.FlatColor.Background.HomeBackground
-        // MARK: - Left Bar
-        leftBarTableView.backgroundColor = UIColor.FlatColor.Background.HomeBackground
+    
+    func setupColor() {
+        view.backgroundColor = UIColor.FlatColor.mainBackground
+        leftBarTableView.backgroundColor = UIColor.FlatColor.mainBackground
         leftBarTableView.separatorColor = UIColor.clear
-        // MARK: - Right Bar
-        rightBarTableView.backgroundColor = UIColor.FlatColor.Background.HomeBackground
-        rightBarTableView.separatorColor = UIColor.clear
+        rightBarTableView.backgroundColor = UIColor.FlatColor.mainBackground
+        rightBarTableView.separatorColor = UIColor.FlatColor.mainBackground
     }
 }

@@ -10,11 +10,11 @@ import UIKit
 
 class RightBarTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var titleContainerView: UIView!
-    @IBOutlet weak var iconContainerView: UIView!
+    @IBOutlet weak var mainContainView: UIView!
+    @IBOutlet weak var titleView: UIView!
+    @IBOutlet weak var iconView: UIView!
     @IBOutlet weak var iconImageView: UIImageView!
-    @IBOutlet weak var titleLabelView: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -25,8 +25,8 @@ class RightBarTableViewCell: UITableViewCell {
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        setupLayout()
-        setupColour()
+        setupUIs()
+        setupColor()
     }
     func displayContent(image: String, title: String) {
         iconImageView.pin_updateWithProgress = true
@@ -34,60 +34,63 @@ class RightBarTableViewCell: UITableViewCell {
             return
         }
         iconImageView.pin_setImage(from: url)
-        titleLabelView.text = title
+        titleLabel.text = title
     }
     
     func bind(_ viewModel: HomeViewModel.RightBarData) {
         self.iconImageView.image = viewModel.0
-        self.titleLabelView.text = viewModel.1
+        self.titleLabel.formatTextLabelRightBar(named: titleLabel, title: viewModel.1)
     }
     
-    func setupLayout() {
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        containerView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        containerView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        containerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -9).isActive = true
-        containerView.addSubview(iconContainerView)
-        containerView.addSubview(titleContainerView)
-        iconContainerView.translatesAutoresizingMaskIntoConstraints = false
-        iconContainerView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
-        iconContainerView.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
-        iconContainerView.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.5).isActive = true
-        iconContainerView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 1).isActive = true
-        iconContainerView.addSubview(iconImageView)
+    func setupUIs() {
+        mainContainView.translatesAutoresizingMaskIntoConstraints = false
+        mainContainView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        mainContainView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        mainContainView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        mainContainView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
+        
+        mainContainView.addSubview(iconView)
+        setupIconView()
+        mainContainView.addSubview(titleView)
+        setupTitleView()
+        
+        mainContainView.layer.borderWidth = 0.2
+    }
+    
+    func setupIconView(){
+        iconView.translatesAutoresizingMaskIntoConstraints = false
+        iconView.topAnchor.constraint(equalTo: mainContainView.topAnchor).isActive = true
+        iconView.leftAnchor.constraint(equalTo: mainContainView.leftAnchor).isActive = true
+        iconView.heightAnchor.constraint(equalTo: mainContainView.heightAnchor, multiplier: 0.5).isActive = true
+        iconView.widthAnchor.constraint(equalTo: mainContainView.widthAnchor, multiplier: 1).isActive = true
+        
+        iconView.addSubview(iconImageView)
         iconImageView.translatesAutoresizingMaskIntoConstraints = false
-        iconImageView.centerYAnchor.constraint(equalTo: iconContainerView.centerYAnchor).isActive = true
-        iconImageView.centerXAnchor.constraint(equalTo: iconContainerView.centerXAnchor).isActive = true
-        iconImageView.heightAnchor.constraint(equalTo: iconContainerView.heightAnchor, multiplier: 0.9).isActive = true
-        iconImageView.widthAnchor.constraint(equalTo: iconContainerView.widthAnchor, multiplier: 0.9).isActive = true
+        iconImageView.centerYAnchor.constraint(equalTo: iconView.centerYAnchor).isActive = true
+        iconImageView.centerXAnchor.constraint(equalTo: iconView.centerXAnchor).isActive = true
+        iconImageView.heightAnchor.constraint(equalTo: iconView.heightAnchor, multiplier: 0.9).isActive = true
+        iconImageView.widthAnchor.constraint(equalTo: iconView.widthAnchor, multiplier: 0.9).isActive = true
         iconImageView.contentMode = .scaleAspectFit
-        titleContainerView.translatesAutoresizingMaskIntoConstraints = false
-        titleContainerView.topAnchor.constraint(equalTo: iconContainerView.bottomAnchor).isActive = true
-        titleContainerView.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
-        titleContainerView.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.5).isActive = true
-        titleContainerView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 1).isActive = true
-        titleContainerView.addSubview(titleLabelView)
-        titleLabelView.translatesAutoresizingMaskIntoConstraints = false
-        titleLabelView.topAnchor.constraint(equalTo: titleContainerView.topAnchor).isActive = true
-        titleLabelView.leftAnchor.constraint(equalTo: titleContainerView.leftAnchor).isActive = true
-        titleLabelView.bottomAnchor.constraint(equalTo: titleContainerView.bottomAnchor).isActive = true
-        titleLabelView.rightAnchor.constraint(equalTo: titleContainerView.rightAnchor).isActive = true
-        formatTextLabelTitle(named: titleLabelView)
     }
-    func setupColour() {
-        containerView.backgroundColor = UIColor.FlatColor.Background.RightBarBackground
-        iconContainerView.backgroundColor = UIColor.FlatColor.Background.HomeBackground
-        titleContainerView.backgroundColor = UIColor.FlatColor.Background.HomeBackground
+    
+    func setupTitleView(){
+        titleView.translatesAutoresizingMaskIntoConstraints = false
+        titleView.topAnchor.constraint(equalTo: iconView.bottomAnchor).isActive = true
+        titleView.leftAnchor.constraint(equalTo: mainContainView.leftAnchor).isActive = true
+        titleView.heightAnchor.constraint(equalTo: mainContainView.heightAnchor, multiplier: 0.4).isActive = true
+        titleView.widthAnchor.constraint(equalTo: mainContainView.widthAnchor, multiplier: 1).isActive = true
+        
+        titleView.addSubview(titleLabel)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.topAnchor.constraint(equalTo: titleView.topAnchor).isActive = true
+        titleLabel.leftAnchor.constraint(equalTo: titleView.leftAnchor).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: titleView.bottomAnchor).isActive = true
+        titleLabel.rightAnchor.constraint(equalTo: titleView.rightAnchor).isActive = true
     }
-    func formatTextLabelTitle(named: UILabel) {
-        named.sizeToFit()
-        named.numberOfLines = 0
-        named.textAlignment  = .center
-        named.lineBreakMode = NSLineBreakMode.byWordWrapping
-        named.adjustsFontSizeToFitWidth = true
-        named.textColor = UIColor(red: 0.21, green: 0.41, blue: 0.35, alpha: 1.0)
-        let fontSize = named.font.pointSize
-        named.font = UIFont(name: "Lekton-Bold", size: fontSize)
+    
+    func setupColor() {
+        mainContainView.backgroundColor = UIColor.FlatColor.mainBackground
+        iconView.backgroundColor = UIColor.FlatColor.mainBackground
+        titleView.backgroundColor = UIColor.FlatColor.mainBackground
     }
 }

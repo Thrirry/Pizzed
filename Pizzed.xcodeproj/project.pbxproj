@@ -35,7 +35,7 @@
 		F14EA068216B5FE100115192 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14EA067216B5FE100115192 /* MapViewController.swift */; };
 		F14EA06A216B5FEF00115192 /* MapNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14EA069216B5FEF00115192 /* MapNavigator.swift */; };
 		F14EA06C216B600000115192 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14EA06B216B600000115192 /* MapViewModel.swift */; };
-		F1531168214A2C9C00CA4B71 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1531167214A2C9C00CA4B71 /* UIStackView.swift */; };
+		F1531168214A2C9C00CA4B71 /* UIStackViewExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1531167214A2C9C00CA4B71 /* UIStackViewExts.swift */; };
 		F15765A6214FB6EE00967887 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15765A5214FB6EE00967887 /* ProductViewModel.swift */; };
 		F15765A8214FB70C00967887 /* ProductNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15765A7214FB70C00967887 /* ProductNavigator.swift */; };
 		F165B30A213B7968007297A8 /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F165B309213B7968007297A8 /* Configs.swift */; };
@@ -46,7 +46,7 @@
 		F181C51F2169B33300470FAC /* FirstSuperStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181C51E2169B33300470FAC /* FirstSuperStar.swift */; };
 		F181C5212169B38C00470FAC /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181C5202169B38C00470FAC /* Utilities.swift */; };
 		F181C5232169FEF700470FAC /* MenuItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181C5222169FEF700470FAC /* MenuItemViewModel.swift */; };
-		F181C525216A069D00470FAC /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181C524216A069D00470FAC /* UIColor.swift */; };
+		F181C525216A069D00470FAC /* UIColorExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F181C524216A069D00470FAC /* UIColorExts.swift */; };
 		F181C52F216A0B7F00470FAC /* ServicePlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = F181C52D216A0B7F00470FAC /* ServicePlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F181C532216A0B7F00470FAC /* ServicePlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F181C52B216A0B7F00470FAC /* ServicePlatform.framework */; };
 		F181C533216A0B7F00470FAC /* ServicePlatform.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F181C52B216A0B7F00470FAC /* ServicePlatform.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -190,7 +190,7 @@
 		F14EA067216B5FE100115192 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F14EA069216B5FEF00115192 /* MapNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapNavigator.swift; sourceTree = "<group>"; };
 		F14EA06B216B600000115192 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
-		F1531167214A2C9C00CA4B71 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
+		F1531167214A2C9C00CA4B71 /* UIStackViewExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExts.swift; sourceTree = "<group>"; };
 		F15765A5214FB6EE00967887 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		F15765A7214FB70C00967887 /* ProductNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductNavigator.swift; sourceTree = "<group>"; };
 		F165B309213B7968007297A8 /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 		F181C51E2169B33300470FAC /* FirstSuperStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSuperStar.swift; sourceTree = "<group>"; };
 		F181C5202169B38C00470FAC /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		F181C5222169FEF700470FAC /* MenuItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemViewModel.swift; sourceTree = "<group>"; };
-		F181C524216A069D00470FAC /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		F181C524216A069D00470FAC /* UIColorExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExts.swift; sourceTree = "<group>"; };
 		F181C52B216A0B7F00470FAC /* ServicePlatform.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ServicePlatform.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F181C52D216A0B7F00470FAC /* ServicePlatform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServicePlatform.h; sourceTree = "<group>"; };
 		F181C52E216A0B7F00470FAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -675,10 +675,10 @@
 			children = (
 				F1C2D13B2121611D006452A3 /* VCExts.swift */,
 				F1CA5F652147C1A600102D20 /* UILableExts.swift */,
-				F1531167214A2C9C00CA4B71 /* UIStackView.swift */,
+				F1531167214A2C9C00CA4B71 /* UIStackViewExts.swift */,
 				F1E9B51A21660BB400E71BDB /* UIButtonExts.swift */,
 				F121FB5E21674FD400CBD95C /* ObservableExts.swift */,
-				F181C524216A069D00470FAC /* UIColor.swift */,
+				F181C524216A069D00470FAC /* UIColorExts.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1179,7 +1179,7 @@
 				F1C2D13421214A5A006452A3 /* MenuViewController.swift in Sources */,
 				F13D5CD02122E4A4009C7625 /* RightBarTableViewCell.swift in Sources */,
 				F145D44D21385B1F00CE3E2E /* APIClient.swift in Sources */,
-				F181C525216A069D00470FAC /* UIColor.swift in Sources */,
+				F181C525216A069D00470FAC /* UIColorExts.swift in Sources */,
 				F1C2D116212135C6006452A3 /* UIHelper.swift in Sources */,
 				F1C2D12B21214321006452A3 /* BaseViewController.swift in Sources */,
 				F1C2D13621214A83006452A3 /* MenuNavigator.swift in Sources */,
@@ -1196,7 +1196,7 @@
 				F181C51D2169B14E00470FAC /* SuperStar.swift in Sources */,
 				F1379E152121882500CFE247 /* IntroViewController.swift in Sources */,
 				F1B3BE78217B4EE2005F7924 /* TestCollectionViewCell.swift in Sources */,
-				F1531168214A2C9C00CA4B71 /* UIStackView.swift in Sources */,
+				F1531168214A2C9C00CA4B71 /* UIStackViewExts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
