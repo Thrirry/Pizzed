@@ -64,6 +64,15 @@ class PizzaCollectionViewCell: UICollectionViewCell {
         setupContentView()
     }
     
+    var pizza: Pizza! {
+        didSet{
+            guard let pizza = pizza else {return}
+            titleLabel.formatTextMainLabelLargeTitle(named: titleLabel, title: pizza.name ?? "")
+            
+            print("\(String(describing: pizza.name))")
+        }
+    }
+    
     // MARK: - Setup item image view
     func setupImageView() {
         imageContainView.translatesAutoresizingMaskIntoConstraints = false
@@ -117,7 +126,7 @@ class PizzaCollectionViewCell: UICollectionViewCell {
         titleLabel.leftAnchor.constraint(equalTo: titleView.leftAnchor, constant: 2).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: titleView.rightAnchor).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: titleView.bottomAnchor).isActive = true
-        titleLabel.formatTextMainLabelLargeTitle(named: titleLabel, title: "Chicken with turkey")
+//        titleLabel.formatTextMainLabelLargeTitle(named: titleLabel, title: "Chicken with turkey")
     }
     
     func setupDetails(){

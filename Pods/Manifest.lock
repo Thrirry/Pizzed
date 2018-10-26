@@ -1,49 +1,69 @@
 PODS:
-  - FLAnimatedImage (1.0.12)
+  - Action (3.8.0):
+    - RxCocoa (~> 4.3.0)
+    - RxSwift (~> 4.3.0)
+  - Alamofire (4.7.3)
+  - AlamofireObjectMapper (5.1.0):
+    - Alamofire (~> 4.1)
+    - ObjectMapper (~> 3.3)
   - Kingfisher (4.10.0)
-  - PINCache (2.3)
-  - PINRemoteImage (2.1.4):
-    - PINRemoteImage/FLAnimatedImage (= 2.1.4)
-  - PINRemoteImage/Core (2.1.4):
-    - PINCache (>= 2.1)
-  - PINRemoteImage/FLAnimatedImage (2.1.4):
-    - FLAnimatedImage (>= 1.0)
-    - PINRemoteImage/Core
+  - ObjectMapper (3.3.0)
+  - RxAlamofire (4.3.0):
+    - RxAlamofire/Core (= 4.3.0)
+  - RxAlamofire/Core (4.3.0):
+    - Alamofire (~> 4.5)
+    - RxSwift (~> 4)
   - RxCocoa (4.3.1):
     - RxSwift (~> 4.0)
   - RxSwift (4.3.1)
   - SwiftDate (4.5.0)
   - SwiftLint (0.27.0)
+  - Swinject (2.5.0)
+  - SwinjectStoryboard (2.1.0):
+    - Swinject (~> 2.5)
 
 DEPENDENCIES:
+  - Action
+  - Alamofire (~> 4.7)
+  - AlamofireObjectMapper (~> 5.0)
   - Kingfisher (~> 4.0)
-  - PINRemoteImage
+  - RxAlamofire
   - RxCocoa (~> 4.0)
   - RxSwift (~> 4.0)
   - SwiftDate (= 4.5.0)
   - SwiftLint
+  - Swinject
+  - SwinjectStoryboard
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - FLAnimatedImage
+    - Action
+    - Alamofire
+    - AlamofireObjectMapper
     - Kingfisher
-    - PINCache
-    - PINRemoteImage
+    - ObjectMapper
+    - RxAlamofire
     - RxCocoa
     - RxSwift
     - SwiftDate
     - SwiftLint
+    - Swinject
+    - SwinjectStoryboard
 
 SPEC CHECKSUMS:
-  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  Action: 2275d04a407ecaf46a58d58a304388a28155a0a1
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  AlamofireObjectMapper: 3395e698901d8b0e6f48b7d0c43bd47875325102
   Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
-  PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
-  PINRemoteImage: 4ac4011c5caefd6befd99758e09becede05d3226
+  ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
+  RxAlamofire: 09624d0f2d48ed8b686e4eb4cf68e28cbd2df556
   RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
   RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
   SwiftDate: 17dd829c004a2d60432ef63ffcdb26ca2eb97a60
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
+  Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
+  SwinjectStoryboard: 688f096033103e66ffcf6ca678211acd7d7be505
 
-PODFILE CHECKSUM: d688b4a86de45882a7a1bbcef8439d2ad6dbdf67
+PODFILE CHECKSUM: ce6e45cdef5e3aa1aeef9d49a57e2414466277a5
 
 COCOAPODS: 1.5.3

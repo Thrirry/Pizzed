@@ -10,55 +10,96 @@ import UIKit
 import RxCocoa
 import RxSwift
 import ServicePlatform
+import RxAlamofire
 
-class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: BaseViewController {
+    
     @IBOutlet weak var rightBarTableView: UITableView!
     @IBOutlet weak var leftBarTableView: UITableView!
-    
-    let rightBar = DataForRightbar.sharedInstance
-    let pizza = DataForPizza.sharedInstance
+
+    private var refreshControl: UIRefreshControl!
+    fileprivate var navigator: Application!
+    var viewModel: BaseHomeViewModel!
+    var mainViewModel: HomeViewModel!
     
     // MARK: - Compulsory ones
     static func viewController() -> HomeViewController? {
         return Helper.getViewController(named: "HomeViewController", inSb: "Main")
     }
-    var viewModel: HomeViewModel!
+    
+    static func createWith(navigator: Application, storyboard: UIStoryboard, viewModel: BaseHomeViewModel) -> HomeViewController {
+        
+        let controller = storyboard.instantiateViewController(ofType: HomeViewController.self)
+        
+        controller.navigator = navigator
+        controller.viewModel = viewModel
+        
+        return controller
+    }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        Helper.showLoading()
-        var count = 0
-
-        pizza.fetchJSON { [weak self] in
-            self?.leftBarTableView.reloadData()
-            count += 1
-            if count == 1 {
-                Helper.hideLoading()
-            }
-        }
+        
         setupUIs()
         setupColor()
         configureTableView()
-        bind()
+        bindUI()
+//        bind()
+        viewModel.loadDataAction.execute("First load")
     }
     
     private func registerCell() {
-        let nib = UINib(nibName: "RightBarTableViewCell", bundle: nil)
-        rightBarTableView.register(nib, forCellReuseIdentifier: "RightBarTableViewCell")
+        leftBarTableView.register(UINib(nibName: "PizzaTableViewCell", bundle: nil), forCellReuseIdentifier: "PizzaTableViewCell")
+        
+        rightBarTableView.register(UINib(nibName: "RightBarTableViewCell", bundle: nil), forCellReuseIdentifier: "RightBarTableViewCell")
     }
     
     private func configureTableView() {
         registerCell()
         rightBarTableView.rowHeight = 90
+        leftBarTableView.rowHeight = 210
+    }
+    
+    private func bindUI(){
+//        self.navigationItem.rightBarButtonItem?.rx
+//            .bind(to: viewModel.loadDataAction) { _ in return "Refresh button" }
+        viewModel
+            .pizzaList
+            .asObservable()
+            .bind(to: leftBarTableView.rx.items) { [weak self] tableView, index, _
+                in
+                let indexPath = IndexPath(item: index, section: 0)
+                let cell = tableView.dequeueReusableCell(withIdentifier: PizzaTableViewCell.cellIdentifier, for: indexPath)
+                self?.config(cell, at: indexPath)
+                return cell
+            }
+            .disposed(by: disposeBag)
+    
+        viewModel.isLoadingData
+            .asDriver()
+            .drive(refreshControl.rx.isRefreshing)
+            .disposed(by: disposeBag)
+        
+        leftBarTableView.rx
+            .modelSelected(Pizza.self)
+            .subscribe(onNext: { [weak self](pizza) in
+                guard let this = self else {return}
+                self?.navigator.show(segue: .pizzaDetailLists(pizza: Variable(pizza)), sender: this)
+                })
+            .disposed(by: disposeBag)
+        
+        refreshControl.rx
+            .bind(to: viewModel.loadDataAction, controlEvent: refreshControl.rx.controlEvent(.valueChanged)) { _ in
+                return " "
+        }
     }
     
     private func bind() {
         let input = HomeViewModel.Input(selection: rightBarTableView.rx.itemSelected.asDriver())
-        let output = viewModel.transform(input: input)
+        let output = mainViewModel.transform(input: input)
         
         output.rightBar.drive(rightBarTableView.rx.items(cellIdentifier: "RightBarTableViewCell", cellType: RightBarTableViewCell.self)) {_, data, cell in
             cell.bind(data)
-        }.disposed(by: disposeBag)
+            }.disposed(by: disposeBag)
         
         output.error.ignoreNil().drive(onNext: showError).disposed(by: disposeBag)
         output.selectedRightBar.drive().disposed(by: disposeBag)
@@ -69,49 +110,26 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         })
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pizza.serviceProduct.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = loadViewFromNib(named: "PizzaTableViewCell") as? PizzaTableViewCell else {
-            fatalError("PizzaTableViewCell has not been implemented")
-        }
-            let mainData = pizza.serviceProduct[indexPath.row]
-            let otherData = pizza.pizzaStore[indexPath.row]
-        
-            for info in mainData.productInfo {
-               cell.displayTitle(title: info.name, state: info.state )
-                
-                for compositions in info.detail {
-                    cell.displayComposition(composition: compositions.composition)
-                }
-            }
-            for description in otherData.descriptions {
-                cell.displayDescription(weight: description.weight, size: description.size, price: description.price)
-            }
-            for imageUrl in otherData.imageUrls {
-                cell.displayProductImage(image: imageUrl.firstImg)
-            }
-            cell.orderBtn.addTarget(self, action: #selector(onOpenProductViewClick(_:)), for: .touchDown)
-            return cell
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 210
-    }
-    
     func setupUIs() {
-        setupItemsTableView(itemOrderTableView: leftBarTableView)
+        setupItemTableView(itemOrderTableView: leftBarTableView)
         setupRightBarView(rightBarContainView: rightBarTableView)
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        leftBarTableView.addSubview(refreshControl)
     }
     
     func setupColor() {
         view.backgroundColor = UIColor.FlatColor.mainBackground
-        leftBarTableView.backgroundColor = UIColor.FlatColor.mainBackground
+        leftBarTableView.backgroundColor = UIColor.FlatColor.Product.background
         leftBarTableView.separatorColor = UIColor.clear
-        rightBarTableView.backgroundColor = UIColor.FlatColor.mainBackground
+        rightBarTableView.backgroundColor = UIColor.FlatColor.Product.background
         rightBarTableView.separatorColor = UIColor.FlatColor.mainBackground
+    }
+    
+    private func config(_ cell: UITableViewCell, at indexPath: IndexPath) {
+        if let cell = cell as? PizzaTableViewCell {
+            cell.pizza = viewModel.pizzaList.value[indexPath.row]
+        }
     }
 }

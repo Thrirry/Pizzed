@@ -22,7 +22,7 @@ struct DefaultHomeNavigator: HomeNavigator {
     
     func toHome() {
         guard let vc = HomeViewController.viewController() else { return }
-        vc.viewModel = HomeViewModel(navigator: self)
+//        vc.mainViewModel = HomeViewModel(navigator: self)
         navigation?.pushViewController(vc, animated: true)
     }
     

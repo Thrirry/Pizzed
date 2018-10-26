@@ -6,9 +6,14 @@ def libraries
     # Pods for Pizzed
     pod 'RxSwift', '~> 4.0'
     pod 'RxCocoa', '~> 4.0'
-    pod 'PINRemoteImage'
     pod 'SwiftLint'
     pod 'Kingfisher', '~> 4.0'
+    pod 'Alamofire', '~> 4.7'
+    pod 'AlamofireObjectMapper', '~> 5.0'
+    pod 'RxAlamofire'
+    pod 'Action'
+    pod 'Swinject'
+    pod 'SwinjectStoryboard'
     
 end
 

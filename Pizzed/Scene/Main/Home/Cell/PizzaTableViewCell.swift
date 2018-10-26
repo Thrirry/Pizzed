@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import PINRemoteImage
+import Kingfisher
 
 class PizzaTableViewCell: UITableViewCell {
     
@@ -32,38 +32,48 @@ class PizzaTableViewCell: UITableViewCell {
     @IBOutlet weak var reactBtn: UIButton!
     @IBOutlet weak var newsBtn: UIButton!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: "PizzaTableViewCell")
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: "PizzaTableViewCell")
-    }
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         setupUIs()
         setupColor()
     }
-    // MARK: - Displaying Contents
-    func displayTitle(title: String, state: String ) {
-        itemImageView.pin_updateWithProgress = true
-        titleItemLabel.testTitle(named: titleItemLabel, title: title)
-        if state == "new" {
-            newsBtn.setBackgroundImageForButton(urlImg: "btnNewActive", btnNamed: newsBtn)
-        }
-    }
-    func displayComposition(composition: String) {
-        contentItemTV.formatTextViewContent(named: contentItemTV, title: composition)
+    
+    static var cellIdentifier: String {
+        return String(describing: self)
     }
     
-    func  displayProductImage(image: String) {
-        guard let url = URL(string: image) else {
-            return
+    // MARK: - Displaying Contents
+    var pizza: Pizza! {
+        didSet {
+            guard let pizza = pizza else {return}
+
+            let url = URL(string: pizza.detail?.firstImg ?? "")
+            itemImageView.kf.setImage(with: url)
+            
+            titleItemLabel.testTitle(named: titleItemLabel, title: pizza.name ?? "")
+            
+            if pizza.state == "new" {
+                newsBtn.setBackgroundImageForButton(urlImg: "btnNewActive", btnNamed: newsBtn)
+            }
+            
+            contentItemTV.text = pizza.detail?.composition
+            
+            let price = pizza.detail?.price
+            priceItemLabel.text = String(describing:price ?? 0)
+            sizeItemLabel.text = pizza.detail?.size
         }
-        itemImageView.pin_setImage(from: url)
-    }
-    func displayDescription(weight: String, size: String, price: Int){
-        sizeItemLabel.text = size
-        priceItemLabel.text = String(String(price) + "$")
     }
     
     let lineSpace: UILabel = {

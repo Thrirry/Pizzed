@@ -12,16 +12,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let navigator = Application()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-//        let vc = HomeViewController()
-//        let navigationController = UINavigationController(rootViewController: vc)
-//
-//        self.window?.rootViewController = navigationController
-        self.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LaunchViewController")
+
+        Thread.sleep(forTimeInterval: 1.5)
+        
+        self.window?.rootViewController = UINavigationController(rootViewController: LaunchViewController(nibName: nil, bundle: nil))
         self.window?.makeKeyAndVisible()
-//        let window = UIWindow(frame: UIScreen.main.bounds)
-//        Application.shared.configMainInterface(window: window)
-//        self.window = window
+        
         return true
     }
 
@@ -46,8 +45,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func redirect() {
-        if let window = window {
-            Application.shared.configMainInterface(window: window)
+        
+        if let nav = window?.rootViewController as? UINavigationController {
+            navigator.show(segue: .pizzaList, sender: nav)
         }
     }
 }

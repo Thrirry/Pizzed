@@ -126,7 +126,7 @@ extension UIViewController {
         rightBarContainView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.18).isActive = true
     }
     
-    func setupItemsTableView(itemOrderTableView: UITableView){
+    func setupItemTableView(itemOrderTableView: UITableView){
         itemOrderTableView.translatesAutoresizingMaskIntoConstraints = false
         itemOrderTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         itemOrderTableView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.75).isActive = true

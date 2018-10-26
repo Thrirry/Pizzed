@@ -7,18 +7,46 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import SwinjectStoryboard
 
-struct Application {
-    // MARK: - Singleton pattern
+class Application {
+    lazy private var defaultStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    
+    // MARK: - segues list
+    enum Segue {
+        case pizzaList
+        case pizzaDetailLists(pizza: Variable<Pizza>)
+    }
+    
     static let shared = Application()
     
-    private init() {}
-    func configMainInterface(window: UIWindow) {
-        let navigationController = UINavigationController()
-        let navigator = DefaultHomeNavigator(navigation: navigationController)
-        window.rootViewController = navigationController
-        navigator.toHome()
+    // MARK: - invoke a single segue
+    // swiftlint:disable force_unwrapping
+    func show(segue: Segue, sender: UIViewController) {
+        switch segue {
+        case .pizzaList:
+            let viewModel = BaseHomeViewModel(pizzaService: SwinjectStoryboard.defaultContainer.resolve(PizzaServiceProtocol.self)!)
+            show(target: HomeViewController.createWith(navigator: self, storyboard: defaultStoryboard, viewModel: viewModel), sender: sender)
+            
+        case .pizzaDetailLists(let pizza):
+            
+            let viewModel = ProductViewModel(pizzaService: SwinjectStoryboard.defaultContainer.resolve(PizzaServiceProtocol.self)! , pizza: pizza)
+            
+            show(target: ProductViewController.createWith(navigator: self, storyboard: defaultStoryboard, viewModel: viewModel), sender: sender)
+        }
     }
-    private func switchRootViewController(rootVC: UIViewController) {
+    
+    private func show(target: UIViewController, sender: UIViewController) {
+        if let nav = sender as? UINavigationController {
+            nav.pushViewController(target, animated: false)
+        } else if let nav = sender.navigationController {
+            nav.pushViewController(target, animated: true)
+        }
+    }
+    
+    private func present(target: UIViewController, sender: UIViewController) {
+        sender.present(target, animated: true, completion: nil)
     }
 }

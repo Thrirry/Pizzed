@@ -10,22 +10,41 @@ import UIKit
 import RxCocoa
 import RxSwift
 import ServicePlatform
+import Action
 
-final class ProductViewModel: ViewModelType {
+class ProductViewModel {
     
-//    typealias T =
+    let pizzaService: PizzaServiceProtocol
+    let bag = DisposeBag()
     
-    struct Input {}
-    struct Output {}
+    // MARK: - Input
+    private(set) var pizza: Variable<Pizza>
     
-    // MARK: - Properties
-    private let navigator: ProductNavigator
+    // MARK: - Output
+    private(set) var pizzaDetailList: Variable<[Pizza]>
     
-    init(navigator: ProductNavigator) {
-        self.navigator = navigator
+    init(pizzaService: PizzaServiceProtocol, pizza: Variable<Pizza>) {
+        self.pizzaService = pizzaService
+        self.pizza = pizza
+        
+        self.pizzaDetailList = Variable<[Pizza]>([])
+        
+        bindOutput()
     }
     
-    func transform(input: ProductViewModel.Input) -> ProductViewModel.Output {
-        return Output()
+    private func bindOutput() {
+        pizza
+            .asObservable()
+            .filter { $0.name != nil && !$0.name!.isEmpty }
+            .map { $0.name! }
+            .flatMap({ pizzaFullName -> Observable<PizzaDetailListOutput> in
+                return self.pizzaService.pizzaDetailList(input: PizzaDetailListInput(pizzaFullName: pizzaFullName))
+            })
+            .subscribe(onNext: { [weak self] (output) in
+                self?.pizzaDetailList.value = output.pizzaDetail
+                }, onError: { (error) in
+                    print(error)
+            })
+            .disposed(by: bag)
     }
 }

@@ -11,26 +11,26 @@ import RxCocoa
 import RxSwift
 import ServicePlatform
 
-class ProductViewController: BaseViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
+class ProductViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
     @IBOutlet weak var productCollectionView: UICollectionView!
     
+    var disposeBag = DisposeBag()
     var viewModel: ProductViewModel!
-    let pizza = DataForPizza.sharedInstance
+    fileprivate var navigator: Application!
+    
+    private var source: ProductDataSource?
+    
+    static func viewController() -> ProductViewController? {
+        return Helper.getViewController(named: "ProductViewController", inSb: "Main")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var count = 0
-        pizza.fetchJSON { [weak self] in
-            self?.productCollectionView.reloadData()
-            count += 1
-            if count == 1 {
-                Helper.hideLoading()
-            }
-        }
-        setupUIs()
+        
         configureCollectionView()
-        productCollectionView.delegate = self
+        setupUIs()
+        bindUI()
     }
 
     override func viewWillLayoutSubviews() {
@@ -43,13 +43,16 @@ class ProductViewController: BaseViewController, UICollectionViewDataSource, UIC
         super.viewDidLayoutSubviews()
     }
     
-    static func viewController() -> ProductViewController? {
-        return Helper.getViewController(named: "ProductViewController", inSb: "Main")
+    static func createWith(navigator: Application, storyboard: UIStoryboard, viewModel: ProductViewModel) -> ProductViewController {
+        let controller = storyboard.instantiateViewController(ofType: ProductViewController.self)
+        controller.navigator = navigator
+        controller.viewModel = viewModel
+        return controller
     }
     
     private func registerCell() {
-        let nib = UINib(nibName: "PizzaCollectionViewCell", bundle: nil)
-        productCollectionView.register(nib, forCellWithReuseIdentifier: "PizzaCollectionViewCell")
+        let nib = UINib(nibName: "TestCollectionViewCell", bundle: nil)
+        productCollectionView.register(nib, forCellWithReuseIdentifier: "TestCollectionViewCell")
     }
     
     private func configureCollectionView() {
@@ -60,18 +63,29 @@ class ProductViewController: BaseViewController, UICollectionViewDataSource, UIC
         super.didReceiveMemoryWarning()
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pizza.serviceProduct.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PizzaCollectionViewCell", for: indexPath) as? PizzaCollectionViewCell else {
-            fatalError()
-        }
+    private func bindUI() {
         
-        cell.dismissBtn.addTarget(self, action: #selector(onCloseProductViewClick(_ :)), for: .touchUpInside)
+        viewModel.pizza
+            .asObservable()
+            .subscribe(onNext: { [weak self] (pizza) in
+                self?.title = pizza.name
+                print(pizza.name ?? "don't have any value")
+            })
+            .disposed(by: disposeBag)
         
-        return cell
+        viewModel
+            .pizzaDetailList
+            .asObservable()
+            .bind(to: productCollectionView.rx.items) { [weak self] collectionView, index, _ in
+                let indexPath = IndexPath(item: index, section: 0)
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TestCollectionViewCell", for: indexPath) as? TestCollectionViewCell else {
+                    fatalError("missing cell")
+                }
+                
+                self?.config(cell, at: indexPath)
+                return cell
+            }
+            .disposed(by: disposeBag)
     }
     
     func setupCollectionView() {
@@ -87,7 +101,14 @@ class ProductViewController: BaseViewController, UICollectionViewDataSource, UIC
     }
     
     func setupUIs() {
+        setupCollectionView()
         productCollectionView.backgroundColor = UIColor.FlatColor.mainBackground
         view.backgroundColor = UIColor.FlatColor.mainBackground
+    }
+    
+    private func config(_ cell: UICollectionViewCell, at indexPath: IndexPath) {
+        if let cell = cell as? TestCollectionViewCell {
+            cell.pizza = viewModel.pizzaDetailList.value[indexPath.row]
+        }
     }
 }

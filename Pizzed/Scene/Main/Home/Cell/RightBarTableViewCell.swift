@@ -27,19 +27,20 @@ class RightBarTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         setupUIs()
         setupColor()
+        self.titleLabel.formatTextLabelRightBar(named: titleLabel, title: "Label")
     }
     func displayContent(image: String, title: String) {
-        iconImageView.pin_updateWithProgress = true
+//        iconImageView.pin_updateWithProgress = true
         guard let url = URL(string: image) else {
             return
         }
-        iconImageView.pin_setImage(from: url)
+//        iconImageView.pin_setImage(from: url)
         titleLabel.text = title
     }
     
     func bind(_ viewModel: HomeViewModel.RightBarData) {
         self.iconImageView.image = viewModel.0
-        self.titleLabel.formatTextLabelRightBar(named: titleLabel, title: viewModel.1)
+        self.titleLabel.formatTextLabelRightBar(named: titleLabel, title: "Label")
     }
     
     func setupUIs() {

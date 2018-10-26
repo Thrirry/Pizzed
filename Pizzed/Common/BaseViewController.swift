@@ -21,15 +21,12 @@ class BaseViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-    @objc func dismissVC() {
-        self.dismiss(animated: true, completion: nil)
-    }
     func setupNav() {
         self.navigationController?.isNavigationBarHidden = true
     }
+    
     func loadViewFromNib(named: String) -> UITableViewCell {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: named, bundle: bundle)
@@ -37,6 +34,15 @@ class BaseViewController: UIViewController {
             fatalError("Misconfigured cell type, \(nib)!")
         }
         return view
+    }
+    
+    func registerCell(tableView: UITableView, nibName: String) {
+        let nib = UINib(nibName: nibName, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: nibName)
+    }
+    
+    @objc func dismissVC() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func onSlideMenuButtonPressed() {

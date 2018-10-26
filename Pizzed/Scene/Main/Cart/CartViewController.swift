@@ -50,7 +50,7 @@ UITableViewDataSource{
         
         setupPreviousButton(btn: previousBtn)
         setupRightBarView(rightBarContainView: rightBarContainView)
-        setupItemsTableView(itemOrderTableView: itemOrderTableView)
+        setupItemTableView(itemOrderTableView: itemOrderTableView)
         setupChildRightBar()
     }
     
