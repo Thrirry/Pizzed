@@ -73,6 +73,11 @@ class PizzaCollectionViewCell: UICollectionViewCell {
             
             let url = URL(string: pizza.detail?.firstImg ?? "")
             imageView.kf.setImage(with: url)
+            
+            compositionTV.formatTVContent(named: compositionTV, title: pizza.detail?.composition ?? "")
+            
+            guard let price = pizza.detail?.price else {return}
+            priceLabel.text = String(describing: "$" + "\(price)")
         }
     }
     
@@ -81,8 +86,8 @@ class PizzaCollectionViewCell: UICollectionViewCell {
         imageContainView.translatesAutoresizingMaskIntoConstraints = false
         imageContainView.topAnchor.constraint(equalTo: mainContrainView.topAnchor).isActive = true
 
-        imageContainView.leftAnchor.constraint(equalTo: mainContrainView.leftAnchor, constant: 25).isActive = true
-        imageContainView.rightAnchor.constraint(equalTo: mainContrainView.rightAnchor, constant: -25).isActive = true
+        imageContainView.leftAnchor.constraint(equalTo: mainContrainView.leftAnchor, constant: 10).isActive = true
+        imageContainView.rightAnchor.constraint(equalTo: mainContrainView.rightAnchor, constant: -10).isActive = true
         imageContainView.heightAnchor.constraint(equalTo: mainContrainView.heightAnchor, multiplier: 0.34).isActive = true
         
         imageContainView.addSubview(imageView)
@@ -97,16 +102,16 @@ class PizzaCollectionViewCell: UICollectionViewCell {
         dismissBtn.translatesAutoresizingMaskIntoConstraints = false
         dismissBtn.heightAnchor.constraint(equalToConstant: 17).isActive = true
         dismissBtn.widthAnchor.constraint(equalToConstant: 17).isActive = true
-        dismissBtn.topAnchor.constraint(equalTo: imageContainView.topAnchor, constant: 5).isActive = true
-        dismissBtn.leftAnchor.constraint(equalTo: imageContainView.leftAnchor, constant: 5).isActive = true
+        dismissBtn.topAnchor.constraint(equalTo: imageContainView.topAnchor, constant: 7).isActive = true
+        dismissBtn.leftAnchor.constraint(equalTo: imageContainView.leftAnchor, constant: 7).isActive = true
     }
     
     func setupContentView(){
         contentContainView.translatesAutoresizingMaskIntoConstraints = false
         contentContainView.topAnchor.constraint(equalTo: imageContainView.bottomAnchor).isActive = true
         
-        contentContainView.leftAnchor.constraint(equalTo: mainContrainView.leftAnchor, constant: 25).isActive = true
-        contentContainView.rightAnchor.constraint(equalTo: mainContrainView.rightAnchor, constant: -25).isActive = true
+        contentContainView.leftAnchor.constraint(equalTo: mainContrainView.leftAnchor, constant: 10).isActive = true
+        contentContainView.rightAnchor.constraint(equalTo: mainContrainView.rightAnchor, constant: -10).isActive = true
         contentContainView.heightAnchor.constraint(equalTo: mainContrainView.heightAnchor, multiplier: 0.66).isActive = true
         
         contentContainView.addSubview(titleView)
@@ -120,13 +125,13 @@ class PizzaCollectionViewCell: UICollectionViewCell {
         titleView.translatesAutoresizingMaskIntoConstraints = false
         titleView.topAnchor.constraint(equalTo: contentContainView.topAnchor).isActive = true
         titleView.leftAnchor.constraint(equalTo: contentContainView.leftAnchor, constant: 0).isActive = true
-        titleView.heightAnchor.constraint(equalTo: contentContainView.heightAnchor, multiplier: 0.1).isActive = true
+        titleView.heightAnchor.constraint(equalTo: contentContainView.heightAnchor, multiplier: 0.12).isActive = true
         titleView.widthAnchor.constraint(equalTo: contentContainView.widthAnchor, multiplier: 1).isActive = true
         
         titleView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.topAnchor.constraint(equalTo: titleView.topAnchor).isActive = true
-        titleLabel.leftAnchor.constraint(equalTo: titleView.leftAnchor, constant: 2).isActive = true
+        titleLabel.leftAnchor.constraint(equalTo: titleView.leftAnchor, constant: 5).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: titleView.rightAnchor).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: titleView.bottomAnchor).isActive = true
 //        titleLabel.formatTextMainLabelLargeTitle(named: titleLabel, title: "Chicken with turkey")
@@ -173,8 +178,8 @@ class PizzaCollectionViewCell: UICollectionViewCell {
         compositionTV.topAnchor.constraint(equalTo: compositionLabel.bottomAnchor, constant: 10).isActive = true
         compositionTV.leftAnchor.constraint(equalTo: detailContentView.leftAnchor).isActive = true
         compositionTV.rightAnchor.constraint(equalTo: detailContentView.rightAnchor).isActive = true
-        compositionTV.heightAnchor.constraint(equalTo: detailContentView.heightAnchor, multiplier: 0.25).isActive = true
-        compositionTV.formatTextViewContent(named: compositionTV, title: "")
+        compositionTV.heightAnchor.constraint(equalTo: detailContentView.heightAnchor, multiplier: 0.15).isActive = true
+//        compositionTV.formatTextViewContent(named: compositionTV, title: "")
     }
     
     func setupNutritional() {
@@ -189,7 +194,7 @@ class PizzaCollectionViewCell: UICollectionViewCell {
         // Setup nutritional infotional per item table view
         nutritionalTable.translatesAutoresizingMaskIntoConstraints  = false
         nutritionalTable.topAnchor.constraint(equalTo: nutritionalLabel.bottomAnchor, constant: 5).isActive = true
-        nutritionalTable.heightAnchor.constraint(equalTo: detailContentView.heightAnchor, multiplier: 0.22).isActive = true
+        nutritionalTable.heightAnchor.constraint(equalTo: detailContentView.heightAnchor, multiplier: 0.25).isActive = true
         nutritionalTable.rightAnchor.constraint(equalTo: detailContentView.rightAnchor, constant: -2).isActive = true
         nutritionalTable.leftAnchor.constraint(equalTo: detailContentView.leftAnchor, constant: 4).isActive = true
     }
@@ -249,7 +254,7 @@ class PizzaCollectionViewCell: UICollectionViewCell {
     
     func setupOrder(){
         orderContainView.translatesAutoresizingMaskIntoConstraints = false
-        orderContainView.topAnchor.constraint(equalTo: tradDoughLabel.bottomAnchor, constant: 15).isActive = true
+        orderContainView.topAnchor.constraint(equalTo: tradDoughLabel.bottomAnchor, constant: 20).isActive = true
         orderContainView.leftAnchor.constraint(equalTo: detailContentView.leftAnchor, constant: 2).isActive = true
         orderContainView.rightAnchor.constraint(equalTo: detailContentView.rightAnchor, constant: -2).isActive = true
         orderContainView.heightAnchor.constraint(equalTo: detailContentView.heightAnchor, multiplier: 0.15).isActive = true
@@ -270,7 +275,7 @@ class PizzaCollectionViewCell: UICollectionViewCell {
         orderBtn.centerXAnchor.constraint(equalTo: orderBtnView.centerXAnchor).isActive = true
         orderBtn.centerYAnchor.constraint(equalTo: orderBtnView.centerYAnchor).isActive = true
         orderBtn.heightAnchor.constraint(equalTo: orderBtnView.heightAnchor, multiplier: 0.7).isActive = true
-        orderBtn.widthAnchor.constraint(equalTo: orderBtnView.widthAnchor, multiplier: 0.27).isActive = true
+        orderBtn.widthAnchor.constraint(equalTo: orderBtnView.widthAnchor, multiplier: 0.25).isActive = true
 
         priceView.translatesAutoresizingMaskIntoConstraints = false
         priceView.topAnchor.constraint(equalTo: orderContainView.topAnchor).isActive = true

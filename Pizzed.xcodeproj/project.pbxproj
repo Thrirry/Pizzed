@@ -143,8 +143,6 @@
 		F1CAC25E21228499002DC312 /* PizzaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1CAC25C21228499002DC312 /* PizzaTableViewCell.xib */; };
 		F1CAEC2C216B0E950094F5FF /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CAEC2B216B0E950094F5FF /* TestViewController.swift */; };
 		F1CFC3712182BD2C00618EF1 /* PizzaDetailList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFC3702182BD2C00618EF1 /* PizzaDetailList.swift */; };
-		F1CFC3732182EF7200618EF1 /* ProductDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFC3722182EF7200618EF1 /* ProductDataSource.swift */; };
-		F1D16CC52133E40300084393 /* pizzedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D16CC42133E40300084393 /* pizzedTests.swift */; };
 		F1D1ADEC21272EB7009620DD /* Lekton-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1D1ADEB21272A1A009620DD /* Lekton-Bold.ttf */; };
 		F1D1ADED21272EBA009620DD /* Lekton-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1D1ADEA21272A1A009620DD /* Lekton-Italic.ttf */; };
 		F1D1ADEE21272EBD009620DD /* Lekton-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1D1ADE921272A1A009620DD /* Lekton-Regular.ttf */; };
@@ -317,8 +315,6 @@
 		F1CAC25C21228499002DC312 /* PizzaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PizzaTableViewCell.xib; sourceTree = "<group>"; };
 		F1CAEC2B216B0E950094F5FF /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		F1CFC3702182BD2C00618EF1 /* PizzaDetailList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaDetailList.swift; sourceTree = "<group>"; };
-		F1CFC3722182EF7200618EF1 /* ProductDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDataSource.swift; sourceTree = "<group>"; };
-		F1D16CC42133E40300084393 /* pizzedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pizzedTests.swift; sourceTree = "<group>"; };
 		F1D1ADE921272A1A009620DD /* Lekton-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lekton-Regular.ttf"; sourceTree = "<group>"; };
 		F1D1ADEA21272A1A009620DD /* Lekton-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lekton-Italic.ttf"; sourceTree = "<group>"; };
 		F1D1ADEB21272A1A009620DD /* Lekton-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lekton-Bold.ttf"; sourceTree = "<group>"; };
@@ -422,7 +418,6 @@
 				F137F524214288BE00CCE23B /* ProductViewController.swift */,
 				F15765A5214FB6EE00967887 /* ProductViewModel.swift */,
 				F15765A7214FB70C00967887 /* ProductNavigator.swift */,
-				F1CFC3722182EF7200618EF1 /* ProductDataSource.swift */,
 			);
 			path = Product;
 			sourceTree = "<group>";
@@ -655,7 +650,6 @@
 		F1B2AA532133157500DE4979 /* Dummy */ = {
 			isa = PBXGroup;
 			children = (
-				F1D16CC42133E40300084393 /* pizzedTests.swift */,
 			);
 			path = Dummy;
 			sourceTree = "<group>";
@@ -1237,7 +1231,6 @@
 				F1C2D13121214610006452A3 /* Application.swift in Sources */,
 				F1C2D12F212145B1006452A3 /* ViewModelType.swift in Sources */,
 				F181C51F2169B33300470FAC /* FirstSuperStar.swift in Sources */,
-				F1CFC3732182EF7200618EF1 /* ProductDataSource.swift in Sources */,
 				F1CAC25D21228499002DC312 /* PizzaTableViewCell.swift in Sources */,
 				F137F525214288BE00CCE23B /* ProductViewController.swift in Sources */,
 				F14EA06A216B5FEF00115192 /* MapNavigator.swift in Sources */,
@@ -1254,7 +1247,6 @@
 				F129A19B21806388002C7241 /* TableViewExts.swift in Sources */,
 				F129A1972180633B002C7241 /* StoryboardExts.swift in Sources */,
 				F1CFC3712182BD2C00618EF1 /* PizzaDetailList.swift in Sources */,
-				F1D16CC52133E40300084393 /* pizzedTests.swift in Sources */,
 				F1B3BE75217B4E5A005F7924 /* TestCollectionViewController.swift in Sources */,
 				F137F5162142622300CCE23B /* MenuTableViewCell.swift in Sources */,
 				F1087F04216F4E57009873DF /* NutritionalTableViewCell.swift in Sources */,

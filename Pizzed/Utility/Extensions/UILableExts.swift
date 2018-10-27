@@ -22,6 +22,7 @@ extension UILabel {
     func formatTextMainLabelLargeTitle(named: UILabel, title: String) {
         named.sizeToFit()
         named.text = title
+        named.adjustsFontSizeToFitWidth = true
         named.numberOfLines = 0
         named.lineBreakMode = NSLineBreakMode.byWordWrapping
         let fontSizeRightBar = named.font.lineHeight
@@ -99,5 +100,22 @@ extension UITextView {
             return
         }
         named.font = UIFont(name: "Dosis-Medium", size: fontSize)
+    }
+    
+    func formatTVContent(named: UITextView, title: String) {
+        named.text = title
+        named.textColor = UIColor.FlatColor.mainTitle
+        named.textContainerInset = UIEdgeInsets.zero
+        named.textContainer.lineFragmentPadding = 0
+        named.isScrollEnabled = false
+        named.showsVerticalScrollIndicator = false
+        named.showsHorizontalScrollIndicator = false
+        named.textContainer.maximumNumberOfLines = 6
+        named.textContainer.lineBreakMode = .byTruncatingTail
+        
+        guard let fontSize = named.font?.pointSize else {
+            return
+        }
+        named.font = UIFont(name: "Roboto-Regular", size: fontSize)
     }
 }

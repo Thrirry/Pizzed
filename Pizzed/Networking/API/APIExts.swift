@@ -8,6 +8,8 @@
 
 import Foundation
 
+// swiftlint:disable force_unwrapping
+// swiftlint:disable syntactic_sugar
 extension URL {
     /**
      Creates a new URL by adding the given query parameters.

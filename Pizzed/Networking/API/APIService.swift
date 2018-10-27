@@ -34,7 +34,6 @@ class APIService {
                     .rx.responseJSON()
             }
             .map { (dataResponse) -> Any in
-//                print(dataResponse)
                 return try self.process(dataResponse)
         }
     }
@@ -72,8 +71,7 @@ class APIService {
                 default:
                     error = ResponseError.unknown(statusCode: statusCode)
                 }
-            }
-            else {
+            } else {
                 error = ResponseError.noStatusCode
             }
             print(value)

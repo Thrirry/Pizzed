@@ -9,7 +9,6 @@
 import UIKit
 import RxCocoa
 import RxSwift
-import ServicePlatform
 import Action
 
 class ProductViewModel {
@@ -30,8 +29,8 @@ class ProductViewModel {
         bindOutput()
     }
     
+    //swiftlint:disable force_unwrapping
     private func bindOutput() {
-        
         pizza
             .asObservable()
             .filter { $0.name != nil && !$0.name!.isEmpty && (($0.detail?.composition) != nil) }

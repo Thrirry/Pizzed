@@ -31,10 +31,8 @@ class Application {
             show(target: HomeViewController.createWith(navigator: self, storyboard: defaultStoryboard, viewModel: viewModel), sender: sender)
             
         case .pizzaDetailLists(let pizza):
-            
-            let viewModel = ProductViewModel(pizzaService: SwinjectStoryboard.defaultContainer.resolve(PizzaServiceProtocol.self)! , pizza: pizza)
-            
-            show(target: ProductViewController.createWith(navigator: self, storyboard: defaultStoryboard, viewModel: viewModel), sender: sender)
+            let viewModel = ProductViewModel(pizzaService: SwinjectStoryboard.defaultContainer.resolve(PizzaServiceProtocol.self)!, pizza: pizza)
+            present(target: ProductViewController.createWith(navigator: self, storyboard: defaultStoryboard, viewModel: viewModel), sender: sender)
         }
     }
     
@@ -47,6 +45,10 @@ class Application {
     }
     
     private func present(target: UIViewController, sender: UIViewController) {
-        sender.present(target, animated: true, completion: nil)
+        if let nav = sender as? UINavigationController {
+            nav.presentCollectionView(target)
+        } else if let nav = sender.navigationController {
+            nav.presentCollectionView(target)
+        }
     }
 }

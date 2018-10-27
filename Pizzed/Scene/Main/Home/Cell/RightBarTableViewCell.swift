@@ -30,11 +30,9 @@ class RightBarTableViewCell: UITableViewCell {
         self.titleLabel.formatTextLabelRightBar(named: titleLabel, title: "Label")
     }
     func displayContent(image: String, title: String) {
-//        iconImageView.pin_updateWithProgress = true
-        guard let url = URL(string: image) else {
-            return
-        }
-//        iconImageView.pin_setImage(from: url)
+//        guard let url = URL(string: image) else {
+//            return
+//        }
         titleLabel.text = title
     }
     

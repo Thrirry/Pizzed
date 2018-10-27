@@ -213,6 +213,7 @@ class PizzaTableViewCell: UITableViewCell {
         orderView.rightAnchor.constraint(equalTo: itemContentView.rightAnchor).isActive = true
         orderView.heightAnchor.constraint(equalTo: itemContentView.heightAnchor, multiplier: 0.15).isActive = true
         orderView.widthAnchor.constraint(equalTo: itemContentView.widthAnchor, multiplier: 1).isActive = true
+        
         orderView.addSubview(orderBtn)
         orderBtn.translatesAutoresizingMaskIntoConstraints = false
         orderBtn.backgroundColor = UIColor.clear
@@ -226,7 +227,6 @@ class PizzaTableViewCell: UITableViewCell {
         
         orderBtn.contentMode = .scaleAspectFit
         orderBtn.titleLabel?.isHidden = true
-        orderBtn.setTitleColor(UIColor.clear, for: UIControlState.normal)
     }
     
     func setupColor() {

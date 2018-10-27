@@ -71,14 +71,14 @@ class BaseViewController: UIViewController {
     }
     
     @objc func onCloseProductViewClick(_ sender: UIButton) {
-        popViewControler()
+        dismissCollectionView()
     }
     
     @objc func onOpenProductViewClick(_ sender: UIButton) {
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProductViewController") as? ProductViewController
         {
             let navControllers = UINavigationController(rootViewController: vc)
-            presentDetail(navControllers)
+            presentCollectionView(navControllers)
         }
     }
     

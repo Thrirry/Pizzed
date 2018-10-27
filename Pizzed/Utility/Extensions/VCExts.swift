@@ -99,18 +99,20 @@ extension UIViewController {
         view.removeFromSuperview()
     }
     
-    func presentDetail(_ viewControllerToPresent: UIViewController) {
+    func presentCollectionView(_ viewControllerToPresent: UIViewController) {
         let transition = CATransition()
-        transition.duration = 0.25
+        transition.duration = 0.2
         transition.type = kCATransitionPush
         transition.subtype = kCATransitionReveal
+        transition.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseInEaseOut)
+        view.window!.layer.add(transition, forKey: kCATransition)
         self.view.window?.layer.add(transition, forKey: kCATransition)
         present(viewControllerToPresent, animated: false)
     }
     
     func dismissCollectionView() {
         let transition = CATransition()
-        transition.duration = 0.25
+        transition.duration = 0.2
         transition.type = kCATransitionPush
         transition.subtype = kCATransitionReveal
         self.view.window?.layer.add(transition, forKey: kCATransition)

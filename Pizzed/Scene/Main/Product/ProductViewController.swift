@@ -19,8 +19,6 @@ class ProductViewController: BaseViewController, UICollectionViewDelegateFlowLay
     var viewModel: ProductViewModel!
     fileprivate var navigator: Application!
     
-    private var source: ProductDataSource?
-    
     static func viewController() -> ProductViewController? {
         return Helper.getViewController(named: "ProductViewController", inSb: "Main")
     }
@@ -64,7 +62,7 @@ class ProductViewController: BaseViewController, UICollectionViewDelegateFlowLay
     }
     
     private func bindUI() {
-        
+    
         viewModel.pizza
             .asObservable()
             .subscribe(onNext: { [weak self] (pizza) in
@@ -105,7 +103,9 @@ class ProductViewController: BaseViewController, UICollectionViewDelegateFlowLay
     
     private func config(_ cell: UICollectionViewCell, at indexPath: IndexPath) {
         if let cell = cell as? PizzaCollectionViewCell {
+            
             cell.pizza = viewModel.pizzaDetailList.value[indexPath.row]
+            
             cell.dismissBtn.addTarget(self, action: #selector(onCloseProductViewClick), for: .touchUpInside)
         }
     }
