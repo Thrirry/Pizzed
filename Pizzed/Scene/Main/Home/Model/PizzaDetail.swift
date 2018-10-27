@@ -1,33 +1,16 @@
 //
-//  Pizza.swift
+//  PizzaDetail.swift
 //  Pizzed
 //
-//  Created by Gone on 10/24/18.
+//  Created by Gone on 10/27/18.
 //  Copyright © 2018 Gone. All rights reserved.
 //
 
-import UIKit
 import ObjectMapper
 
-class Pizza: Mappable {
+class PizzaDetail: Mappable {
     var name: String?
     var detail: Details?
-    var state: String?
-    
-    required init?(map: Map) {
-        
-    }
-    
-    func mapping(map: Map) {
-        name <- map["name"]
-        detail <- map["detail"]
-        state <- map["state"]
-        
-    }
-}
-
-class Details: Mappable {
-
     var composition: String?
     // nutritional obj
     var calories: String?
@@ -42,11 +25,16 @@ class Details: Mappable {
     var firstImg: String?
     var secondImg: String?
     var thirdImg: String?
-
+    
     required init?(map: Map) {
+        
     }
-
+    
     func mapping(map: Map) {
+        
+        name <- map["name"]
+        detail <- map["detail"]
+        
         composition <- map["composition"]
         // nutritional obj
         calories <- map["nutritional.calories"]
@@ -62,21 +50,3 @@ class Details: Mappable {
         thirdImg <- map["image_url.third_img"]
     }
 }
-
-//class Nutritional: Mappable {
-//
-//    var calories: String?
-//    var carbohydrate: String?
-//    var proteins: String?
-//    var fats: String?
-//
-//    required init?(map: Map) {
-//    }
-//
-//    func mapping(map: Map) {
-//        calories <- map["calories"]
-//        carbohydrate <- map["carbohydrate"]
-//        proteins <- map["proteins"]
-//        fats <- map["fats"]
-//    }
-//}

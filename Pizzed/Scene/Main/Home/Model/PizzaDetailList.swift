@@ -9,23 +9,21 @@
 import ObjectMapper
 
 class PizzaDetailListInput: APIInputBase {
-    
     init(pizzaFullName: String) {
-        super.init(urlString: String(format: Config.pizzaAPI, pizzaFullName),
+        super.init(urlString: String(format: Config.pizzaDetailAPI, pizzaFullName),
                    parameters: nil,
                    requestType: .get)
     }
 }
 
 class PizzaDetailListOutput: APIOutputBase {
-    
-    var pizzaDetail = [Pizza]()
-    
-    init(pizzaDetail: [Pizza]) {
+    var pizzaDetail = [PizzaDetail]()
+
+    init(pizzaDetail: [PizzaDetail]) {
         self.pizzaDetail = pizzaDetail
         super.init()
     }
-    
+
     required init?(map: Map) {
         super.init(map: map)
     }

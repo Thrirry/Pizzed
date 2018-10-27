@@ -64,12 +64,15 @@ class PizzaCollectionViewCell: UICollectionViewCell {
         setupContentView()
     }
     
-    var pizza: Pizza! {
+    var pizza: PizzaDetail! {
         didSet{
             guard let pizza = pizza else {return}
             titleLabel.formatTextMainLabelLargeTitle(named: titleLabel, title: pizza.name ?? "")
             
-            print("\(String(describing: pizza.name))")
+            print("Test for pizzacolectionViewCell \(String(describing: pizza.name))")
+            
+            let url = URL(string: pizza.detail?.firstImg ?? "")
+            imageView.kf.setImage(with: url)
         }
     }
     
@@ -92,10 +95,10 @@ class PizzaCollectionViewCell: UICollectionViewCell {
         // Dissmiss button
         imageContainView.addSubview(dismissBtn)
         dismissBtn.translatesAutoresizingMaskIntoConstraints = false
-        dismissBtn.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        dismissBtn.widthAnchor.constraint(equalToConstant: 20).isActive = true
-        dismissBtn.topAnchor.constraint(equalTo: imageContainView.topAnchor, constant: 2).isActive = true
-        dismissBtn.leftAnchor.constraint(equalTo: imageContainView.leftAnchor, constant: 2).isActive = true
+        dismissBtn.heightAnchor.constraint(equalToConstant: 17).isActive = true
+        dismissBtn.widthAnchor.constraint(equalToConstant: 17).isActive = true
+        dismissBtn.topAnchor.constraint(equalTo: imageContainView.topAnchor, constant: 5).isActive = true
+        dismissBtn.leftAnchor.constraint(equalTo: imageContainView.leftAnchor, constant: 5).isActive = true
     }
     
     func setupContentView(){
@@ -287,6 +290,8 @@ class PizzaCollectionViewCell: UICollectionViewCell {
     
     func setupColor(){
         mainContrainView.backgroundColor = UIColor.FlatColor.mainBackground
+        imageContainView.backgroundColor = UIColor.FlatColor.Product.background
+        imageView.backgroundColor = UIColor.clear
         
         titleView.backgroundColor = UIColor.clear
         titleLabel.backgroundColor = UIColor.clear

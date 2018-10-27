@@ -47,6 +47,7 @@
 		F14EA068216B5FE100115192 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14EA067216B5FE100115192 /* MapViewController.swift */; };
 		F14EA06A216B5FEF00115192 /* MapNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14EA069216B5FEF00115192 /* MapNavigator.swift */; };
 		F14EA06C216B600000115192 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14EA06B216B600000115192 /* MapViewModel.swift */; };
+		F14FE4C82184235E00A9609F /* PizzaDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14FE4C72184235E00A9609F /* PizzaDetail.swift */; };
 		F1531168214A2C9C00CA4B71 /* UIStackViewExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1531167214A2C9C00CA4B71 /* UIStackViewExts.swift */; };
 		F15765A6214FB6EE00967887 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15765A5214FB6EE00967887 /* ProductViewModel.swift */; };
 		F15765A8214FB70C00967887 /* ProductNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15765A7214FB70C00967887 /* ProductNavigator.swift */; };
@@ -218,6 +219,7 @@
 		F14EA067216B5FE100115192 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F14EA069216B5FEF00115192 /* MapNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapNavigator.swift; sourceTree = "<group>"; };
 		F14EA06B216B600000115192 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		F14FE4C72184235E00A9609F /* PizzaDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaDetail.swift; sourceTree = "<group>"; };
 		F1531167214A2C9C00CA4B71 /* UIStackViewExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExts.swift; sourceTree = "<group>"; };
 		F15765A5214FB6EE00967887 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		F15765A7214FB70C00967887 /* ProductNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductNavigator.swift; sourceTree = "<group>"; };
@@ -430,10 +432,11 @@
 			children = (
 				F145D44921385A6800CE3E2E /* DataRightBar.swift */,
 				F145D44E21386B7700CE3E2E /* DataPizza.swift */,
-				F129A18E21805AD5002C7241 /* Pizza.swift */,
 				F129A19021805C74002C7241 /* PizzaService.swift */,
+				F129A18E21805AD5002C7241 /* Pizza.swift */,
 				F129A19221805CD8002C7241 /* PizzaList.swift */,
 				F1CFC3702182BD2C00618EF1 /* PizzaDetailList.swift */,
+				F14FE4C72184235E00A9609F /* PizzaDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1263,6 +1266,7 @@
 				F170ACB8216685CD00828BF4 /* CartNavigator.swift in Sources */,
 				F170ACB6216685B400828BF4 /* CartViewController.swift in Sources */,
 				F1C2D129212142B3006452A3 /* HomeViewModel.swift in Sources */,
+				F14FE4C82184235E00A9609F /* PizzaDetail.swift in Sources */,
 				F1CAEC2C216B0E950094F5FF /* TestViewController.swift in Sources */,
 				F1379E192121885000CFE247 /* IntroNavigator.swift in Sources */,
 				F1C2D13421214A5A006452A3 /* MenuViewController.swift in Sources */,

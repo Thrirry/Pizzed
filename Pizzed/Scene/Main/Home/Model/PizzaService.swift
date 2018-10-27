@@ -16,6 +16,7 @@ protocol PizzaServiceProtocol {
 }
 
 class PizzaService: APIService, PizzaServiceProtocol {
+    
     func pizzaList(input: PizzaListInput) -> Observable<PizzaListOutput> {
         return self.request(input)
             .observeOn(MainScheduler.instance)
@@ -25,8 +26,8 @@ class PizzaService: APIService, PizzaServiceProtocol {
     func pizzaDetailList(input: PizzaDetailListInput) -> Observable<PizzaDetailListOutput> {
         return self.requestArray(input)
             .observeOn(MainScheduler.instance)
-            .map { repositories -> PizzaDetailListOutput in
-                return PizzaDetailListOutput(pizzaDetail: repositories)
+            .map { pizzaDetail -> PizzaDetailListOutput in
+                return PizzaDetailListOutput(pizzaDetail: pizzaDetail)
             }
             .share(replay: 1)
     }

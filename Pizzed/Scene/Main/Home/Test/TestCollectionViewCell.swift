@@ -12,12 +12,12 @@ class TestCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     
-    var pizza: Pizza! {
+    var pizza: PizzaDetail! {
         didSet{
             guard let pizza = pizza else {return}
-            titleLabel.formatTextMainLabelLargeTitle(named: titleLabel, title: pizza.name ?? "")
+            titleLabel.formatTextMainLabelLargeTitle(named: titleLabel, title: pizza.composition ?? "")
             
-            print("\(String(describing: pizza.name))")
+            print("heyyyy \(String(describing: pizza.composition))")
         }
     }
     

@@ -18,8 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         Thread.sleep(forTimeInterval: 1.5)
         
-        self.window?.rootViewController = UINavigationController(rootViewController: LaunchViewController(nibName: nil, bundle: nil))
-        self.window?.makeKeyAndVisible()
+//        self.window?.rootViewController = UINavigationController(rootViewController: LaunchViewController(nibName: nil, bundle: nil))
+//        self.window?.makeKeyAndVisible()
+        redirect()
         
         return true
     }

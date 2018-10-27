@@ -19,23 +19,22 @@ class ProductViewModel {
     
     // MARK: - Input
     private(set) var pizza: Variable<Pizza>
-    
     // MARK: - Output
-    private(set) var pizzaDetailList: Variable<[Pizza]>
+    private(set) var pizzaDetailList: Variable<[PizzaDetail]>
     
     init(pizzaService: PizzaServiceProtocol, pizza: Variable<Pizza>) {
         self.pizzaService = pizzaService
         self.pizza = pizza
         
-        self.pizzaDetailList = Variable<[Pizza]>([])
-        
+        self.pizzaDetailList = Variable<[PizzaDetail]>([])
         bindOutput()
     }
     
     private func bindOutput() {
+        
         pizza
             .asObservable()
-            .filter { $0.name != nil && !$0.name!.isEmpty }
+            .filter { $0.name != nil && !$0.name!.isEmpty && (($0.detail?.composition) != nil) }
             .map { $0.name! }
             .flatMap({ pizzaFullName -> Observable<PizzaDetailListOutput> in
                 return self.pizzaService.pizzaDetailList(input: PizzaDetailListInput(pizzaFullName: pizzaFullName))
@@ -45,6 +44,6 @@ class ProductViewModel {
                 }, onError: { (error) in
                     print(error)
             })
-            .disposed(by: bag)
+        .disposed(by: bag)
     }
 }

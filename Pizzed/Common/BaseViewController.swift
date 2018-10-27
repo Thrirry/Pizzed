@@ -71,7 +71,7 @@ class BaseViewController: UIViewController {
     }
     
     @objc func onCloseProductViewClick(_ sender: UIButton) {
-        dismissDetail()
+        popViewControler()
     }
     
     @objc func onOpenProductViewClick(_ sender: UIButton) {

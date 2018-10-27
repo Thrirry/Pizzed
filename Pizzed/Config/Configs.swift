@@ -13,6 +13,7 @@ struct Config {
     #if DEBUG
     static let apiPizzaURL = "https://static.tumblr.com/vgmqumd/nwnpgzme6/product-api.json"
     static let pizzaAPI = "https://static.tumblr.com/vgmqumd/rFnph5zpx/pizzaapi.json"
+    static let pizzaDetailAPI = "https://static.tumblr.com/vgmqumd/dMEph8q09/detailpizzaapi.json"
     static let testAPI = "https://api.github.com/search/repositories?q=language:swift&per_page=10"
     #else
 //    static let apiRightbarURL = "https://static.tumblr.com/vgmqumd/gBqpg08uf/api-menu.json"
