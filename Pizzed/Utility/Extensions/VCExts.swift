@@ -8,6 +8,7 @@
 
 import UIKit
 
+// swiftlint:disable force_unwrapping
 extension UIViewController {
     
     func initialButton(title: String, color: UIColor, fontSize: CGFloat = 13, width: CGFloat = 40) -> UIButton {

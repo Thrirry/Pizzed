@@ -19,17 +19,17 @@ class LaunchViewController: BaseViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.FlatColor.mainBackground
         
-        titleLabel.text = "Pizzed Universer"
-
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 28)
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(titleLabel)
-        
-        NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            titleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-            ])
+//        titleLabel.text = "Pizzed Universer"
+//
+//        titleLabel.font = UIFont.boldSystemFont(ofSize: 28)
+//        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+//
+//        view.addSubview(titleLabel)
+//
+//        NSLayoutConstraint.activate([
+//            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            titleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+//            ])
         
         (UIApplication.shared.delegate as? AppDelegate)?.redirect()
     }

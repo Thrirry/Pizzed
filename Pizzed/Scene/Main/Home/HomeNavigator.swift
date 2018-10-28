@@ -11,6 +11,7 @@ import UIKit
 protocol HomeNavigator {
     func toRightBarDetails(title: String, indexPath: IndexPath)
     func toHome()
+    func toDetails(pizza: Pizza)
 }
 struct DefaultHomeNavigator: HomeNavigator {
     
@@ -22,7 +23,7 @@ struct DefaultHomeNavigator: HomeNavigator {
     
     func toHome() {
         guard let vc = HomeViewController.viewController() else { return }
-//        vc.mainViewModel = HomeViewModel(navigator: self)
+        vc.viewModel = HomeViewModel(navigator: self)
         navigation?.pushViewController(vc, animated: true)
     }
     
@@ -39,5 +40,9 @@ struct DefaultHomeNavigator: HomeNavigator {
         guard let navig = navigation else { return }
         let navigator = DefaultMenuNavigator(navigation: navig)
         navigator.toMenu()
+    }
+    
+    func toDetails(pizza: Pizza) {
+        
     }
 }

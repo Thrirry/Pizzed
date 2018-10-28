@@ -18,9 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         Thread.sleep(forTimeInterval: 1.5)
         
+         self.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LaunchViewController")
+        
+        self.window?.makeKeyAndVisible()
+        
 //        self.window?.rootViewController = UINavigationController(rootViewController: LaunchViewController(nibName: nil, bundle: nil))
 //        self.window?.makeKeyAndVisible()
-        redirect()
+//        redirect()
         
         return true
     }
@@ -47,8 +51,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func redirect() {
         
-        if let nav = window?.rootViewController as? UINavigationController {
-            navigator.show(segue: .pizzaList, sender: nav)
-        }
+//        if let nav = window?.rootViewController as? UINavigationController {
+//            navigator.show(segue: .pizzaList, sender: nav)
+//        }
+        guard let window = window else {return}
+        navigator.configMainInterface(window: window)
+        
     }
 }

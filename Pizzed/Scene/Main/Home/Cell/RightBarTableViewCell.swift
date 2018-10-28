@@ -27,18 +27,11 @@ class RightBarTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         setupUIs()
         setupColor()
-        self.titleLabel.formatTextLabelRightBar(named: titleLabel, title: "Label")
-    }
-    func displayContent(image: String, title: String) {
-//        guard let url = URL(string: image) else {
-//            return
-//        }
-        titleLabel.text = title
     }
     
     func bind(_ viewModel: HomeViewModel.RightBarData) {
         self.iconImageView.image = viewModel.0
-        self.titleLabel.formatTextLabelRightBar(named: titleLabel, title: "Label")
+        self.titleLabel.formatTextLabelRightBar(named: titleLabel, title: viewModel.1)
     }
     
     func setupUIs() {

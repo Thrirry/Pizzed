@@ -19,7 +19,6 @@
 		F129A18F21805AD5002C7241 /* Pizza.swift in Sources */ = {isa = PBXBuildFile; fileRef = F129A18E21805AD5002C7241 /* Pizza.swift */; };
 		F129A19121805C74002C7241 /* PizzaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F129A19021805C74002C7241 /* PizzaService.swift */; };
 		F129A19321805CD8002C7241 /* PizzaList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F129A19221805CD8002C7241 /* PizzaList.swift */; };
-		F129A19521805E5A002C7241 /* BaseHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F129A19421805E5A002C7241 /* BaseHomeViewModel.swift */; };
 		F129A1972180633B002C7241 /* StoryboardExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F129A1962180633B002C7241 /* StoryboardExts.swift */; };
 		F129A1992180635E002C7241 /* SwinjectStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F129A1982180635E002C7241 /* SwinjectStoryboard.swift */; };
 		F129A19B21806388002C7241 /* TableViewExts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F129A19A21806388002C7241 /* TableViewExts.swift */; };
@@ -189,7 +188,6 @@
 		F129A18E21805AD5002C7241 /* Pizza.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pizza.swift; sourceTree = "<group>"; };
 		F129A19021805C74002C7241 /* PizzaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaService.swift; sourceTree = "<group>"; };
 		F129A19221805CD8002C7241 /* PizzaList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaList.swift; sourceTree = "<group>"; };
-		F129A19421805E5A002C7241 /* BaseHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHomeViewModel.swift; sourceTree = "<group>"; };
 		F129A1962180633B002C7241 /* StoryboardExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardExts.swift; sourceTree = "<group>"; };
 		F129A1982180635E002C7241 /* SwinjectStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwinjectStoryboard.swift; sourceTree = "<group>"; };
 		F129A19A21806388002C7241 /* TableViewExts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExts.swift; sourceTree = "<group>"; };
@@ -887,7 +885,6 @@
 				F1C2D12421214276006452A3 /* HomeViewController.swift */,
 				F1C2D1262121429F006452A3 /* HomeNavigator.swift */,
 				F1C2D128212142B3006452A3 /* HomeViewModel.swift */,
-				F129A19421805E5A002C7241 /* BaseHomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1269,7 +1266,6 @@
 				F129A19121805C74002C7241 /* PizzaService.swift in Sources */,
 				F181C525216A069D00470FAC /* UIColorExts.swift in Sources */,
 				F1C2D116212135C6006452A3 /* UIHelper.swift in Sources */,
-				F129A19521805E5A002C7241 /* BaseHomeViewModel.swift in Sources */,
 				F1C2D12B21214321006452A3 /* BaseViewController.swift in Sources */,
 				F1C2D13621214A83006452A3 /* MenuNavigator.swift in Sources */,
 				F1C2D1272121429F006452A3 /* HomeNavigator.swift in Sources */,

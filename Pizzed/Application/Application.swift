@@ -23,12 +23,19 @@ class Application {
     static let shared = Application()
     
     // MARK: - invoke a single segue
-    // swiftlint:disable force_unwrapping
+    func configMainInterface(window: UIWindow) {
+        
+        let navigationController = UINavigationController()
+        let navigator = DefaultHomeNavigator(navigation: navigationController)
+        window.rootViewController = navigationController
+        navigator.toHome()
+    }
+    
     func show(segue: Segue, sender: UIViewController) {
         switch segue {
-        case .pizzaList:
-            let viewModel = BaseHomeViewModel(pizzaService: SwinjectStoryboard.defaultContainer.resolve(PizzaServiceProtocol.self)!)
-            show(target: HomeViewController.createWith(navigator: self, storyboard: defaultStoryboard, viewModel: viewModel), sender: sender)
+        case .pizzaList: break
+//            let viewModel =
+//            show(target: HomeViewController.createWith(navigator: self, storyboard: defaultStoryboard, viewModel: viewModel), sender: sender)
             
         case .pizzaDetailLists(let pizza):
             let viewModel = ProductViewModel(pizzaService: SwinjectStoryboard.defaultContainer.resolve(PizzaServiceProtocol.self)!, pizza: pizza)
